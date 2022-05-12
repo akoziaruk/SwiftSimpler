@@ -24,13 +24,13 @@ struct ControlButtonsView: View {
             Spacer()
             
             Button("TRACK") {
-                trackLockState.toggle()
+                trackLockState.toggleTap()
             }
             .frame(width: 100, height: 100, alignment: .center)
             .background(trackLockState == .none ? .yellow: .yellow.opacity(0.5))
             .foregroundColor(.white)
-            .padding()
             .background(trackLockState == .locking ? .red: .clear)
+            .padding()
         }
     }
 }

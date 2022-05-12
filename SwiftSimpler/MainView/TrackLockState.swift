@@ -2,7 +2,7 @@
 //  TrackLockState.swift
 //  SwiftSimpler
 //
-//  Created by Alexander Koziaruk on 11.05.2022.
+//  Created by Alexander Koziaruk on 12.05.2022.
 //
 
 import Foundation
@@ -10,13 +10,9 @@ import Foundation
 enum TrackLockState: Equatable {
     case none
     case locking
-    case locked(track: Int)
+    case locked
     
-    func notLocked() -> Bool {
-        self == .none || self == .locking
-    }
-    
-    mutating func toggle() {
+    mutating func toggleTap() {
         if self == .none {
             self = .locking
         } else {

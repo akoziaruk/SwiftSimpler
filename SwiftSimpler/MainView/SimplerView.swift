@@ -9,17 +9,30 @@ import SwiftUI
 
 struct SimplerView: View {
     @StateObject var conductor = SequencerConductor()
+    @State var trackLockState = TrackLockState.none
     
     var body: some View {
         VStack {
             TitleView()
-            ControlButtonsView(isPlaying: $conductor.isPlaying, trackLockState: $conductor.trackLockState)
-            if conductor.trackLockState.notLocked() {
-                PadsView(padsCount: conductor.sampleCount) { conductor.samplerPadPressed(index: $0) }
-            } else {
-                SequencerView(items: $conductor.lockedSampleSequence) { conductor.sequencerPadPressed(at: $0) }
+            ControlButtonsView(isPlaying: $conductor.isPlaying, trackLockState: $trackLockState)
+            
+            switch trackLockState {
+            case .locked:
+                SequencerView(items: $conductor.lockedSampleSequence) {
+                    conductor.updateActiveTrackSequence(at: $0)
+                }
+            case .locking:
+                PadsView(padsCount: conductor.sampler.sampleCount) {
+                    trackLockState = .locked
+                    conductor.activeTrackIndex = $0
+                }
+            case .none:
+                PadsView(padsCount: conductor.sampler.sampleCount) {
+                    conductor.sampler.playPad(at: $0)
+                }
             }
-            PlaybackView(position: conductor.playbackPosition, segments: conductor.sequenceLength)
+            
+            PlaybackView(position: $conductor.playbackPosition, segments: conductor.sequencer.gridLength)
         }
         .onAppear {
             self.conductor.start()
@@ -30,43 +43,10 @@ struct SimplerView: View {
     }
 }
 
-struct PlaybackView: View {
-    var position: Int
-    var segments: Int
-    
-    var body: some View {
-        GeometryReader { geometry in
-            ZStack(alignment: .leading) {
-                Rectangle()
-                    .frame(height: 10)
-                    .foregroundColor(.gray.opacity(0.3))
-                
-                PlaybackCursor(width: geometry.size.width/CGFloat(segments),
-                               position: position)
-            }
-            .padding()
-        }
-
-    }
-}
-
-struct PlaybackCursor: View {
-    var width: CGFloat
-    var position: Int
-    
-    var body: some View {
-        Rectangle()
-            .frame(width: width, height: 10)
-            .foregroundColor(.brown)
-            .offset(x: width*CGFloat(position), y: 0)
-    }
-}
-
-
-
 struct SimplerView_Previews: PreviewProvider {
     static var previews: some View {
         SimplerView()
             .previewInterfaceOrientation(.landscapeLeft)
     }
 }
+
