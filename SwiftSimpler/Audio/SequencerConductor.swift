@@ -10,7 +10,7 @@ import AudioKit
 import AVKit
 
 class SequencerConductor: ObservableObject {
-    public var sampler: SimplerSampler!
+    public var samples: [Sample]
     public var sequencer: SimplerSequencer!
     public let engine: AudioEngine!
             
@@ -46,27 +46,32 @@ class SequencerConductor: ObservableObject {
     public func updateActiveTrackSequence(at position: Int) {
         lockedSampleSequence[position].toggle()
 
-        sequencer.updateSequencer(note: sampler.note(for: activeTrackIndex),
-                                  trackIndex: activeTrackIndex,
+        sequencer.updateSequencer(trackIndex: activeTrackIndex,
                                   position: position,
                                   activate: lockedSampleSequence[position])
     }
     
     //MARK: - Initialisation
     
+    var sampleCount: Int {
+        return samples.count
+    }
+    
     init() {
-        sampler = SimplerSampler()
-        sequencer = SimplerSequencer(sampler.midiIn)
         engine = AudioEngine()
-        engine.output = sampler
-        
-        
-        // create mixer
-        let mixer1 = Mixer([], name: "Mixer 1")
-        
-        let mixer2 = Mixer([], name: "Mixer 2")
 
-        let mixerMaster = Mixer([mixer1, mixer2], name: "Mixer Master")
+        let files = AudioFileManager.all()
+        samples = files.map { Sample(audioFile: $0) }
+        
+        let midiInputs = samples.map { $0.midiIn }
+        sequencer = SimplerSequencer(midiInputs)
+        
+        let audioOutputs = samples.map { $0.output }
+        engine.output = Mixer(audioOutputs, name: "Mixer Master")
+    }
+    
+    public func playPad(at index: Int) {
+        samples[index].play()
     }
     
     //MARK: - Start/Stop

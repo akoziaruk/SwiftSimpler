@@ -14,6 +14,7 @@
 		8A4D9911282CD031007804D7 /* SimplerSampler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4D9910282CD031007804D7 /* SimplerSampler.swift */; };
 		8A4D9913282D0380007804D7 /* PlaybackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4D9912282D0380007804D7 /* PlaybackView.swift */; };
 		8A4D9916282D06F1007804D7 /* TrackLockState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4D9915282D06F1007804D7 /* TrackLockState.swift */; };
+		8A4D9918282D2BC2007804D7 /* AudioFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4D9917282D2BC2007804D7 /* AudioFileManager.swift */; };
 		8AE861D7282909EA002A1949 /* SimplerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE861D6282909EA002A1949 /* SimplerView.swift */; };
 		8AE861DA28290BF2002A1949 /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE861D928290BF2002A1949 /* TitleView.swift */; };
 		8AE861DC28290E8C002A1949 /* ControlButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE861DB28290E8C002A1949 /* ControlButtonsView.swift */; };
@@ -55,6 +56,7 @@
 		8A4D9910282CD031007804D7 /* SimplerSampler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimplerSampler.swift; sourceTree = "<group>"; };
 		8A4D9912282D0380007804D7 /* PlaybackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackView.swift; sourceTree = "<group>"; };
 		8A4D9915282D06F1007804D7 /* TrackLockState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackLockState.swift; sourceTree = "<group>"; };
+		8A4D9917282D2BC2007804D7 /* AudioFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioFileManager.swift; sourceTree = "<group>"; };
 		8AE861D6282909EA002A1949 /* SimplerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimplerView.swift; sourceTree = "<group>"; };
 		8AE861D928290BF2002A1949 /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
 		8AE861DB28290E8C002A1949 /* ControlButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlButtonsView.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 				8AF5AB82282544E000546E43 /* SequencerConductor.swift */,
 				8A4D990E282CD01A007804D7 /* SimplerSequencer.swift */,
 				8A4D9910282CD031007804D7 /* SimplerSampler.swift */,
+				8A4D9917282D2BC2007804D7 /* AudioFileManager.swift */,
 			);
 			path = Audio;
 			sourceTree = "<group>";
@@ -342,6 +345,7 @@
 				8A4D990F282CD01A007804D7 /* SimplerSequencer.swift in Sources */,
 				8AF5AB3F2824187700546E43 /* SwiftSimplerApp.swift in Sources */,
 				8A4D9913282D0380007804D7 /* PlaybackView.swift in Sources */,
+				8A4D9918282D2BC2007804D7 /* AudioFileManager.swift in Sources */,
 				8A4D9916282D06F1007804D7 /* TrackLockState.swift in Sources */,
 				8A4D990A282BB95B007804D7 /* SequencerView.swift in Sources */,
 				8AF5AB83282544E000546E43 /* SequencerConductor.swift in Sources */,

@@ -22,13 +22,13 @@ struct SimplerView: View {
                     conductor.updateActiveTrackSequence(at: $0)
                 }
             case .locking:
-                PadsView(padsCount: conductor.sampler.sampleCount) {
+                PadsView(padsCount: conductor.sampleCount) {
                     trackLockState = .locked
                     conductor.activeTrackIndex = $0
                 }
             case .none:
-                PadsView(padsCount: conductor.sampler.sampleCount) {
-                    conductor.sampler.playPad(at: $0)
+                PadsView(padsCount: conductor.sampleCount) {
+                    conductor.playPad(at: $0)
                 }
             }
             
