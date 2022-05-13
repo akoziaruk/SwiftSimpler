@@ -9,8 +9,7 @@ import SwiftUI
 
 struct SequencerView: View {
     @Binding var items: [Bool]
-    var didPressed: (Int)->()
- 
+    
     var body: some View {
         VStack {
             Spacer()
@@ -20,7 +19,7 @@ struct SequencerView: View {
                         .frame(height: 100)
                         .foregroundColor(items[index] ? .green : .green.opacity(0.6))
                         .onTapGesture {
-                            didPressed(index)
+                            items[index].toggle()
                         }
                 }
             }

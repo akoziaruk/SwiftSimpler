@@ -40,23 +40,40 @@ class SimplerSequencer: AppleSequencer {
         enableLooping()
     }
     
-    public func updateSequencer(trackIndex: Int, position: Int, activate: Bool) {
-        let track = tracks[trackIndex]
-
-        let position = Duration(beats: Double(position) / 4.0)
-        let note = MIDINoteNumber(60)
-        if activate {
-            track.add(noteNumber: note,
-                      velocity: 127,
-                      position: position,
-                      duration: Duration(beats: 1))
-            
-            track.setLength(Duration(beats: 4))
-        } else {
-            track.clearRange(start: position,
-                             duration: Duration(beats: 0.25))
+    public func update(with sequence: [Bool], track: Int) {
+        let track = tracks[track]
+        
+        track.clear()
+        
+        for (i, value) in sequence.enumerated() {
+            if value {
+                let position = Duration(beats: Double(i) / 4.0)
+                track.add(noteNumber: MIDINoteNumber(60),
+                          velocity: 127,
+                          position: position,
+                          duration: Duration(beats: 4))
+                
+            }
         }
+        
+        track.setLength(Duration(beats: 4))
     }
+//
+//    func updateSequence(with value: Bool, track: Int, position: Int) {
+//        let track = tracks[track]
+//        let position = Duration(beats: Double(position) / 4.0)
+//
+//        if value {
+//           track.add(noteNumber: MIDINoteNumber(60),
+//                     velocity: 127,
+//                     position: position,
+//                     duration: Duration(beats: 4))
+//
+//            track.setLength(Duration(beats: 4))
+//        } else {
+//            track.clearRange(start: position, duration: Duration(beats: 0.25))
+//        }
+//    }
         
     public func getSequence(for sampleIndex: Int) -> [Bool] {
         let track = tracks[sampleIndex]
@@ -64,7 +81,7 @@ class SimplerSequencer: AppleSequencer {
         
         let midiData = track.getMIDINoteData()
         for midi in midiData {
-            let position = Int(midi.position.beats * grid)
+            let position = Int(midi.position.beats*grid)
             result[position] = true
         }
         

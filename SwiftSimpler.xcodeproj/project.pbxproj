@@ -29,7 +29,7 @@
 		8AF5AB502824187800546E43 /* SwiftSimplerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF5AB4F2824187800546E43 /* SwiftSimplerTests.swift */; };
 		8AF5AB5A2824187800546E43 /* SwiftSimplerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF5AB592824187800546E43 /* SwiftSimplerUITests.swift */; };
 		8AF5AB5C2824187800546E43 /* SwiftSimplerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF5AB5B2824187800546E43 /* SwiftSimplerUITestsLaunchTests.swift */; };
-		8AF5AB83282544E000546E43 /* SequencerConductor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF5AB82282544E000546E43 /* SequencerConductor.swift */; };
+		8AF5AB83282544E000546E43 /* Conductor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF5AB82282544E000546E43 /* Conductor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,7 +74,7 @@
 		8AF5AB552824187800546E43 /* SwiftSimplerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftSimplerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AF5AB592824187800546E43 /* SwiftSimplerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftSimplerUITests.swift; sourceTree = "<group>"; };
 		8AF5AB5B2824187800546E43 /* SwiftSimplerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftSimplerUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		8AF5AB82282544E000546E43 /* SequencerConductor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SequencerConductor.swift; sourceTree = "<group>"; };
+		8AF5AB82282544E000546E43 /* Conductor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conductor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,7 +107,7 @@
 		8A4D9914282D040A007804D7 /* Audio */ = {
 			isa = PBXGroup;
 			children = (
-				8AF5AB82282544E000546E43 /* SequencerConductor.swift */,
+				8AF5AB82282544E000546E43 /* Conductor.swift */,
 				8A4D990E282CD01A007804D7 /* SimplerSequencer.swift */,
 				8A4D9910282CD031007804D7 /* SimplerSampler.swift */,
 				8A4D9917282D2BC2007804D7 /* AudioFileManager.swift */,
@@ -348,7 +348,7 @@
 				8A4D9918282D2BC2007804D7 /* AudioFileManager.swift in Sources */,
 				8A4D9916282D06F1007804D7 /* TrackLockState.swift in Sources */,
 				8A4D990A282BB95B007804D7 /* SequencerView.swift in Sources */,
-				8AF5AB83282544E000546E43 /* SequencerConductor.swift in Sources */,
+				8AF5AB83282544E000546E43 /* Conductor.swift in Sources */,
 				8A2710D028292552001C9808 /* PadsView.swift in Sources */,
 				8AE861D7282909EA002A1949 /* SimplerView.swift in Sources */,
 				8AE861DC28290E8C002A1949 /* ControlButtonsView.swift in Sources */,
