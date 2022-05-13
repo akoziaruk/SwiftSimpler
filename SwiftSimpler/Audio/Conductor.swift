@@ -11,7 +11,6 @@ import AVKit
 
 struct SimplerData {
     var effects = EffectsConfig()
-    
     var sampleSequence = [Bool]()
     var isPlaying = false
     var tempo: Double = 120
@@ -62,14 +61,6 @@ class Conductor: ObservableObject {
     public func playPad(at index: Int) {
         samples[index].play()
     }
-    
-//    public func updateSequencer(at index: Int) {
-//        data.sampleSequence[index].toggle()
-//        
-//        sequencer.updateSequence(with: data.sampleSequence[index],
-//                                 track: activeTrackIndex,
-//                                 position: index)
-//    }
     
     //MARK: - Initialisation
     

@@ -17,6 +17,24 @@
         "revision" : "b66fb1e2922611ac0c5a7ac5bbe2731f9b5ce38b",
         "version" : "5.4.0"
       }
+    },
+    {
+      "identity" : "kissfft",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/AudioKit/KissFFT",
+      "state" : {
+        "revision" : "dd0636e151724b8ba2e0908eba4d99a6ff24d00c",
+        "version" : "1.0.0"
+      }
+    },
+    {
+      "identity" : "soundpipeaudiokit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/AudioKit/SoundpipeAudioKit.git",
+      "state" : {
+        "revision" : "3be2802b20088de37f34f993966d918b65401a60",
+        "version" : "5.4.1"
+      }
     }
   ],
   "version" : 2

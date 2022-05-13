@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct PadsView: View {
+struct SamplePadsView: View {
     let padsCount: Int
     let didPressed: (Int) -> ()
         

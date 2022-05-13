@@ -30,7 +30,7 @@ class SimplerSequencer: AppleSequencer {
 
         clearRange(start: Duration(beats: 0), duration: Duration(beats: 100))
         
-        // for each sequencer track set midi output to different sampler
+        // For each sequencer track set midi output to different sampler
         for (i, endpoint) in midiEndpoints.enumerated() {
             tracks[i].setMIDIOutput(endpoint)
         }
@@ -40,6 +40,7 @@ class SimplerSequencer: AppleSequencer {
         enableLooping()
     }
     
+    // TODO: This function can be opimized if only add/remove difference
     public func update(with sequence: [Bool], track: Int) {
         let track = tracks[track]
         

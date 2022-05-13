@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SequencerView: View {
+struct SequencerPadsView: View {
     @Binding var items: [Bool]
     
     var body: some View {
