@@ -18,9 +18,10 @@
 		8A76E79C282E472A0048CD1D /* EffectPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A76E79B282E472A0048CD1D /* EffectPickerView.swift */; };
 		8A76E79F282E47760048CD1D /* EffectConfigurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A76E79E282E47760048CD1D /* EffectConfigurationView.swift */; };
 		8A76E7A1282E47E20048CD1D /* PadsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A76E7A0282E47E20048CD1D /* PadsView.swift */; };
-		8A76E7A4282E485C0048CD1D /* ActiveEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A76E7A3282E485C0048CD1D /* ActiveEffect.swift */; };
+		8A76E7A4282E485C0048CD1D /* Effect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A76E7A3282E485C0048CD1D /* Effect.swift */; };
 		8A76E7A7282E5A350048CD1D /* SoundpipeAudioKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8A76E7A6282E5A350048CD1D /* SoundpipeAudioKit */; };
 		8A76E7A9282E61C50048CD1D /* EffectsConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A76E7A8282E61C50048CD1D /* EffectsConfig.swift */; };
+		8A83F57F2833E2F9002ED26F /* EffectsDropDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A83F57E2833E2F9002ED26F /* EffectsDropDelegate.swift */; };
 		8AE861D7282909EA002A1949 /* SimplerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE861D6282909EA002A1949 /* SimplerView.swift */; };
 		8AE861DA28290BF2002A1949 /* EffectTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE861D928290BF2002A1949 /* EffectTitleView.swift */; };
 		8AE861DC28290E8C002A1949 /* ControlButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE861DB28290E8C002A1949 /* ControlButtonsView.swift */; };
@@ -66,8 +67,9 @@
 		8A76E79B282E472A0048CD1D /* EffectPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EffectPickerView.swift; sourceTree = "<group>"; };
 		8A76E79E282E47760048CD1D /* EffectConfigurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EffectConfigurationView.swift; sourceTree = "<group>"; };
 		8A76E7A0282E47E20048CD1D /* PadsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PadsView.swift; sourceTree = "<group>"; };
-		8A76E7A3282E485C0048CD1D /* ActiveEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveEffect.swift; sourceTree = "<group>"; };
+		8A76E7A3282E485C0048CD1D /* Effect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Effect.swift; sourceTree = "<group>"; };
 		8A76E7A8282E61C50048CD1D /* EffectsConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EffectsConfig.swift; sourceTree = "<group>"; };
+		8A83F57E2833E2F9002ED26F /* EffectsDropDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EffectsDropDelegate.swift; sourceTree = "<group>"; };
 		8AE861D6282909EA002A1949 /* SimplerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimplerView.swift; sourceTree = "<group>"; };
 		8AE861D928290BF2002A1949 /* EffectTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EffectTitleView.swift; sourceTree = "<group>"; };
 		8AE861DB28290E8C002A1949 /* ControlButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlButtonsView.swift; sourceTree = "<group>"; };
@@ -131,8 +133,9 @@
 		8A76E79D282E47600048CD1D /* Effects views */ = {
 			isa = PBXGroup;
 			children = (
-				8A76E7A3282E485C0048CD1D /* ActiveEffect.swift */,
+				8A76E7A3282E485C0048CD1D /* Effect.swift */,
 				8A76E79B282E472A0048CD1D /* EffectPickerView.swift */,
+				8A83F57E2833E2F9002ED26F /* EffectsDropDelegate.swift */,
 				8A76E79E282E47760048CD1D /* EffectConfigurationView.swift */,
 				8AE861D928290BF2002A1949 /* EffectTitleView.swift */,
 			);
@@ -376,8 +379,9 @@
 			files = (
 				8AF5AB412824187700546E43 /* ContentView.swift in Sources */,
 				8A4D9911282CD031007804D7 /* Sample.swift in Sources */,
-				8A76E7A4282E485C0048CD1D /* ActiveEffect.swift in Sources */,
+				8A76E7A4282E485C0048CD1D /* Effect.swift in Sources */,
 				8AE861DF28291855002A1949 /* AVAudioFile+Extention.swift in Sources */,
+				8A83F57F2833E2F9002ED26F /* EffectsDropDelegate.swift in Sources */,
 				8A4D990F282CD01A007804D7 /* SimplerSequencer.swift in Sources */,
 				8AF5AB3F2824187700546E43 /* SwiftSimplerApp.swift in Sources */,
 				8A4D9913282D0380007804D7 /* PlaybackView.swift in Sources */,

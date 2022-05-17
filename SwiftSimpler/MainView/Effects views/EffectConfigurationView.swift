@@ -9,7 +9,7 @@ import SwiftUI
 import AudioKit
 
 struct EffectConfigurationView: View {
-    @Binding var activeEffect: ActiveEffect
+    @Binding var activeEffect: Effect
     @Binding var data: SimplerData
     var body: some View {
         VStack {

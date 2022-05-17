@@ -10,12 +10,12 @@ import SwiftUI
 struct SimplerView: View {
     @StateObject var conductor = Conductor()
     @State var trackLockState = TrackLockState.none
-    @State var activeEffect = ActiveEffect.distortion
+    @State var activeEffect = Effect.distortion
     
     var body: some View {
         VStack {
             EffectConfigurationView(activeEffect: $activeEffect, data: $conductor.data)
-            EffectPickerView(activeEffect: $activeEffect)
+            EffectPickerView(selectedEffect: $activeEffect)
             ControlButtonsView(isPlaying: $conductor.data.isPlaying, trackLockState: $trackLockState)
             PadsView(trackLockState: $trackLockState, conductor: conductor)
             PlaybackView(position: $conductor.playbackPosition, segments: conductor.sequencer.gridLength)
