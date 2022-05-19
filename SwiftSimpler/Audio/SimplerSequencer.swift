@@ -20,7 +20,16 @@ class SimplerSequencer: AppleSequencer {
         Int(length.beats * grid)
     }
     
-    init(_ midiEndpoints: [MIDIEndpointRef]) {
+    var midiEndpoints: [MIDIEndpointRef]! {
+        didSet {
+            // For each sequencer track set midi output to different sampler
+            for (i, endpoint) in midiEndpoints.enumerated() {
+                tracks[i].setMIDIOutput(endpoint)
+            }
+        }
+    }
+    
+    override init() {
         super.init()
         
         let fileURL = Bundle.main.url(forResource: "MIDI Files/16tracks", withExtension: "mid")!
@@ -29,11 +38,6 @@ class SimplerSequencer: AppleSequencer {
         debug()
 
         clearRange(start: Duration(beats: 0), duration: Duration(beats: 100))
-        
-        // For each sequencer track set midi output to different sampler
-        for (i, endpoint) in midiEndpoints.enumerated() {
-            tracks[i].setMIDIOutput(endpoint)
-        }
         
         setTempo(120)
         setLength(Duration(beats: 4))

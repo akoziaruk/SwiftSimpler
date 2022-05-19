@@ -14,8 +14,8 @@ struct SimplerView: View {
     
     var body: some View {
         VStack {
-            EffectConfigurationView(activeEffect: $activeEffect, data: $conductor.data)
-            EffectPickerView(selectedEffect: $activeEffect)
+            EffectConfigurationView(activeEffect: $activeEffect, effects: $conductor.data.effects)
+            EffectPickerView(selected: $activeEffect, effects: $conductor.data.effectsOrder)
             ControlButtonsView(isPlaying: $conductor.data.isPlaying, trackLockState: $trackLockState)
             PadsView(trackLockState: $trackLockState, conductor: conductor)
             PlaybackView(position: $conductor.playbackPosition, segments: conductor.sequencer.gridLength)

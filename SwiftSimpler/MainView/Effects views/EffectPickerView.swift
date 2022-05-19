@@ -10,7 +10,7 @@ import UniformTypeIdentifiers
 
 struct EffectPickerView: View {
     @Binding var selected: Effect
-    @State var effects: [Effect] = [.distortion, .delay, .reverb]
+    @Binding var effects: [Effect]
     @State var dragged: Effect?
 
     var body: some View {
@@ -33,5 +33,4 @@ struct EffectPickerView: View {
         }
         .padding()
     }
-
 }

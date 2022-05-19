@@ -11,20 +11,25 @@ import AVKit
 
 struct SimplerData {
     var effects = EffectsConfig()
+    var effectsOrder: [Effect] = [.distortion, .delay, .reverb]
     var sampleSequence = [Bool]()
     var isPlaying = false
     var tempo: Double = 120
 }
 
 class Conductor: ObservableObject {
-    public var samples = [Sample]()
+    public var samples = [SampleChain]()
     public var sequencer: SimplerSequencer!
     public let engine: AudioEngine!
     private var sampleSequence = [Bool]()
 
+    private var activeSample: SampleChain {
+        return samples[activeTrackIndex]
+    }
+    
     @Published var playbackPosition: Int = 0
     
-    @Published var data = SimplerData() {
+    @Published var data: SimplerData! {
         didSet {
             if data.isPlaying {
                 sequencer.play()
@@ -43,17 +48,39 @@ class Conductor: ObservableObject {
                 sampleSequence = data.sampleSequence
             }
             
-            let sample = samples[activeTrackIndex]
-            sample.effects = data.effects
+            if activeSample.effectsOrder != data.effectsOrder {
+                activeSample.effectsOrder = data.effectsOrder
+                recreateProcessingChain()
+            }
+            
+            if activeSample.effects != data.effects {
+                activeSample.effects = data.effects
+            }
         }
     }
     
+    //MARK: - Processing Chain Update
+    
+    // To update effects order ALL audio processing chain should be recreated
+    private func recreateProcessingChain() {
+        data.isPlaying = false
+        stop()
+        
+        samples.forEach { $0.recreateProcessingChain() }
+        sequencer.midiEndpoints = samples.map { $0.midiIn }
+        
+        let outputs = samples.compactMap { $0.output }
+        engine.output = Mixer(outputs, name: "Mixer Master")
+        
+        start()
+    }
+
     //MARK: - Handling Actions
     
     var activeTrackIndex: Int! {
         didSet {
-            let sample = samples[activeTrackIndex]
-            data.effects = sample.effects
+//            data.effectsOrder = activeSample.effectsOrder
+            data.effects = activeSample.effects
             data.sampleSequence = sequencer.getSequence(for: activeTrackIndex)
         }
     }
@@ -65,20 +92,14 @@ class Conductor: ObservableObject {
     //MARK: - Initialisation
     
     init() {
-        engine = AudioEngine()
-
-        let files = AudioFileManager.all()
-        samples = files.map { Sample(audioFile: $0) }
-        
-        let midiInputs = samples.map { $0.midiIn }
-        sequencer = SimplerSequencer(midiInputs)
-        
-        let audioOutputs = samples.map { $0.output }
-        engine.output = Mixer(audioOutputs, name: "Mixer Master")
-        
         activeTrackIndex = 0
+        engine = AudioEngine()
+        samples = AudioFileManager.all()
+            .map { SampleChain(audioFile: $0) }
+        sequencer = SimplerSequencer()
+        data = SimplerData()
     }
-
+    
     //MARK: - Start/Stop
 
     public func start() {

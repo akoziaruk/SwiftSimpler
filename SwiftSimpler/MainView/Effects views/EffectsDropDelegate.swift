@@ -30,7 +30,7 @@ struct EffectsDropDelegate: DropDelegate {
                        toOffset: to > from ? to + 1 : to)
         }
     }
-    
+
     func dropUpdated(info: DropInfo) -> DropProposal? {
         return DropProposal(operation: .move)
     }

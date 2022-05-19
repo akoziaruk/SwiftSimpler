@@ -10,35 +10,71 @@ import AVKit
 import AudioKit
 import SoundpipeAudioKit
 
-class Sample {
-    private let sampler: MIDISampler!
-    let reverb: ZitaReverb!
-    let delay: Delay!
-    let distortion: Distortion!
-
-    var effects = EffectsConfig() {
-        didSet {
-            updateEffectsChain()
-        }
-    }
-    
+class Sampler: MIDISampler {
     init(audioFile: AVAudioFile) {
-        sampler = MIDISampler()
-        delay = Delay(sampler)
-        reverb = ZitaReverb(delay)
-        distortion = Distortion(reverb)
-
-        updateEffectsChain()
+        super.init()
         
         do {
-            try sampler.loadAudioFile(audioFile)
+            try self.loadAudioFile(audioFile)
         } catch {
             print("Files Didn't Load")
         }
     }
-    
-    private func updateEffectsChain() {
+}
 
+class SampleChain {
+    private let audioFile: AVAudioFile!
+    
+    private var sampler: Sampler!
+    private var reverb: ZitaReverb!
+    private var delay: Delay!
+    private var distortion: Distortion!
+    
+    var output: Node!
+
+    var effectsOrder = [Effect]()
+        
+    var effects = EffectsConfig() {
+        didSet {
+            updateEffectsParameters()
+        }
+    }
+    
+    init(audioFile: AVAudioFile) {
+        self.audioFile = audioFile
+    }
+    
+//    public func prepareForUpdate() {
+//        sampler?.destroyEndpoint()
+//    }
+//    
+    public func recreateProcessingChain() {
+        sampler = Sampler(audioFile: audioFile)
+        
+        var node: Node = sampler
+        
+        for effect in effectsOrder {
+            switch effect {
+            case .distortion:
+                distortion = Distortion(node)
+                node = distortion
+            case .delay:
+                delay = Delay(node)
+                node = delay
+            case .reverb:
+                reverb = ZitaReverb(node)
+                node = reverb
+            }
+        }
+        
+        output = node
+        
+        updateEffectsParameters()
+    }
+    
+    private func updateEffectsParameters() {
+        guard let distortion = distortion else { return }
+        
         // Distortion
         distortion.rounding = effects.distortion.rounding.value
         distortion.decimation = effects.distortion.decimation.value
@@ -64,11 +100,6 @@ class Sample {
     
     var midiIn: MIDIEndpointRef {
         sampler.midiIn
-    }
-    
-    var output: Node {
-        //TODO: return last item in chain
-        distortion
     }
 
     func play() {

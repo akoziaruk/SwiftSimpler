@@ -10,18 +10,19 @@ import AudioKit
 
 struct EffectConfigurationView: View {
     @Binding var activeEffect: Effect
-    @Binding var data: SimplerData
+    @Binding var effects: EffectsConfig
+    
     var body: some View {
         VStack {
             switch activeEffect {
             case .distortion:
-                DistortionView(distortion: $data.effects.distortion)
+                DistortionView(distortion: $effects.distortion)
                 
             case .delay:
-                DelayView(delay: $data.effects.delay)
+                DelayView(delay: $effects.delay)
                 
             case .reverb:
-                ReverbView(reverb: $data.effects.reverb)
+                ReverbView(reverb: $effects.reverb)
             }
         }
     }
