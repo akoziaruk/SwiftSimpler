@@ -9,39 +9,54 @@ import Foundation
 import AudioKit
 
 typealias Velocity = MIDIVelocity
-
-struct SampleData {
-    var configuration: EffectsConfig
-    var sequence: [Velocity?]
-}
+typealias Sequence = [Velocity?]
 
 class Conductor: ObservableObject {
-    @Published var isPlaying = false
     @Published var playbackPosition = 0
-    
-    @Published var data: [SampleData] {
+    @Published var isPlaying = false {
         didSet {
-            for (i, sampleData) in data.enumerated() {
-                sampleChains[i].configuration = sampleData.configuration
+            if isPlaying {
+                sequencer.play()
+            } else {
+                sequencer.stop()
             }
         }
     }
-        
-    private var sampleChains: [SampleChain]!
+    
+    @Published var effectsConfigurations: [EffectsConfig] {
+        didSet {
+            for (i, configuration) in effectsConfigurations.enumerated() {
+                sampleChains[i].configuration = configuration
+            }
+        }
+    }
+    
+    @Published var sequences: [Sequence] {
+        didSet {
+            for (i, sequence) in sequences.enumerated() {
+                if sequence != oldValue[i] {
+                    sequencer.update(with: sequence, track: i)
+                }
+            }
+        }
+    }
+
     private let engine = AudioEngine()
+    private var sampleChains: [SampleChain]!
+    private var sequencer: SimplerSequencer!
 
     public var sampleCount: Int { sampleChains.count }
     public var gridLength: Int  { 16 }
     
-    
     init() {
         let audioFileNames = AudioFileManager.all()
-        let configurations = audioFileNames.map { _ in EffectsConfig() }
+        let configurations =  audioFileNames.map { _ in EffectsConfig() }
         
-        data = configurations.map {
-            SampleData(configuration: $0, sequence: [Velocity?](repeating: nil, count: 16))
+        sequencer = SimplerSequencer()
+        sequences = configurations.map { _ in
+            [Velocity?](repeating: nil, count: 16)
         }
-        
+        effectsConfigurations = configurations
         sampleChains = zip(configurations, audioFileNames).map {
             SampleChain(configuration: $0, audioFileName: $1, delegate: self)
         }
@@ -78,6 +93,8 @@ class Conductor: ObservableObject {
         
         let outputs = sampleChains.compactMap { $0.output }
         engine.output = Mixer(outputs, name: "Mixer Master")
+        
+        sequencer.midiEndpoints = sampleChains.map { $0.midiIn }
     }
 }
 

@@ -43,10 +43,10 @@ class ConductorOLD: ObservableObject {
                 sequencer.setTempo(data.tempo)
             }
             
-            if sampleSequence != data.sampleSequence {
-                sequencer.update(with: data.sampleSequence, track: activeTrackIndex)
-                sampleSequence = data.sampleSequence
-            }
+//            if sampleSequence != data.sampleSequence {
+//                sequencer.update(with: data.sampleSequence, track: activeTrackIndex)
+//                sampleSequence = data.sampleSequence
+//            }
 //
 //            if activeSample.effectsOrder != data.effectsOrder {
 //                activeSample.effectsOrder = data.effectsOrder
@@ -82,7 +82,7 @@ class ConductorOLD: ObservableObject {
 //            $data.
 //            data.effectsOrder = activeSample.effectsOrder
 //            data.effects = activeSample.effects
-            data.sampleSequence = sequencer.getSequence(for: activeTrackIndex)
+//            data.sampleSequence = sequencer.getSequence(for: activeTrackIndex)
         }
     }
         

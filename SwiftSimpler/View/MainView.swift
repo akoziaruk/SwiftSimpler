@@ -33,6 +33,6 @@ struct EffectViewWrapper: View {
     @Binding var selectedIndex: Int
         
     var body: some View {
-        EffectConfigurationView(configuration: $conductor.data[selectedIndex].configuration)
+        EffectConfigurationView(configuration: $conductor.effectsConfigurations[selectedIndex])
     }
 }

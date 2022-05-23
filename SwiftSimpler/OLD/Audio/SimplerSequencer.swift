@@ -44,17 +44,18 @@ class SimplerSequencer: AppleSequencer {
         enableLooping()
     }
     
+    
     // TODO: This function can be opimized if only add/remove difference
-    public func update(with sequence: [Bool], track: Int) {
+    public func update(with sequence: [Velocity?], track: Int) {
         let track = tracks[track]
         
         track.clear()
         
-        for (i, value) in sequence.enumerated() {
-            if value {
+        for (i, velocity) in sequence.enumerated() {
+            if let velocity = velocity {
                 let position = Duration(beats: Double(i) / 4.0)
                 track.add(noteNumber: MIDINoteNumber(60),
-                          velocity: 127,
+                          velocity: velocity,
                           position: position,
                           duration: Duration(beats: 4))
                 
@@ -79,18 +80,5 @@ class SimplerSequencer: AppleSequencer {
 //            track.clearRange(start: position, duration: Duration(beats: 0.25))
 //        }
 //    }
-        
-    public func getSequence(for sampleIndex: Int) -> [Bool] {
-        let track = tracks[sampleIndex]
-        var result = [Bool](repeating: false, count: Int(length.beats*grid))
-        
-        let midiData = track.getMIDINoteData()
-        for midi in midiData {
-            let position = Int(midi.position.beats*grid)
-            result[position] = true
-        }
-        
-        return result
-    }
 
 }
