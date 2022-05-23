@@ -11,7 +11,7 @@ import AudioKit
 import SoundpipeAudioKit
 
 protocol SampleChainDelegate: AnyObject {
-    func chainOrderConfigurationChanged(for sampleChain: SampleChain)
+    func orderDidChanged(for sampleChain: SampleChain)
 }
 
 class SampleChain {
@@ -27,8 +27,7 @@ class SampleChain {
     var configuration: EffectsConfig {
         didSet {
             if oldValue.order != configuration.order {
-                print("chainOrderConfigurationChanged: \(configuration.order)")
-                delegate?.chainOrderConfigurationChanged(for: self)
+                delegate?.orderDidChanged(for: self)
             }
             updateEffectsParameters()
         }
@@ -40,13 +39,9 @@ class SampleChain {
         self.configuration = configuration
         self.audioFile = AVAudioFile.audioFile(with: audioFileName)
         self.delegate = delegate
-        
-        recreateProcessingChain()
     }
 
     public func recreateProcessingChain() {
-        print("Recreating Processing Chain for \(String(describing: audioFile))")
-        
         sampler = Sampler(audioFile: audioFile)
         
         var node: Node = sampler

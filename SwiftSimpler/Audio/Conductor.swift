@@ -23,7 +23,6 @@ class Conductor: ObservableObject {
         didSet {
             for (i, sampleData) in data.enumerated() {
                 sampleChains[i].configuration = sampleData.configuration
-                // update sequencer if needed
             }
         }
     }
@@ -47,7 +46,7 @@ class Conductor: ObservableObject {
             SampleChain(configuration: $0, audioFileName: $1, delegate: self)
         }
         
-        recreateMainOutput()
+        recreateProcessingChain()
     }
     
     //MARK: - Action
@@ -72,20 +71,19 @@ class Conductor: ObservableObject {
     
     //MARK: - Handling nodes routing
     
-    func recreateMainOutput() {
-        let outputs = sampleChains.compactMap { $0.output }
-        engine.output = Mixer(outputs, name: "Mixer Master")
-    }
-
-}
-
-extension Conductor: SampleChainDelegate {
-    func chainOrderConfigurationChanged(for sampleChain: SampleChain) {
-        // All chain should be recreated if any nodes order is chainged
+    func recreateProcessingChain() {
         for sample in sampleChains {
             sample.recreateProcessingChain()
         }
         
-        recreateMainOutput()
+        let outputs = sampleChains.compactMap { $0.output }
+        engine.output = Mixer(outputs, name: "Mixer Master")
+    }
+}
+
+extension Conductor: SampleChainDelegate {
+    func orderDidChanged(for sampleChain: SampleChain) {
+        // All chain should be recreated if any nodes order is chainged
+        recreateProcessingChain()
     }
 }
