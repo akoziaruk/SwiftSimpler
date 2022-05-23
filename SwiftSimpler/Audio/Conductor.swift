@@ -48,7 +48,7 @@ class Conductor: ObservableObject {
     }
 
     private let engine = AudioEngine()
-    private var sampleChains: [SampleChain]!
+    private var sampleChains: [SampleChannel]!
     private var sequencer: SimplerSequencer!
 
     public var sampleCount: Int { sampleChains.count }
@@ -65,7 +65,7 @@ class Conductor: ObservableObject {
         
         effectsConfigurations = configurations
         sampleChains = zip(configurations, audioFileNames).map {
-            SampleChain(configuration: $0, audioFileName: $1, delegate: self)
+            SampleChannel(configuration: $0, audioFileName: $1, delegate: self)
         }
         
         sequencer = SimplerSequencer()
@@ -110,8 +110,8 @@ class Conductor: ObservableObject {
     }
 }
 
-extension Conductor: SampleChainDelegate {
-    func orderDidChanged(for sampleChain: SampleChain) {
+extension Conductor: SampleChannelDelegate {
+    func orderDidChanged(for sampleChain: SampleChannel) {
         // All chain should be recreated if any nodes order is chainged
         recreateProcessingChain()
     }

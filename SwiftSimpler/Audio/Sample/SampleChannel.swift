@@ -1,5 +1,5 @@
 //
-//  Sample.swift
+//  SampleChannel.swift
 //  SwiftSimpler
 //
 //  Created by Alexander Koziaruk on 12.05.2022.
@@ -10,11 +10,11 @@ import AVKit
 import AudioKit
 import SoundpipeAudioKit
 
-protocol SampleChainDelegate: AnyObject {
-    func orderDidChanged(for sampleChain: SampleChain)
+protocol SampleChannelDelegate: AnyObject {
+    func orderDidChanged(for sampleChain: SampleChannel)
 }
 
-class SampleChain {
+class SampleChannel {
     private let audioFile: AVAudioFile!
     private var sampler: Sampler!
     private var reverb: ZitaReverb!
@@ -24,7 +24,7 @@ class SampleChain {
     
     var output: Node { mixer }
     var midiIn: MIDIEndpointRef {  sampler.midiIn }
-    weak var delegate: SampleChainDelegate?
+    weak var delegate: SampleChannelDelegate?
 
     var configuration: EffectsConfiguration {
         didSet {
@@ -47,7 +47,7 @@ class SampleChain {
         }
     }
     
-    init(configuration: EffectsConfiguration, audioFileName: String, delegate: SampleChainDelegate) {
+    init(configuration: EffectsConfiguration, audioFileName: String, delegate: SampleChannelDelegate) {
         self.configuration = configuration
         self.audioFile = AVAudioFile.audioFile(with: audioFileName)
         self.delegate = delegate
