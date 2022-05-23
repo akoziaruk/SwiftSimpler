@@ -16,15 +16,15 @@ struct EffectPickerView: View {
     var body: some View {
         HStack {
             ForEach(all, id: \.self) { effect in
-                Button(effect.rawValue) {
+                Button(effect.title) {
                     selected = effect
                 }
                 .padding()
-                .background(.red)
+                .background(effect == selected ? .red : .red.opacity(0.8))
                 .foregroundColor(.white)
                 .onDrag({
                     dragged = effect
-                    return NSItemProvider(object: effect.rawValue as NSString)
+                    return NSItemProvider(object: effect.title as NSString)
                 })
                 .onDrop(of: [UTType.text],
                         delegate: EffectsDropDelegate(item: effect, items: $all, draggedItem: $dragged))

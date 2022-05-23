@@ -14,12 +14,5 @@ struct EffectsConfiguration {
     var distortion = Distortion()
     var delay = Delay()
     var reverb = Reverb()
-}
-
-extension EffectsConfiguration: Equatable {
-    static func == (lhs: EffectsConfiguration, rhs: EffectsConfiguration) -> Bool {
-        lhs.distortion == rhs.distortion &&
-        lhs.delay == rhs.delay &&
-        lhs.reverb == rhs.reverb
-    }
+    var mixer = Mixer()
 }

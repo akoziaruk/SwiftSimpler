@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import AudioKit
 
 extension EffectsConfiguration.Distortion: Equatable { }
 
@@ -20,3 +21,13 @@ extension EffectsConfiguration {
     }
 }
 
+extension Distortion {
+    func update(with configuration: EffectsConfiguration.Distortion) {
+        rounding = configuration.rounding.value
+        decimation = configuration.decimation.value
+        softClipGain = configuration.softClip.value
+        ringModFreq1 = configuration.modFreq.value
+        decay = configuration.decay.value
+        finalMix = configuration.mix.value
+    }
+}

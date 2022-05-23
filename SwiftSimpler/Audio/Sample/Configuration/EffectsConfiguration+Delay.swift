@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import AudioKit
 
 extension EffectsConfiguration.Delay: Equatable { }
 
@@ -15,5 +16,14 @@ extension EffectsConfiguration {
         var feedback = Parameter(value: -30, range: -100...100)
         var time = Parameter(value: 0.05, range: 0...2)
         var mix = Parameter(value: 3, range: 0...100)
+    }
+}
+
+extension Delay {
+    func update(with configuration: EffectsConfiguration.Delay) {
+        lowPassCutoff = configuration.lowPassCutoff.value
+        feedback = configuration.feedback.value
+        time = configuration.time.value
+        dryWetMix = configuration.mix.value
     }
 }

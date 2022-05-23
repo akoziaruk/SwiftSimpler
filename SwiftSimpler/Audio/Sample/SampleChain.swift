@@ -20,16 +20,18 @@ class SampleChain {
     private var reverb: ZitaReverb!
     private var delay: Delay!
     private var distortion: Distortion!
+    private var mixer: Mixer!
     
-    weak var delegate: SampleChainDelegate?
-    var output: Node!
+    var output: Node { mixer }
     var midiIn: MIDIEndpointRef {  sampler.midiIn }
-    
+    weak var delegate: SampleChainDelegate?
+
     var configuration: EffectsConfiguration {
         didSet {
             if oldValue.order != configuration.order {
                 delegate?.orderDidChanged(for: self)
             }
+            
             if oldValue.distortion != configuration.distortion {
                 distortion.update(with: configuration.distortion)
             }
@@ -38,6 +40,9 @@ class SampleChain {
             }
             if oldValue.delay != configuration.delay {
                 delay.update(with: configuration.delay)
+            }
+            if oldValue.mixer != configuration.mixer {
+                mixer.update(with: configuration.mixer)
             }
         }
     }
@@ -73,7 +78,7 @@ class SampleChain {
             }
         }
         
-        output = node
+        mixer = Mixer(node)
         
         forceUpdateEffectsParameters()
     }

@@ -17,22 +17,13 @@ struct MainView: View {
     var body: some View {
         VStack {
             EffectViewWrapper(selectedIndex: $selectedIndex)
+            ControlButtonsView(isPlaying: $conductor.isPlaying, trackLockState: $trackLockState)
             PadsView(trackLockState: $trackLockState, selectedIndex: $selectedIndex)
             PlaybackView(position: $conductor.playbackPosition, segments: conductor.gridLength)
-            ControlButtonsView(isPlaying: $conductor.isPlaying, trackLockState: $trackLockState)
         }.onAppear {
             conductor.start()
         }.onDisappear {
             conductor.stop()
         }
-    }
-}
-
-struct EffectViewWrapper: View {
-    @EnvironmentObject var conductor: Conductor
-    @Binding var selectedIndex: Int
-        
-    var body: some View {
-        EffectConfigurationView(configuration: $conductor.effectsConfigurations[selectedIndex])
     }
 }

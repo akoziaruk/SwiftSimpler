@@ -7,8 +7,8 @@
 
 import Foundation
 
-enum Effect: String {
-    case distortion = "Distortion"
-    case delay = "Delay"
-    case reverb = "Reverb"
+enum Effect {
+    case distortion
+    case delay
+    case reverb
 }
