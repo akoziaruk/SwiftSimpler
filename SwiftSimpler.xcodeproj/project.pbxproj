@@ -8,10 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		8A2710D028292552001C9808 /* SamplePadsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2710CF28292552001C9808 /* SamplePadsView.swift */; };
+		8A321CB0283B6BBD00D0B269 /* Conductor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A321CAF283B6BBD00D0B269 /* Conductor.swift */; };
+		8A321CB3283B71DC00D0B269 /* Sampler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A321CB2283B71DC00D0B269 /* Sampler.swift */; };
 		8A4D990A282BB95B007804D7 /* SequencerPadsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4D9909282BB95B007804D7 /* SequencerPadsView.swift */; };
 		8A4D990D282BD7A4007804D7 /* AudioKitEX in Frameworks */ = {isa = PBXBuildFile; productRef = 8A4D990C282BD7A4007804D7 /* AudioKitEX */; };
 		8A4D990F282CD01A007804D7 /* SimplerSequencer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4D990E282CD01A007804D7 /* SimplerSequencer.swift */; };
-		8A4D9911282CD031007804D7 /* Sample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4D9910282CD031007804D7 /* Sample.swift */; };
+		8A4D9911282CD031007804D7 /* SampleChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4D9910282CD031007804D7 /* SampleChain.swift */; };
 		8A4D9913282D0380007804D7 /* PlaybackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4D9912282D0380007804D7 /* PlaybackView.swift */; };
 		8A4D9916282D06F1007804D7 /* TrackLockState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4D9915282D06F1007804D7 /* TrackLockState.swift */; };
 		8A4D9918282D2BC2007804D7 /* AudioFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4D9917282D2BC2007804D7 /* AudioFileManager.swift */; };
@@ -29,6 +31,7 @@
 		8AEE9AE928254745005DBFE4 /* AudioKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8AEE9AE828254745005DBFE4 /* AudioKit */; };
 		8AEE9AEC28255D66005DBFE4 /* Samples in Resources */ = {isa = PBXBuildFile; fileRef = 8AEE9AEB28255D66005DBFE4 /* Samples */; };
 		8AEE9AEE28255E88005DBFE4 /* MIDI Files in Resources */ = {isa = PBXBuildFile; fileRef = 8AEE9AED28255E88005DBFE4 /* MIDI Files */; };
+		8AF295072836489900EF8E4C /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF295062836489900EF8E4C /* MainView.swift */; };
 		8AF5AB3F2824187700546E43 /* SwiftSimplerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF5AB3E2824187700546E43 /* SwiftSimplerApp.swift */; };
 		8AF5AB412824187700546E43 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF5AB402824187700546E43 /* ContentView.swift */; };
 		8AF5AB432824187800546E43 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8AF5AB422824187800546E43 /* Assets.xcassets */; };
@@ -36,7 +39,7 @@
 		8AF5AB502824187800546E43 /* SwiftSimplerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF5AB4F2824187800546E43 /* SwiftSimplerTests.swift */; };
 		8AF5AB5A2824187800546E43 /* SwiftSimplerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF5AB592824187800546E43 /* SwiftSimplerUITests.swift */; };
 		8AF5AB5C2824187800546E43 /* SwiftSimplerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF5AB5B2824187800546E43 /* SwiftSimplerUITestsLaunchTests.swift */; };
-		8AF5AB83282544E000546E43 /* Conductor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF5AB82282544E000546E43 /* Conductor.swift */; };
+		8AF5AB83282544E000546E43 /* ConductorOLD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF5AB82282544E000546E43 /* ConductorOLD.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,9 +61,11 @@
 
 /* Begin PBXFileReference section */
 		8A2710CF28292552001C9808 /* SamplePadsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SamplePadsView.swift; sourceTree = "<group>"; };
+		8A321CAF283B6BBD00D0B269 /* Conductor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conductor.swift; sourceTree = "<group>"; };
+		8A321CB2283B71DC00D0B269 /* Sampler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sampler.swift; sourceTree = "<group>"; };
 		8A4D9909282BB95B007804D7 /* SequencerPadsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SequencerPadsView.swift; sourceTree = "<group>"; };
 		8A4D990E282CD01A007804D7 /* SimplerSequencer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimplerSequencer.swift; sourceTree = "<group>"; };
-		8A4D9910282CD031007804D7 /* Sample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sample.swift; sourceTree = "<group>"; };
+		8A4D9910282CD031007804D7 /* SampleChain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleChain.swift; sourceTree = "<group>"; };
 		8A4D9912282D0380007804D7 /* PlaybackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackView.swift; sourceTree = "<group>"; };
 		8A4D9915282D06F1007804D7 /* TrackLockState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackLockState.swift; sourceTree = "<group>"; };
 		8A4D9917282D2BC2007804D7 /* AudioFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioFileManager.swift; sourceTree = "<group>"; };
@@ -77,6 +82,7 @@
 		8AEE9AEA28255B55005DBFE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8AEE9AEB28255D66005DBFE4 /* Samples */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Samples; sourceTree = "<group>"; };
 		8AEE9AED28255E88005DBFE4 /* MIDI Files */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "MIDI Files"; sourceTree = "<group>"; };
+		8AF295062836489900EF8E4C /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		8AF5AB3B2824187700546E43 /* SwiftSimpler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftSimpler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AF5AB3E2824187700546E43 /* SwiftSimplerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftSimplerApp.swift; sourceTree = "<group>"; };
 		8AF5AB402824187700546E43 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -87,7 +93,7 @@
 		8AF5AB552824187800546E43 /* SwiftSimplerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftSimplerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AF5AB592824187800546E43 /* SwiftSimplerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftSimplerUITests.swift; sourceTree = "<group>"; };
 		8AF5AB5B2824187800546E43 /* SwiftSimplerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftSimplerUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		8AF5AB82282544E000546E43 /* Conductor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conductor.swift; sourceTree = "<group>"; };
+		8AF5AB82282544E000546E43 /* ConductorOLD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConductorOLD.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,12 +124,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8A07D37B2837D90E00DADF43 /* OLD */ = {
+			isa = PBXGroup;
+			children = (
+				8A4D9914282D040A007804D7 /* Audio */,
+				8AE861D828290BE5002A1949 /* MainView */,
+			);
+			path = OLD;
+			sourceTree = "<group>";
+		};
+		8A321CAE283B6BAA00D0B269 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8AF295062836489900EF8E4C /* MainView.swift */,
+				8A4D9912282D0380007804D7 /* PlaybackView.swift */,
+				8AE861DB28290E8C002A1949 /* ControlButtonsView.swift */,
+				8A76E79D282E47600048CD1D /* Effects views */,
+				8A76E7A2282E47EA0048CD1D /* Pads views */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8A321CB1283B6BC000D0B269 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				8A321CAF283B6BBD00D0B269 /* Conductor.swift */,
+				8A4D9910282CD031007804D7 /* SampleChain.swift */,
+				8A321CB2283B71DC00D0B269 /* Sampler.swift */,
+			);
+			path = Audio;
+			sourceTree = "<group>";
+		};
 		8A4D9914282D040A007804D7 /* Audio */ = {
 			isa = PBXGroup;
 			children = (
-				8AF5AB82282544E000546E43 /* Conductor.swift */,
+				8AF5AB82282544E000546E43 /* ConductorOLD.swift */,
 				8A4D990E282CD01A007804D7 /* SimplerSequencer.swift */,
-				8A4D9910282CD031007804D7 /* Sample.swift */,
 				8A76E7A8282E61C50048CD1D /* EffectsConfig.swift */,
 				8A4D9917282D2BC2007804D7 /* AudioFileManager.swift */,
 			);
@@ -157,10 +193,6 @@
 			isa = PBXGroup;
 			children = (
 				8AE861D6282909EA002A1949 /* SimplerView.swift */,
-				8A4D9912282D0380007804D7 /* PlaybackView.swift */,
-				8AE861DB28290E8C002A1949 /* ControlButtonsView.swift */,
-				8A76E7A2282E47EA0048CD1D /* Pads views */,
-				8A76E79D282E47600048CD1D /* Effects views */,
 			);
 			path = MainView;
 			sourceTree = "<group>";
@@ -200,8 +232,9 @@
 				8AEE9AEB28255D66005DBFE4 /* Samples */,
 				8AEE9AEA28255B55005DBFE4 /* Info.plist */,
 				8AF5AB3E2824187700546E43 /* SwiftSimplerApp.swift */,
-				8A4D9914282D040A007804D7 /* Audio */,
-				8AE861D828290BE5002A1949 /* MainView */,
+				8A321CAE283B6BAA00D0B269 /* View */,
+				8A321CB1283B6BC000D0B269 /* Audio */,
+				8A07D37B2837D90E00DADF43 /* OLD */,
 				8AE861DD28291837002A1949 /* Utils */,
 				8AF5AB402824187700546E43 /* ContentView.swift */,
 				8AF5AB422824187800546E43 /* Assets.xcassets */,
@@ -377,8 +410,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A321CB3283B71DC00D0B269 /* Sampler.swift in Sources */,
 				8AF5AB412824187700546E43 /* ContentView.swift in Sources */,
-				8A4D9911282CD031007804D7 /* Sample.swift in Sources */,
+				8AF295072836489900EF8E4C /* MainView.swift in Sources */,
+				8A4D9911282CD031007804D7 /* SampleChain.swift in Sources */,
 				8A76E7A4282E485C0048CD1D /* Effect.swift in Sources */,
 				8AE861DF28291855002A1949 /* AVAudioFile+Extention.swift in Sources */,
 				8A83F57F2833E2F9002ED26F /* EffectsDropDelegate.swift in Sources */,
@@ -391,7 +426,8 @@
 				8A76E7A9282E61C50048CD1D /* EffectsConfig.swift in Sources */,
 				8A4D9916282D06F1007804D7 /* TrackLockState.swift in Sources */,
 				8A4D990A282BB95B007804D7 /* SequencerPadsView.swift in Sources */,
-				8AF5AB83282544E000546E43 /* Conductor.swift in Sources */,
+				8AF5AB83282544E000546E43 /* ConductorOLD.swift in Sources */,
+				8A321CB0283B6BBD00D0B269 /* Conductor.swift in Sources */,
 				8A2710D028292552001C9808 /* SamplePadsView.swift in Sources */,
 				8AE861D7282909EA002A1949 /* SimplerView.swift in Sources */,
 				8A76E7A1282E47E20048CD1D /* PadsView.swift in Sources */,

@@ -9,21 +9,23 @@ import SwiftUI
 import AudioKit
 
 struct EffectConfigurationView: View {
-    @Binding var activeEffect: Effect
-    @Binding var effects: EffectsConfig
+    @Binding var configuration: EffectsConfig
+    @State var activeEffect = Effect.distortion
     
     var body: some View {
         VStack {
             switch activeEffect {
             case .distortion:
-                DistortionView(distortion: $effects.distortion)
+                DistortionView(distortion: $configuration.distortion)
                 
             case .delay:
-                DelayView(delay: $effects.delay)
+                DelayView(delay: $configuration.delay)
                 
             case .reverb:
-                ReverbView(reverb: $effects.reverb)
+                ReverbView(reverb: $configuration.reverb)
             }
+            
+            EffectPickerView(selected: $activeEffect, all: $configuration.order)
         }
     }
 }

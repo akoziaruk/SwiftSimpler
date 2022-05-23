@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SequencerPadsView: View {
-    @Binding var items: [Bool]
+    @Binding var items: [Velocity?]
     
     var body: some View {
         VStack {
@@ -17,9 +17,13 @@ struct SequencerPadsView: View {
                 ForEach(0..<items.count, id: \.self) { index in
                     Rectangle()
                         .frame(height: 100)
-                        .foregroundColor(items[index] ? .green : .green.opacity(0.6))
+                        .foregroundColor((items[index] != nil) ? .green : .green.opacity(0.6))
                         .onTapGesture {
-                            items[index].toggle()
+                            if (items[index] != nil) {
+                                items[index] = nil
+                            } else {
+                                items[index] = 127
+                            }
                         }
                 }
             }

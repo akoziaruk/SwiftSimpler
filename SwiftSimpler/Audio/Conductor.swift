@@ -1,103 +1,59 @@
 //
-//  SequencerConductor.swift
+//  Conductor.swift
 //  SwiftSimpler
 //
-//  Created by Alexander Koziaruk on 06.05.2022.
+//  Created by Alexander Koziaruk on 23.05.2022.
 //
 
 import Foundation
 import AudioKit
-import AVKit
 
-struct SimplerData {
-    var effects = EffectsConfig()
-    var effectsOrder: [Effect] = [.distortion, .delay, .reverb]
-    var sampleSequence = [Bool]()
-    var isPlaying = false
-    var tempo: Double = 120
+typealias Velocity = MIDIVelocity
+
+struct SampleData {
+    var configuration: EffectsConfig
+    var sequence: [Velocity?]
 }
 
 class Conductor: ObservableObject {
-    public var samples = [SampleChain]()
-    public var sequencer: SimplerSequencer!
-    public let engine: AudioEngine!
-    private var sampleSequence = [Bool]()
-
-    private var activeSample: SampleChain {
-        return samples[activeTrackIndex]
-    }
+    @Published var isPlaying = false
+    @Published var playbackPosition = 0
     
-    @Published var playbackPosition: Int = 0
-    
-    @Published var data: SimplerData! {
+    @Published var data: [SampleData] {
         didSet {
-            if data.isPlaying {
-                sequencer.play()
-                startTimer()
-            } else {
-                sequencer.stop()
-                stopTimer()
-            }
-            
-            if sequencer.tempo != data.tempo {
-                sequencer.setTempo(data.tempo)
-            }
-            
-            if sampleSequence != data.sampleSequence {
-                sequencer.update(with: data.sampleSequence, track: activeTrackIndex)
-                sampleSequence = data.sampleSequence
-            }
-            
-            if activeSample.effectsOrder != data.effectsOrder {
-                activeSample.effectsOrder = data.effectsOrder
-                recreateProcessingChain()
-            }
-            
-            if activeSample.effects != data.effects {
-                activeSample.effects = data.effects
+            for (i, sampleData) in data.enumerated() {
+                sampleChains[i].configuration = sampleData.configuration
+                // update sequencer if needed
             }
         }
     }
-    
-    //MARK: - Processing Chain Update
-    
-    // To update effects order ALL audio processing chain should be recreated
-    private func recreateProcessingChain() {
-        data.isPlaying = false
-        stop()
         
-        samples.forEach { $0.recreateProcessingChain() }
-        sequencer.midiEndpoints = samples.map { $0.midiIn }
-        
-        let outputs = samples.compactMap { $0.output }
-        engine.output = Mixer(outputs, name: "Mixer Master")
-        
-        start()
-    }
+    private var sampleChains: [SampleChain]!
+    private let engine = AudioEngine()
 
-    //MARK: - Handling Actions
+    public var sampleCount: Int { sampleChains.count }
+    public var gridLength: Int  { 16 }
     
-    var activeTrackIndex: Int! {
-        didSet {
-//            data.effectsOrder = activeSample.effectsOrder
-            data.effects = activeSample.effects
-            data.sampleSequence = sequencer.getSequence(for: activeTrackIndex)
-        }
-    }
-        
-    public func playPad(at index: Int) {
-        samples[index].play()
-    }
-    
-    //MARK: - Initialisation
     
     init() {
-        activeTrackIndex = 0
-        engine = AudioEngine()
-        samples = AudioFileManager.all()
-            .map { SampleChain(audioFile: $0) }
-        sequencer = SimplerSequencer()
-        data = SimplerData()
+        let audioFileNames = AudioFileManager.all()
+        let configurations = audioFileNames.map { _ in EffectsConfig() }
+        
+        data = configurations.map {
+            SampleData(configuration: $0, sequence: [Velocity?](repeating: nil, count: 16))
+        }
+        
+        sampleChains = zip(configurations, audioFileNames).map {
+            SampleChain(configuration: $0, audioFileName: $1, delegate: self)
+        }
+        
+        recreateMainOutput()
+    }
+    
+    //MARK: - Action
+    
+    public func playPad(at index: Int) {
+        sampleChains[index].play()
     }
     
     //MARK: - Start/Stop
@@ -113,29 +69,23 @@ class Conductor: ObservableObject {
     public func stop() {
         engine.stop()
     }
-
-    //MARK: - Position Update Timer
     
-    private var displaylink: CADisplayLink?
-
-    private func startTimer() {
-        if displaylink == nil {
-            displaylink = CADisplayLink(target: self, selector: #selector(updatePosition))
-            displaylink?.add(to: .main, forMode: .default)
-        }
+    //MARK: - Handling nodes routing
+    
+    func recreateMainOutput() {
+        let outputs = sampleChains.compactMap { $0.output }
+        engine.output = Mixer(outputs, name: "Mixer Master")
     }
-    
-    private func stopTimer() {
-        updatePosition()
-        displaylink?.invalidate()
-        displaylink = nil
-    }
-    
-    @objc
-    private func updatePosition() {
-        let newPosition = sequencer.position
-        if newPosition != playbackPosition {
-            playbackPosition = newPosition
+
+}
+
+extension Conductor: SampleChainDelegate {
+    func chainOrderConfigurationChanged(for sampleChain: SampleChain) {
+        // All chain should be recreated if any nodes order is chainged
+        for sample in sampleChains {
+            sample.recreateProcessingChain()
         }
+        
+        recreateMainOutput()
     }
 }

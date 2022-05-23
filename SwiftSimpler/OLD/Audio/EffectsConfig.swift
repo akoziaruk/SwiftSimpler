@@ -14,6 +14,10 @@ struct Parameter {
 }
 
 struct EffectsConfig {
+    let id = UUID()
+    
+    var order: [Effect] = [.distortion, .delay, .reverb]
+    
     var distortion = Distortion()
     var delay = Delay()
     var reverb = Reverb()

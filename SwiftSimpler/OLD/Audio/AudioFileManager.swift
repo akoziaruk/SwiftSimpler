@@ -16,7 +16,7 @@ class AudioFileManager {
                                     "open_hi_hat.wav",
                                     "hi_tom.wav"]
     
-    static func all() -> [AVAudioFile] {
-       return fileNames.compactMap { AVAudioFile.audioFile(with: $0) }
+    static func all() -> [String] { //[AVAudioFile] {
+       return fileNames //.compactMap { AVAudioFile.audioFile(with: $0) }
     }
 }

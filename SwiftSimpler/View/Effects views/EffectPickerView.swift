@@ -10,12 +10,12 @@ import UniformTypeIdentifiers
 
 struct EffectPickerView: View {
     @Binding var selected: Effect
-    @Binding var effects: [Effect]
+    @Binding var all: [Effect]
     @State var dragged: Effect?
 
     var body: some View {
         HStack {
-            ForEach(effects, id: \.self) { effect in
+            ForEach(all, id: \.self) { effect in
                 Button(effect.rawValue) {
                     selected = effect
                 }
@@ -27,7 +27,7 @@ struct EffectPickerView: View {
                     return NSItemProvider(object: effect.rawValue as NSString)
                 })
                 .onDrop(of: [UTType.text],
-                        delegate: EffectsDropDelegate(item: effect, items: $effects, draggedItem: $dragged))
+                        delegate: EffectsDropDelegate(item: effect, items: $all, draggedItem: $dragged))
             }
             Spacer()
         }

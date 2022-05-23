@@ -14,7 +14,9 @@ struct SamplePadsView: View {
     var body: some View {
         HStack {
             ForEach(0..<padsCount, id: \.self) { index in
-                Pad { didPressed(index) }
+                Pad {
+                    didPressed(index)
+                }
             }
         }
         .padding()
@@ -30,8 +32,10 @@ struct Pad: View {
         .foregroundColor(isSelected ? .blue : .cyan)
         .gesture(DragGesture(minimumDistance: 0)
         .onChanged({ (touch) in
-            didPressed()
-            isSelected = true
+            if !isSelected {
+                didPressed()
+                isSelected = true
+            }
         })
         .onEnded({ (touch) in
             isSelected = false
