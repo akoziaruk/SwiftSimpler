@@ -10,7 +10,7 @@ import AudioKit
 import SoundpipeAudioKit
 
 extension Distortion {
-    func update(with configuration: EffectsConfig.Distortion) {
+    func update(with configuration: EffectsConfiguration.Distortion) {
         rounding = configuration.rounding.value
         decimation = configuration.decimation.value
         softClipGain = configuration.softClip.value
@@ -21,7 +21,7 @@ extension Distortion {
 }
 
 extension ZitaReverb {
-    func update(with configuration: EffectsConfig.Reverb) {
+    func update(with configuration: EffectsConfiguration.Reverb) {
         crossoverFrequency = configuration.crossoverFrequency.value
         predelay = configuration.predelay.value
         midReleaseTime = configuration.midReleaseTime.value
@@ -32,7 +32,7 @@ extension ZitaReverb {
 }
 
 extension Delay {
-    func update(with configuration: EffectsConfig.Delay) {
+    func update(with configuration: EffectsConfiguration.Delay) {
         lowPassCutoff = configuration.lowPassCutoff.value
         feedback = configuration.feedback.value
         time = configuration.time.value

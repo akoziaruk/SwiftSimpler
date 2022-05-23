@@ -9,7 +9,7 @@ import SwiftUI
 import AudioKit
 
 struct EffectConfigurationView: View {
-    @Binding var configuration: EffectsConfig
+    @Binding var configuration: EffectsConfiguration
     @State var activeEffect = Effect.distortion
     
     var body: some View {
@@ -31,7 +31,7 @@ struct EffectConfigurationView: View {
 }
 
 struct DistortionView: View {
-    @Binding var distortion: EffectsConfig.Distortion
+    @Binding var distortion: EffectsConfiguration.Distortion
 
     var body: some View {
         EffectTitleView(title: "Distortion")
@@ -52,7 +52,7 @@ struct DistortionView: View {
 }
 
 struct DelayView: View {
-    @Binding var delay: EffectsConfig.Delay
+    @Binding var delay: EffectsConfiguration.Delay
 
     var body: some View {
         EffectTitleView(title: "Delay")
@@ -72,7 +72,7 @@ struct DelayView: View {
 }
 
 struct ReverbView: View {
-    @Binding var reverb: EffectsConfig.Reverb
+    @Binding var reverb: EffectsConfiguration.Reverb
 
     var body: some View {
         EffectTitleView(title: "Reverb")

@@ -16,14 +16,20 @@ class Conductor: ObservableObject {
     @Published var isPlaying = false {
         didSet {
             if isPlaying {
-                sequencer.play()
+                sequencer.start()
             } else {
-                sequencer.stop()
+                sequencer.finish()
             }
         }
     }
     
-    @Published var effectsConfigurations: [EffectsConfig] {
+    @Published var tempo: Double = 120 {
+        didSet {
+            sequencer.setTempo(tempo)
+        }
+    }
+    
+    @Published var effectsConfigurations: [EffectsConfiguration] {
         didSet {
             for (i, configuration) in effectsConfigurations.enumerated() {
                 sampleChains[i].configuration = configuration
@@ -46,20 +52,24 @@ class Conductor: ObservableObject {
     private var sequencer: SimplerSequencer!
 
     public var sampleCount: Int { sampleChains.count }
-    public var gridLength: Int  { 16 }
+    public var gridLength: Int  { sequencer.gridLength }
     
     init() {
         let audioFileNames = AudioFileManager.all()
-        let configurations =  audioFileNames.map { _ in EffectsConfig() }
         
-        sequencer = SimplerSequencer()
-        sequences = configurations.map { _ in
-            [Velocity?](repeating: nil, count: 16)
-        }
+        // restore effects
+        let configurations = audioFileNames.map { _ in EffectsConfiguration() }
+        
+        // restore sequences
+        sequences = audioFileNames.map { _ in [Velocity?](repeating: nil, count: 16) }
+        
         effectsConfigurations = configurations
         sampleChains = zip(configurations, audioFileNames).map {
             SampleChain(configuration: $0, audioFileName: $1, delegate: self)
         }
+        
+        sequencer = SimplerSequencer()
+        sequencer.delegate = self
         
         recreateProcessingChain()
     }
@@ -87,6 +97,8 @@ class Conductor: ObservableObject {
     //MARK: - Handling nodes routing
     
     func recreateProcessingChain() {
+        isPlaying = false
+        
         for sample in sampleChains {
             sample.recreateProcessingChain()
         }
@@ -102,5 +114,11 @@ extension Conductor: SampleChainDelegate {
     func orderDidChanged(for sampleChain: SampleChain) {
         // All chain should be recreated if any nodes order is chainged
         recreateProcessingChain()
+    }
+}
+
+extension Conductor: SimplerSequencerDelegate {
+    func didChanged(position: Int, sequencer: SimplerSequencer) {
+        playbackPosition = position
     }
 }

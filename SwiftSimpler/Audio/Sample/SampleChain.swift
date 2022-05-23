@@ -21,10 +21,11 @@ class SampleChain {
     private var delay: Delay!
     private var distortion: Distortion!
     
-    var delegate: SampleChainDelegate?
+    weak var delegate: SampleChainDelegate?
     var output: Node!
     var midiIn: MIDIEndpointRef {  sampler.midiIn }
-    var configuration: EffectsConfig {
+    
+    var configuration: EffectsConfiguration {
         didSet {
             if oldValue.order != configuration.order {
                 delegate?.orderDidChanged(for: self)
@@ -41,7 +42,7 @@ class SampleChain {
         }
     }
     
-    init(configuration: EffectsConfig, audioFileName: String, delegate: SampleChainDelegate) {
+    init(configuration: EffectsConfiguration, audioFileName: String, delegate: SampleChainDelegate) {
         self.configuration = configuration
         self.audioFile = AVAudioFile.audioFile(with: audioFileName)
         self.delegate = delegate

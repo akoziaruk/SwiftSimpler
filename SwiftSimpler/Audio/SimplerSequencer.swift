@@ -9,6 +9,10 @@ import Foundation
 import AudioKit
 import AVFoundation
 
+protocol SimplerSequencerDelegate: AnyObject {
+    func didChanged(position: Int, sequencer: SimplerSequencer)
+}
+
 class SimplerSequencer: AppleSequencer {
     private let grid = 4.0
     
@@ -29,6 +33,8 @@ class SimplerSequencer: AppleSequencer {
         }
     }
     
+    weak var delegate: SimplerSequencerDelegate?
+    
     override init() {
         super.init()
         
@@ -43,7 +49,6 @@ class SimplerSequencer: AppleSequencer {
         setLength(Duration(beats: 4))
         enableLooping()
     }
-    
     
     // TODO: This function can be opimized if only add/remove difference
     public func update(with sequence: [Velocity?], track: Int) {
@@ -64,21 +69,45 @@ class SimplerSequencer: AppleSequencer {
         
         track.setLength(Duration(beats: 4))
     }
-//
-//    func updateSequence(with value: Bool, track: Int, position: Int) {
-//        let track = tracks[track]
-//        let position = Duration(beats: Double(position) / 4.0)
-//
-//        if value {
-//           track.add(noteNumber: MIDINoteNumber(60),
-//                     velocity: 127,
-//                     position: position,
-//                     duration: Duration(beats: 4))
-//
-//            track.setLength(Duration(beats: 4))
-//        } else {
-//            track.clearRange(start: position, duration: Duration(beats: 0.25))
-//        }
-//    }
-
+    
+    //MARK: - Start/Stop
+    
+    func start() {
+        super.play()
+        
+        startTimer()
+    }
+    
+    func finish() {
+        super.stop()
+        super.rewind()
+        
+        stopTimer()
+    }
+    
+    //MARK: - Position Update Timer
+    
+    private var displaylink: CADisplayLink?
+    private var latestPosition = 0
+    
+    private func startTimer() {
+        if displaylink == nil {
+            displaylink = CADisplayLink(target: self, selector: #selector(updatePosition))
+            displaylink?.add(to: .main, forMode: .default)
+        }
+    }
+    
+    private func stopTimer() {
+        updatePosition()
+        displaylink?.invalidate()
+        displaylink = nil
+    }
+    
+    @objc
+    private func updatePosition() {
+        if position != latestPosition {
+            delegate?.didChanged(position: position, sequencer: self)
+            latestPosition = position
+        }
+    }
 }
