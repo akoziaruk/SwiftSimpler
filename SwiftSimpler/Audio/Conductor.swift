@@ -28,15 +28,20 @@ class Conductor: ObservableObject {
             sequencer.setTempo(tempo)
         }
     }
-    @Published var selectedTrack = 0
     @Published var effectsConfigurations: [EffectsConfiguration] {
         didSet {
-            sampleChains[selectedTrack].configuration = effectsConfigurations[selectedTrack]
+            for (index, configuration) in effectsConfigurations.enumerated() {
+                sampleChains[index].configuration = configuration
+            }
         }
     }
     @Published var sequences: [Sequence] {
         didSet {
-            sequencer.update(with: sequences[selectedTrack], track: selectedTrack)
+            for (index, sequence) in sequences.enumerated() {
+                if oldValue[index] != sequence {
+                    sequencer.update(with: sequence, track: index)
+                }
+            }
         }
     }
 
