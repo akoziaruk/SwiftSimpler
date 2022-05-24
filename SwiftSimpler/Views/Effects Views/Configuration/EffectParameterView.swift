@@ -6,10 +6,12 @@
 //
 
 import SwiftUI
+import Combine
 
 struct EffectParameterView: View {
     var title: String
     @Binding var parameter: Parameter
+        
     var body: some View {
         HStack {
             Text(title)

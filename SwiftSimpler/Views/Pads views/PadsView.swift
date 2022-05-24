@@ -10,16 +10,15 @@ import SwiftUI
 struct PadsView: View {
     @EnvironmentObject var conductor: Conductor
     @Binding var trackLockState: TrackLockState
-    @Binding var selectedIndex: Int
     
     var body: some View {
         switch trackLockState {
         case .locked:
-            SequencerPadsView(items: $conductor.sequences[selectedIndex])
+            SequencerPadsView(sequence: $conductor.sequences[conductor.selectedTrack])
         case .locking:
             SamplePadsView(padsCount: conductor.sampleCount) {
                 trackLockState = .locked
-                selectedIndex = $0
+                conductor.selectedTrack = $0
             }
         case .none:
             SamplePadsView(padsCount: conductor.sampleCount) {

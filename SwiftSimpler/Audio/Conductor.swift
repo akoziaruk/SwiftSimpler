@@ -7,6 +7,7 @@
 
 import Foundation
 import AudioKit
+import SwiftUI
 
 typealias Velocity = MIDIVelocity
 typealias Sequence = [Velocity?]
@@ -22,28 +23,20 @@ class Conductor: ObservableObject {
             }
         }
     }
-    
     @Published var tempo: Double = 120 {
         didSet {
             sequencer.setTempo(tempo)
         }
     }
-    
+    @Published var selectedTrack = 0
     @Published var effectsConfigurations: [EffectsConfiguration] {
         didSet {
-            for (i, configuration) in effectsConfigurations.enumerated() {
-                sampleChains[i].configuration = configuration
-            }
+            sampleChains[selectedTrack].configuration = effectsConfigurations[selectedTrack]
         }
     }
-    
     @Published var sequences: [Sequence] {
         didSet {
-            for (i, sequence) in sequences.enumerated() {
-                if sequence != oldValue[i] {
-                    sequencer.update(with: sequence, track: i)
-                }
-            }
+            sequencer.update(with: sequences[selectedTrack], track: selectedTrack)
         }
     }
 

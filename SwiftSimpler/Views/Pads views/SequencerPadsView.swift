@@ -8,22 +8,18 @@
 import SwiftUI
 
 struct SequencerPadsView: View {
-    @Binding var items: [Velocity?]
+    @Binding var sequence: Sequence
     
     var body: some View {
         VStack {
             Spacer()
             HStack {
-                ForEach(0..<items.count, id: \.self) { index in
+                ForEach(0..<sequence.count, id: \.self) { index in
                     Rectangle()
                         .frame(height: 100)
-                        .foregroundColor((items[index] != nil) ? .green : .green.opacity(0.6))
+                        .foregroundColor((sequence[index] != nil) ? .green : .green.opacity(0.6))
                         .onTapGesture {
-                            if (items[index] != nil) {
-                                items[index] = nil
-                            } else {
-                                items[index] = 127
-                            }
+                            sequence[index] = (sequence[index] == nil) ? Velocity(127) : nil
                         }
                 }
             }

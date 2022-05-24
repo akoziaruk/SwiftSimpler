@@ -31,7 +31,6 @@ class SampleChannel {
             if oldValue.order != configuration.order {
                 delegate?.orderDidChanged(for: self)
             }
-            
             if oldValue.distortion != configuration.distortion {
                 distortion.update(with: configuration.distortion)
             }

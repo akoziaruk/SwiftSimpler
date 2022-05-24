@@ -7,8 +7,9 @@
 
 import SwiftUI
 
-struct ControlButtonsView: View {
+struct ControlsView: View {
     @Binding var isPlaying: Bool
+    @Binding var tempo: Double
     @Binding var trackLockState: TrackLockState
 
     var body: some View {
@@ -18,6 +19,14 @@ struct ControlButtonsView: View {
             }
             .frame(width: 100, height: 100, alignment: .center)
             .background(.purple)
+            .foregroundColor(.white)
+            .padding()
+
+            TextField("120", value: self.$tempo, formatter: NumberFormatter())
+            .multilineTextAlignment(.center)
+            .keyboardType(.numberPad)
+            .frame(width: 100, height: 100, alignment: .center)
+            .background(.green)
             .foregroundColor(.white)
             .padding()
 

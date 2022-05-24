@@ -8,37 +8,26 @@
 import SwiftUI
 
 struct EffectConfigurationView: View {
-    @Binding var configuration: EffectsConfiguration
     @State var activeEffect = Effect.distortion
+    @Binding var effect: EffectsConfiguration
     
     var body: some View {
         VStack {
             switch activeEffect {
             case .distortion:
-                DistortionView(distortion: $configuration.distortion)
+                DistortionView(distortion: $effect.distortion)
                 
             case .delay:
-                DelayView(delay: $configuration.delay)
+                DelayView(delay: $effect.delay)
                 
             case .reverb:
-                ReverbView(reverb: $configuration.reverb)
+                ReverbView(reverb: $effect.reverb)
             }
             
             HStack {
-                EffectPickerView(selected: $activeEffect, all: $configuration.order)
-                MixerView(mixer: $configuration.mixer)
+                EffectPickerView(selected: $activeEffect, all: $effect.order)
+                MixerView(mixer: $effect.mixer)
             }
-        }
-    }
-}
-
-struct MixerView: View {
-    @Binding var mixer: EffectsConfiguration.Mixer
-
-    var body: some View {
-        HStack {
-            EffectParameterView(title: "Pan", parameter: $mixer.pan)
-            EffectParameterView(title: "Volume", parameter: $mixer.volume)
         }
     }
 }
