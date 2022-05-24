@@ -10,16 +10,15 @@ import AudioKit
 
 struct MainView: View {
     @EnvironmentObject var conductor: Conductor
-    
     @State var selectedTrack = 0
     @State var trackLockState = TrackLockState.none
     
     var body: some View {
         VStack {
             EffectConfigurationView(effect: $conductor.effectsConfigurations[selectedTrack])
-            ControlsView(isPlaying: $conductor.isPlaying, tempo: $conductor.tempo, trackLockState: $trackLockState)
+            ControlsView(isPlaying: $conductor.data.isPlaying, tempo: $conductor.data.tempo, trackLockState: $trackLockState)
             PadsView(trackLockState: $trackLockState, selectedTrack: $selectedTrack)
-            PlaybackView(position: $conductor.playbackPosition, segments: conductor.gridLength)
+            PlaybackView(position: $conductor.data.playbackPosition, segments: conductor.gridLength)
         }.onAppear {
             conductor.start()
         }.onDisappear {

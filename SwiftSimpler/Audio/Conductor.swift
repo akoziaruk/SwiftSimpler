@@ -12,22 +12,29 @@ import SwiftUI
 typealias Velocity = MIDIVelocity
 typealias Sequence = [Velocity?]
 
+struct Data {
+    var playbackPosition = 0
+    var isPlaying = false
+    var tempo: Double = 120
+}
+
 class Conductor: ObservableObject {
-    @Published var playbackPosition = 0
-    @Published var isPlaying = false {
+    @Published var data = Data() {
         didSet {
-            if isPlaying {
-                sequencer.start()
-            } else {
-                sequencer.finish()
+            if oldValue.isPlaying != data.isPlaying {
+                if data.isPlaying {
+                    sequencer.start()
+                } else {
+                    sequencer.finish()
+                }
+            }
+            
+            if oldValue.tempo != data.tempo {
+                sequencer.setTempo(data.tempo)
             }
         }
     }
-    @Published var tempo: Double = 120 {
-        didSet {
-            sequencer.setTempo(tempo)
-        }
-    }
+    
     @Published var effectsConfigurations: [EffectsConfiguration] {
         didSet {
             for (index, configuration) in effectsConfigurations.enumerated() {
@@ -95,7 +102,7 @@ class Conductor: ObservableObject {
     //MARK: - Handling nodes routing
     
     func recreateProcessingChain() {
-        isPlaying = false
+        data.isPlaying = false
         
         for sample in sampleChains {
             sample.recreateProcessingChain()
@@ -117,6 +124,6 @@ extension Conductor: SampleChannelDelegate {
 
 extension Conductor: SimplerSequencerDelegate {
     func didChanged(position: Int, sequencer: SimplerSequencer) {
-        playbackPosition = position
+        data.playbackPosition = position
     }
 }
