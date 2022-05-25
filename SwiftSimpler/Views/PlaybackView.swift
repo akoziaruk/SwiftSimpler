@@ -9,7 +9,6 @@ import SwiftUI
 
 struct PlaybackView: View {
     @Binding var position: Int
-    var segments: Int
     
     var body: some View {
         GeometryReader { geometry in
@@ -18,7 +17,7 @@ struct PlaybackView: View {
                     .frame(height: 10)
                     .foregroundColor(.gray.opacity(0.3))
                 
-                let width = geometry.size.width/CGFloat(segments)
+                let width = geometry.size.width / 16
                 PlaybackCursor(width: width,
                                position: position)
             }

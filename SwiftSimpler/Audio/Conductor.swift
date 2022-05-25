@@ -12,12 +12,6 @@ import SwiftUI
 typealias Velocity = MIDIVelocity
 typealias Sequence = [Velocity?]
 
-struct Data {
-    var playbackPosition = 0
-    var isPlaying = false
-    var tempo: Double = 120
-}
-
 class Conductor: ObservableObject {
     @Published var data = Data() {
         didSet {
@@ -32,11 +26,17 @@ class Conductor: ObservableObject {
             if data.tempo != oldValue.tempo {
                 sequencer.setTempo(data.tempo)
             }
+            
+            if data.playback.length != oldValue.playback.length {
+                sequencer.loopLength = Double(data.playback.length * 4)
+                forceUpdateSequencerData()
+            }
         }
     }
     
     var samples: [SampleChannel]!
 
+    // TODO: Refactore to have separate publisher for each seqence
     @Published var sequences: [Sequence]! {
         didSet {
             for (index, sequence) in sequences.enumerated() {
@@ -45,8 +45,13 @@ class Conductor: ObservableObject {
                         sequencer.update(with: sequence, track: index)
                     }
                 }
-
             }
+        }
+    }
+    
+    private func forceUpdateSequencerData() {
+        for (index, sequence) in sequences.enumerated() {
+            sequencer.update(with: sequence, track: index)
         }
     }
 
@@ -62,7 +67,7 @@ class Conductor: ObservableObject {
         let configurations = audioFileNames.map { _ in EffectsConfiguration() }
         
         // restore sequences
-        sequences = audioFileNames.map { _ in [Velocity?](repeating: nil, count: 16) }
+        sequences = audioFileNames.map { _ in [Velocity?](repeating: nil, count: 64) }
                 
         samples = zip(configurations, audioFileNames).map {
             SampleChannel(configuration: $0, audioFileName: $1, delegate: self)
@@ -113,6 +118,7 @@ extension Conductor: SampleChannelDelegate {
 
 extension Conductor: SimplerSequencerDelegate {
     func didChanged(position: Int, sequencer: SimplerSequencer) {
-        data.playbackPosition = position
+        data.playback.position = position % 16
+        data.playback.page = position / 16
     }
 }

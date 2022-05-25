@@ -18,7 +18,7 @@ struct MainView: View {
             EffectConfigurationView(effect: $conductor.samples[selectedTrack].configuration)
             ControlsView(isPlaying: $conductor.data.isPlaying, tempo: $conductor.data.tempo, trackLockState: $trackLockState)
             PadsView(trackLockState: $trackLockState, selectedTrack: $selectedTrack)
-            PlaybackView(position: $conductor.data.playbackPosition, segments: conductor.gridLength)
+            PlaybackView(position: $conductor.data.playback.position)
         }.onAppear {
             conductor.start()
         }.onDisappear {

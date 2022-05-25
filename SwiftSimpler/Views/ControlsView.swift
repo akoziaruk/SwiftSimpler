@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ControlsView: View {
+    @EnvironmentObject var conductor: Conductor
+    
     @Binding var isPlaying: Bool
     @Binding var tempo: Double
     @Binding var trackLockState: TrackLockState
@@ -32,6 +34,8 @@ struct ControlsView: View {
 
             Spacer()
             
+            BeatPageSelector(selected: $conductor.data.playback.length, page: $conductor.data.playback.page)
+            
             Button("TRACK") {
                 trackLockState.toggleTap()
             }
@@ -42,4 +46,31 @@ struct ControlsView: View {
             .padding()
         }
     }
+}
+
+struct BeatPageSelector: View {
+    let columns = [GridItem(.flexible()), GridItem(.flexible())]
+    
+    @Binding var selected: Int
+    @Binding var page: Int
+    
+    var body: some View {
+        LazyVGrid(columns: columns) {
+            ForEach(1...4, id: \.self) { item in
+                Text("\(item)")
+                    .frame(width: 48, height: 48)
+                    .background(item <= selected ? .brown.opacity(0.7) : .brown.opacity(0.25))
+                    .border(item == page+1 ? .purple : .clear, width: 4)
+                    .onTapGesture {
+                        page = item-1
+                    }
+                    .onLongPressGesture(perform: {
+                        selected = item
+                    })
+            }
+        }
+        .frame(width: 100, height: 100, alignment: .center)
+        .padding()
+    }
+    
 }

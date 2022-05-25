@@ -23,13 +23,20 @@ class SimplerSequencer: AppleSequencer {
     var gridLength: Int {
         Int(length.beats * grid)
     }
-    
+
     var midiEndpoints: [MIDIEndpointRef]! {
         didSet {
             // For each sequencer track set midi output to different sampler
             for (i, endpoint) in midiEndpoints.enumerated() {
                 tracks[i].setMIDIOutput(endpoint)
             }
+        }
+    }
+    
+    var loopLength: Double = 4 {
+        didSet {
+            setLength(Duration(beats: loopLength))
+            enableLooping()
         }
     }
     
@@ -44,10 +51,8 @@ class SimplerSequencer: AppleSequencer {
         debug()
 
         clearRange(start: Duration(beats: 0), duration: Duration(beats: 100))
-        
         setTempo(120)
-        setLength(Duration(beats: 4))
-        enableLooping()
+        loopLength = 4
     }
     
     // TODO: This function can be opimized if only add/remove difference
@@ -62,12 +67,12 @@ class SimplerSequencer: AppleSequencer {
                 track.add(noteNumber: MIDINoteNumber(60),
                           velocity: velocity,
                           position: position,
-                          duration: Duration(beats: 4))
+                          duration: Duration(beats: loopLength))
                 
             }
         }
         
-        track.setLength(Duration(beats: 4))
+        track.setLength(Duration(beats: loopLength))
     }
     
     //MARK: - Start/Stop

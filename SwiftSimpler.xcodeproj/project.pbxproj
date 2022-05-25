@@ -35,6 +35,7 @@
 		8A837BBF283BC331004C16E2 /* EffectsConfiguration+Mixer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A837BBE283BC331004C16E2 /* EffectsConfiguration+Mixer.swift */; };
 		8A83F57F2833E2F9002ED26F /* EffectsDropDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A83F57E2833E2F9002ED26F /* EffectsDropDelegate.swift */; };
 		8AD98C95283CFFC8009434C6 /* MixerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD98C94283CFFC8009434C6 /* MixerView.swift */; };
+		8AD98C99283E3D49009434C6 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD98C98283E3D49009434C6 /* Data.swift */; };
 		8AE861DC28290E8C002A1949 /* ControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE861DB28290E8C002A1949 /* ControlsView.swift */; };
 		8AE861DF28291855002A1949 /* AVAudioFile+Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE861DE28291855002A1949 /* AVAudioFile+Extention.swift */; };
 		8AEE9AE928254745005DBFE4 /* AudioKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8AEE9AE828254745005DBFE4 /* AudioKit */; };
@@ -94,6 +95,7 @@
 		8A837BBE283BC331004C16E2 /* EffectsConfiguration+Mixer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EffectsConfiguration+Mixer.swift"; sourceTree = "<group>"; };
 		8A83F57E2833E2F9002ED26F /* EffectsDropDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EffectsDropDelegate.swift; sourceTree = "<group>"; };
 		8AD98C94283CFFC8009434C6 /* MixerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixerView.swift; sourceTree = "<group>"; };
+		8AD98C98283E3D49009434C6 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		8AE861DB28290E8C002A1949 /* ControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlsView.swift; sourceTree = "<group>"; };
 		8AE861DE28291855002A1949 /* AVAudioFile+Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AVAudioFile+Extention.swift"; sourceTree = "<group>"; };
 		8AEE9AEA28255B55005DBFE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 		8A321CB1283B6BC000D0B269 /* Audio */ = {
 			isa = PBXGroup;
 			children = (
+				8AD98C98283E3D49009434C6 /* Data.swift */,
 				8A321CAF283B6BBD00D0B269 /* Conductor.swift */,
 				8A4D990E282CD01A007804D7 /* SimplerSequencer.swift */,
 				8A321CB6283B8A8300D0B269 /* Sample */,
@@ -497,6 +500,7 @@
 				8A2710D028292552001C9808 /* SamplePadsView.swift in Sources */,
 				8A76E7A1282E47E20048CD1D /* PadsView.swift in Sources */,
 				8AE861DC28290E8C002A1949 /* ControlsView.swift in Sources */,
+				8AD98C99283E3D49009434C6 /* Data.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
