@@ -14,7 +14,7 @@ protocol SampleChannelDelegate: AnyObject {
     func orderDidChanged(for sampleChain: SampleChannel)
 }
 
-class SampleChannel {
+class SampleChannel: ObservableObject {
     private let audioFile: AVAudioFile!
     private var sampler: Sampler!
     private var reverb: ZitaReverb!
@@ -26,8 +26,9 @@ class SampleChannel {
     var midiIn: MIDIEndpointRef {  sampler.midiIn }
     weak var delegate: SampleChannelDelegate?
 
-    var configuration: EffectsConfiguration {
+    @Published var configuration: EffectsConfiguration {
         didSet {
+            print("didSet configuration")
             if oldValue.order != configuration.order {
                 delegate?.orderDidChanged(for: self)
             }

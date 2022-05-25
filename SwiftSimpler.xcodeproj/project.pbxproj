@@ -20,7 +20,7 @@
 		8A76E79C282E472A0048CD1D /* EffectPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A76E79B282E472A0048CD1D /* EffectPickerView.swift */; };
 		8A76E79F282E47760048CD1D /* EffectConfigurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A76E79E282E47760048CD1D /* EffectConfigurationView.swift */; };
 		8A76E7A1282E47E20048CD1D /* PadsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A76E7A0282E47E20048CD1D /* PadsView.swift */; };
-		8A76E7A4282E485C0048CD1D /* Effect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A76E7A3282E485C0048CD1D /* Effect.swift */; };
+		8A76E7A4282E485C0048CD1D /* EffectType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A76E7A3282E485C0048CD1D /* EffectType.swift */; };
 		8A76E7A7282E5A350048CD1D /* SoundpipeAudioKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8A76E7A6282E5A350048CD1D /* SoundpipeAudioKit */; };
 		8A76E7A9282E61C50048CD1D /* EffectsConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A76E7A8282E61C50048CD1D /* EffectsConfiguration.swift */; };
 		8A837BA8283BB249004C16E2 /* EffectsConfiguration+Distortion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A837BA7283BB249004C16E2 /* EffectsConfiguration+Distortion.swift */; };
@@ -80,7 +80,7 @@
 		8A76E79B282E472A0048CD1D /* EffectPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EffectPickerView.swift; sourceTree = "<group>"; };
 		8A76E79E282E47760048CD1D /* EffectConfigurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EffectConfigurationView.swift; sourceTree = "<group>"; };
 		8A76E7A0282E47E20048CD1D /* PadsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PadsView.swift; sourceTree = "<group>"; };
-		8A76E7A3282E485C0048CD1D /* Effect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Effect.swift; sourceTree = "<group>"; };
+		8A76E7A3282E485C0048CD1D /* EffectType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EffectType.swift; sourceTree = "<group>"; };
 		8A76E7A8282E61C50048CD1D /* EffectsConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EffectsConfiguration.swift; sourceTree = "<group>"; };
 		8A837BA7283BB249004C16E2 /* EffectsConfiguration+Distortion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EffectsConfiguration+Distortion.swift"; sourceTree = "<group>"; };
 		8A837BA9283BB277004C16E2 /* EffectsConfiguration+Reverb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EffectsConfiguration+Reverb.swift"; sourceTree = "<group>"; };
@@ -205,7 +205,7 @@
 			isa = PBXGroup;
 			children = (
 				8A76E7A8282E61C50048CD1D /* EffectsConfiguration.swift */,
-				8A76E7A3282E485C0048CD1D /* Effect.swift */,
+				8A76E7A3282E485C0048CD1D /* EffectType.swift */,
 			);
 			path = Configuration;
 			sourceTree = "<group>";
@@ -470,7 +470,7 @@
 				8AF5AB412824187700546E43 /* ContentView.swift in Sources */,
 				8AF295072836489900EF8E4C /* MainView.swift in Sources */,
 				8A4D9911282CD031007804D7 /* SampleChannel.swift in Sources */,
-				8A76E7A4282E485C0048CD1D /* Effect.swift in Sources */,
+				8A76E7A4282E485C0048CD1D /* EffectType.swift in Sources */,
 				8A837BAC283BB294004C16E2 /* EffectsConfiguration+Delay.swift in Sources */,
 				8A837BBF283BC331004C16E2 /* EffectsConfiguration+Mixer.swift in Sources */,
 				8AE861DF28291855002A1949 /* AVAudioFile+Extention.swift in Sources */,

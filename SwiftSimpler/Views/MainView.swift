@@ -15,7 +15,7 @@ struct MainView: View {
     
     var body: some View {
         VStack {
-            EffectConfigurationView(effect: $conductor.effectsConfigurations[selectedTrack])
+            EffectConfigurationView(effect: $conductor.samples[selectedTrack].configuration)
             ControlsView(isPlaying: $conductor.data.isPlaying, tempo: $conductor.data.tempo, trackLockState: $trackLockState)
             PadsView(trackLockState: $trackLockState, selectedTrack: $selectedTrack)
             PlaybackView(position: $conductor.data.playbackPosition, segments: conductor.gridLength)

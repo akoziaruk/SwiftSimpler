@@ -9,9 +9,9 @@ import SwiftUI
 import UniformTypeIdentifiers
 
 struct EffectPickerView: View {
-    @Binding var selected: Effect
-    @Binding var all: [Effect]
-    @State var dragged: Effect?
+    @Binding var selected: EffectType
+    @Binding var all: [EffectType]
+    @State var dragged: EffectType?
 
     var body: some View {
         HStack {

@@ -21,7 +21,7 @@ struct Data {
 class Conductor: ObservableObject {
     @Published var data = Data() {
         didSet {
-            if oldValue.isPlaying != data.isPlaying {
+            if data.isPlaying != oldValue.isPlaying {
                 if data.isPlaying {
                     sequencer.start()
                 } else {
@@ -29,34 +29,30 @@ class Conductor: ObservableObject {
                 }
             }
             
-            if oldValue.tempo != data.tempo {
+            if data.tempo != oldValue.tempo {
                 sequencer.setTempo(data.tempo)
             }
         }
     }
     
-    @Published var effectsConfigurations: [EffectsConfiguration] {
-        didSet {
-            for (index, configuration) in effectsConfigurations.enumerated() {
-                sampleChains[index].configuration = configuration
-            }
-        }
-    }
-    @Published var sequences: [Sequence] {
+    var samples: [SampleChannel]!
+
+    @Published var sequences: [Sequence]! {
         didSet {
             for (index, sequence) in sequences.enumerated() {
-                if oldValue[index] != sequence {
-                    sequencer.update(with: sequence, track: index)
+                if let oldValue = oldValue {
+                    if oldValue[index] != sequence {
+                        sequencer.update(with: sequence, track: index)
+                    }
                 }
+
             }
         }
     }
 
     private let engine = AudioEngine()
-    private var sampleChains: [SampleChannel]!
     private var sequencer: SimplerSequencer!
 
-    public var sampleCount: Int { sampleChains.count }
     public var gridLength: Int  { sequencer.gridLength }
     
     init() {
@@ -67,9 +63,8 @@ class Conductor: ObservableObject {
         
         // restore sequences
         sequences = audioFileNames.map { _ in [Velocity?](repeating: nil, count: 16) }
-        
-        effectsConfigurations = configurations
-        sampleChains = zip(configurations, audioFileNames).map {
+                
+        samples = zip(configurations, audioFileNames).map {
             SampleChannel(configuration: $0, audioFileName: $1, delegate: self)
         }
         
@@ -77,12 +72,6 @@ class Conductor: ObservableObject {
         sequencer.delegate = self
         
         recreateProcessingChain()
-    }
-    
-    //MARK: - Action
-    
-    public func playPad(at index: Int) {
-        sampleChains[index].play()
     }
     
     //MARK: - Start/Stop
@@ -104,14 +93,14 @@ class Conductor: ObservableObject {
     func recreateProcessingChain() {
         data.isPlaying = false
         
-        for sample in sampleChains {
+        for sample in samples {
             sample.recreateProcessingChain()
         }
         
-        let outputs = sampleChains.compactMap { $0.output }
+        let outputs = samples.compactMap { $0.output }
         engine.output = Mixer(outputs, name: "Mixer Master")
         
-        sequencer.midiEndpoints = sampleChains.map { $0.midiIn }
+        sequencer.midiEndpoints = samples.map { $0.midiIn }
     }
 }
 

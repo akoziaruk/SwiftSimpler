@@ -9,9 +9,9 @@ import SwiftUI
 
 
 struct EffectsDropDelegate: DropDelegate {
-    let item: Effect
-    @Binding var items: [Effect]
-    @Binding var draggedItem: Effect?
+    let item: EffectType
+    @Binding var items: [EffectType]
+    @Binding var draggedItem: EffectType?
     
     func performDrop(info: DropInfo) -> Bool {
         draggedItem = nil

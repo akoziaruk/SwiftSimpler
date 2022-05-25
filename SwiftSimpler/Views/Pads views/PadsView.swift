@@ -17,13 +17,13 @@ struct PadsView: View {
         case .locked:
             SequencerPadsView(sequence: $conductor.sequences[selectedTrack])
         case .locking:
-            SamplePadsView(padsCount: conductor.sampleCount) {
+            SamplePadsView(padsCount: conductor.samples.count) {
                 trackLockState = .locked
                 selectedTrack = $0
             }
         case .none:
-            SamplePadsView(padsCount: conductor.sampleCount) {
-                conductor.playPad(at: $0)
+            SamplePadsView(padsCount: conductor.samples.count) {
+                conductor.samples[$0].play()
             }
         }
     }

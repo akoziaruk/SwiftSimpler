@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Effect {
+enum EffectType {
     case distortion
     case delay
     case reverb

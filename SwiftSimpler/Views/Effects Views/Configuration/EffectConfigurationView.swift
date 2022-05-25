@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct EffectConfigurationView: View {
-    @State var activeEffect = Effect.distortion
+    @State var activeEffect = EffectType.distortion
     @Binding var effect: EffectsConfiguration
     
     var body: some View {

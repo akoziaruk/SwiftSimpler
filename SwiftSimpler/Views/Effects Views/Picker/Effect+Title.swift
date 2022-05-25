@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension Effect {
+extension EffectType {
     var title: String {
         switch self {
         case .distortion:   return "Distortion"
