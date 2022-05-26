@@ -52,7 +52,8 @@ class SimplerSequencer: AppleSequencer {
 
         clearRange(start: Duration(beats: 0), duration: Duration(beats: 100))
         setTempo(120)
-        loopLength = 4
+        setLength(Duration(beats: loopLength))
+        enableLooping()
     }
     
     // TODO: This function can be opimized if only add/remove difference
