@@ -10,21 +10,19 @@ import SwiftUI
 struct ControlsView: View {
     @EnvironmentObject var conductor: Conductor
     
-    @Binding var isPlaying: Bool
-    @Binding var tempo: Double
     @Binding var trackLockState: TrackLockState
 
     var body: some View {
         HStack {
-            Button(isPlaying ? "STOP" : "PLAY") {
-                isPlaying.toggle()
+            Button(conductor.data.isPlaying ? "STOP" : "PLAY") {
+                conductor.data.isPlaying.toggle()
             }
             .frame(width: 100, height: 100, alignment: .center)
             .background(.purple)
             .foregroundColor(.white)
             .padding()
 
-            TextField("120", value: self.$tempo, formatter: NumberFormatter())
+            TextField("120", value: $conductor.data.tempo, formatter: NumberFormatter())
             .multilineTextAlignment(.center)
             .keyboardType(.numberPad)
             .frame(width: 100, height: 100, alignment: .center)

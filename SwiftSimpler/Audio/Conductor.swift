@@ -59,7 +59,8 @@ class Conductor: ObservableObject {
     private var sequencer: SimplerSequencer!
 
     public var gridLength: Int  { sequencer.gridLength }
-    
+    public var position: Int {  sequencer.position % 16 }
+
     init() {
         let audioFileNames = AudioFileManager.all()
         
@@ -118,7 +119,9 @@ extension Conductor: SampleChannelDelegate {
 
 extension Conductor: SimplerSequencerDelegate {
     func didChanged(position: Int, sequencer: SimplerSequencer) {
-        data.playback.position = position % 16
-        data.playback.page = position / 16
+        let newPage = position / 16
+        if data.playback.page != newPage {
+            data.playback.page = newPage
+        }
     }
 }

@@ -14,7 +14,6 @@ struct Data {
     
     struct Playback {
         var page = 0
-        var position = 0
         var length = 1
     }
 }

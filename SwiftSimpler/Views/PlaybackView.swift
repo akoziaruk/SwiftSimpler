@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct PlaybackView: View {
-    @Binding var position: Int
-    
+    @EnvironmentObject var conductor: Conductor
+
     var body: some View {
         GeometryReader { geometry in
             ZStack(alignment: .leading) {
@@ -17,9 +17,7 @@ struct PlaybackView: View {
                     .frame(height: 10)
                     .foregroundColor(.gray.opacity(0.3))
                 
-                let width = geometry.size.width / 16
-                PlaybackCursor(width: width,
-                               position: position)
+                PlaybackCursor(width: geometry.size.width / 16)
             }
             .padding()
         }
@@ -27,13 +25,19 @@ struct PlaybackView: View {
 }
 
 struct PlaybackCursor: View {
+    @EnvironmentObject var conductor: Conductor
+    @State var position = 0
+
     var width: CGFloat
-    var position: Int
-    
+    let timer = Timer.publish(every: 1/30, on: .main, in: .common).autoconnect()
+
     var body: some View {
         Rectangle()
             .frame(width: width, height: 10)
             .foregroundColor(.brown)
             .offset(x: width*CGFloat(position), y: 0)
+            .onReceive(timer) { _ in
+                position = conductor.position
+            }
     }
 }
