@@ -11,4 +11,5 @@ enum EffectType {
     case distortion
     case delay
     case reverb
+    case equalizer
 }

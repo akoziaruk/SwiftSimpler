@@ -22,6 +22,10 @@ struct EffectConfigurationView: View {
                 
             case .reverb:
                 ReverbView(reverb: $effect.reverb)
+                
+            case .equalizer:
+                EqualizationGroupView(eq1: $effect.equalizer1, eq2: $effect.equalizer2,
+                                      lpf: $effect.lpfFilter, hpf: $effect.hpfFiler)
             }
             
             HStack {
@@ -31,3 +35,4 @@ struct EffectConfigurationView: View {
         }
     }
 }
+

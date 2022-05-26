@@ -12,7 +12,8 @@ extension EffectType {
         switch self {
         case .distortion:   return "Distortion"
         case .delay:        return "Delay"
-        case .reverb:       return"Reverb"
+        case .reverb:       return "Reverb"
+        case .equalizer:    return "EQ"
         }
     }
 }

@@ -17,18 +17,25 @@ protocol SampleChannelDelegate: AnyObject {
 class SampleChannel: ObservableObject {
     private let audioFile: AVAudioFile!
     private var sampler: Sampler!
+    
+    //TODO: Refactor to use array of effect nodes
     private var reverb: ZitaReverb!
     private var delay: Delay!
     private var distortion: Distortion!
+    private var equalizer1: EqualizerFilter!
+    private var equalizer2: EqualizerFilter!
+    private var hpfFiler: HighPassButterworthFilter!
+    private var lpfFilter: LowPassButterworthFilter!
+
     private var mixer: Mixer!
     
     var output: Node { mixer }
     var midiIn: MIDIEndpointRef {  sampler.midiIn }
     weak var delegate: SampleChannelDelegate?
 
+    
     @Published var configuration: EffectsConfiguration {
         didSet {
-            print("didSet configuration")
             if oldValue.order != configuration.order {
                 delegate?.orderDidChanged(for: self)
             }
@@ -43,6 +50,18 @@ class SampleChannel: ObservableObject {
             }
             if oldValue.mixer != configuration.mixer {
                 mixer.update(with: configuration.mixer)
+            }
+            if oldValue.equalizer1 != configuration.equalizer1 {
+                equalizer1.update(with: configuration.equalizer1)
+            }
+            if oldValue.equalizer2 != configuration.equalizer2 {
+                equalizer2.update(with: configuration.equalizer2)
+            }
+            if oldValue.hpfFiler != configuration.hpfFiler {
+                hpfFiler.update(with: configuration.hpfFiler)
+            }
+            if oldValue.lpfFilter != configuration.lpfFilter {
+                lpfFilter.update(with: configuration.lpfFilter)
             }
         }
     }
@@ -67,14 +86,28 @@ class SampleChannel: ObservableObject {
         for effect in configuration.order {
             switch effect {
             case .distortion:
+                
                 distortion = Distortion(node)
                 node = distortion
+                
             case .delay:
+                
                 delay = Delay(node)
                 node = delay
+                
             case .reverb:
+                
                 reverb = ZitaReverb(node)
                 node = reverb
+                
+            case .equalizer:
+                
+                equalizer1 = EqualizerFilter(node)
+                equalizer2 = EqualizerFilter(equalizer1)
+                lpfFilter = LowPassButterworthFilter(equalizer2)
+                hpfFiler = HighPassButterworthFilter(lpfFilter)
+
+                node = hpfFiler
             }
         }
         
@@ -89,5 +122,10 @@ class SampleChannel: ObservableObject {
         distortion.update(with: configuration.distortion)
         reverb.update(with: configuration.reverb)
         delay.update(with: configuration.delay)
+        
+        equalizer1.update(with: configuration.equalizer1)
+        equalizer1.update(with: configuration.equalizer1)
+        hpfFiler.update(with: configuration.hpfFiler)
+        lpfFilter.update(with: configuration.lpfFilter)
     }
 }
