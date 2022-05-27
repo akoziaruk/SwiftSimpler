@@ -21,7 +21,7 @@ struct FlangerView: View {
                 EffectParameterView(title: "Depth", parameter: $flanger.depth)
                 EffectParameterView(title: "Feedback", parameter: $flanger.feedback)
             }
-
+            BypassToggleView(isOn: $flanger.bypassed)
         }
         .padding()
     }
