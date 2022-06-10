@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct DistortionView: View {
+struct DistortionView_OLD: View {
     @Binding var distortion: EffectsConfiguration.Distortion
 
     var body: some View {

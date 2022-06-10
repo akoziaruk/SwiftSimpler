@@ -8,7 +8,7 @@
 import SwiftUI
 import UniformTypeIdentifiers
 
-struct EffectPickerView: View {
+struct EffectPickerView_OLD: View {
     @Binding var selected: EffectType
     @Binding var all: [EffectType]
     @State var dragged: EffectType?

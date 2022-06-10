@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct MixerView: View {
+struct MixerView_OLD: View {
     @Binding var mixer: EffectsConfiguration.Mixer
 
     var body: some View {

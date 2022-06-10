@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct EffectConfigurationView: View {
+struct EffectConfigurationView_OLD: View {
     @State var activeEffect = EffectType.distortion
     @Binding var effect: EffectsConfiguration
     
@@ -15,22 +15,25 @@ struct EffectConfigurationView: View {
         VStack {
             switch activeEffect {
             case .distortion:
-                DistortionView(distortion: $effect.distortion)
+                DistortionView_OLD(distortion: $effect.distortion)
                 
             case .delay:
-                DelayView(delay: $effect.delay)
+                DelayView_OLD(delay: $effect.delay)
                 
             case .reverb:
-                ReverbView(reverb: $effect.reverb)
+                ReverbView_OLD(reverb: $effect.reverb)
                 
             case .equalizer:
-                EqualizationGroupView(eq1: $effect.equalizer1, eq2: $effect.equalizer2,
+                EqualizationGroupView_OLD(eq1: $effect.equalizer1, eq2: $effect.equalizer2,
                                       lpf: $effect.lpfFilter, hpf: $effect.hpfFiler)
+            case .flanger:
+                ReverbView_OLD(reverb: $effect.reverb)
+
             }
             
             HStack {
-                EffectPickerView(selected: $activeEffect, all: $effect.order)
-                MixerView(mixer: $effect.mixer)
+                EffectPickerView_OLD(selected: $activeEffect, all: $effect.order)
+                MixerView_OLD(mixer: $effect.mixer)
             }
         }
     }

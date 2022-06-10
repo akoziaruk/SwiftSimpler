@@ -7,12 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8A10EB5F28522118002904D8 /* EffectPickerBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A10EB5E28522118002904D8 /* EffectPickerBorder.swift */; };
 		8A2710D028292552001C9808 /* SamplePadsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2710CF28292552001C9808 /* SamplePadsView.swift */; };
 		8A321CB0283B6BBD00D0B269 /* Conductor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A321CAF283B6BBD00D0B269 /* Conductor.swift */; };
 		8A321CB3283B71DC00D0B269 /* Sampler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A321CB2283B71DC00D0B269 /* Sampler.swift */; };
 		8A3C13B2283FAD1200AE0D6F /* EffectsConfiguration+Equalizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3C13B1283FAD1200AE0D6F /* EffectsConfiguration+Equalizer.swift */; };
 		8A3C13B4283FAD2C00AE0D6F /* EffectsConfiguration+CutoffFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3C13B3283FAD2C00AE0D6F /* EffectsConfiguration+CutoffFilter.swift */; };
-		8A3C13B6283FB66000AE0D6F /* EqualizerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3C13B5283FB66000AE0D6F /* EqualizerView.swift */; };
+		8A3C13B6283FB66000AE0D6F /* EqualizerView_OLD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3C13B5283FB66000AE0D6F /* EqualizerView_OLD.swift */; };
 		8A4D990A282BB95B007804D7 /* SequencerPadsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4D9909282BB95B007804D7 /* SequencerPadsView.swift */; };
 		8A4D990D282BD7A4007804D7 /* AudioKitEX in Frameworks */ = {isa = PBXBuildFile; productRef = 8A4D990C282BD7A4007804D7 /* AudioKitEX */; };
 		8A4D990F282CD01A007804D7 /* SimplerSequencer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4D990E282CD01A007804D7 /* SimplerSequencer.swift */; };
@@ -20,8 +21,10 @@
 		8A4D9913282D0380007804D7 /* PlaybackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4D9912282D0380007804D7 /* PlaybackView.swift */; };
 		8A4D9916282D06F1007804D7 /* TrackLockState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4D9915282D06F1007804D7 /* TrackLockState.swift */; };
 		8A4D9918282D2BC2007804D7 /* AudioFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4D9917282D2BC2007804D7 /* AudioFileManager.swift */; };
-		8A76E79C282E472A0048CD1D /* EffectPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A76E79B282E472A0048CD1D /* EffectPickerView.swift */; };
-		8A76E79F282E47760048CD1D /* EffectConfigurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A76E79E282E47760048CD1D /* EffectConfigurationView.swift */; };
+		8A4F7B5B2851FBF50026E136 /* BorderModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4F7B5A2851FBF50026E136 /* BorderModifier.swift */; };
+		8A4F7B5E2851FD000026E136 /* EffectConfigurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4F7B5D2851FD000026E136 /* EffectConfigurationView.swift */; };
+		8A76E79C282E472A0048CD1D /* EffectPickerView_OLD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A76E79B282E472A0048CD1D /* EffectPickerView_OLD.swift */; };
+		8A76E79F282E47760048CD1D /* EffectConfigurationView_OLD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A76E79E282E47760048CD1D /* EffectConfigurationView_OLD.swift */; };
 		8A76E7A1282E47E20048CD1D /* PadsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A76E7A0282E47E20048CD1D /* PadsView.swift */; };
 		8A76E7A4282E485C0048CD1D /* EffectType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A76E7A3282E485C0048CD1D /* EffectType.swift */; };
 		8A76E7A7282E5A350048CD1D /* SoundpipeAudioKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8A76E7A6282E5A350048CD1D /* SoundpipeAudioKit */; };
@@ -31,20 +34,23 @@
 		8A837BAC283BB294004C16E2 /* EffectsConfiguration+Delay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A837BAB283BB294004C16E2 /* EffectsConfiguration+Delay.swift */; };
 		8A837BAE283BB2EF004C16E2 /* Parameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A837BAD283BB2EF004C16E2 /* Parameter.swift */; };
 		8A837BB2283BBC2E004C16E2 /* Effect+Title.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A837BB1283BBC2E004C16E2 /* Effect+Title.swift */; };
-		8A837BB6283BBCF8004C16E2 /* DistortionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A837BB5283BBCF8004C16E2 /* DistortionView.swift */; };
-		8A837BB8283BBD08004C16E2 /* DelayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A837BB7283BBD08004C16E2 /* DelayView.swift */; };
-		8A837BBA283BBD16004C16E2 /* ReverbView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A837BB9283BBD16004C16E2 /* ReverbView.swift */; };
+		8A837BB6283BBCF8004C16E2 /* DistortionView_OLD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A837BB5283BBCF8004C16E2 /* DistortionView_OLD.swift */; };
+		8A837BB8283BBD08004C16E2 /* DelayView_OLD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A837BB7283BBD08004C16E2 /* DelayView_OLD.swift */; };
+		8A837BBA283BBD16004C16E2 /* ReverbView_OLD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A837BB9283BBD16004C16E2 /* ReverbView_OLD.swift */; };
 		8A837BBC283BBD3A004C16E2 /* EffectParameterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A837BBB283BBD3A004C16E2 /* EffectParameterView.swift */; };
 		8A837BBF283BC331004C16E2 /* EffectsConfiguration+Mixer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A837BBE283BC331004C16E2 /* EffectsConfiguration+Mixer.swift */; };
 		8A83F57F2833E2F9002ED26F /* EffectsDropDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A83F57E2833E2F9002ED26F /* EffectsDropDelegate.swift */; };
-		8AD98C95283CFFC8009434C6 /* MixerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD98C94283CFFC8009434C6 /* MixerView.swift */; };
+		8A9CFB632851ECF4003B57E7 /* EffectsConfigurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9CFB622851ECF4003B57E7 /* EffectsConfigurationView.swift */; };
+		8AD6F7EF284F72D800504A11 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD6F7EE284F72D800504A11 /* MainView.swift */; };
+		8AD6F7F1284F739A00504A11 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD6F7F0284F739A00504A11 /* Colors.swift */; };
+		8AD98C95283CFFC8009434C6 /* MixerView_OLD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD98C94283CFFC8009434C6 /* MixerView_OLD.swift */; };
 		8AD98C99283E3D49009434C6 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD98C98283E3D49009434C6 /* Data.swift */; };
 		8AE861DC28290E8C002A1949 /* ControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE861DB28290E8C002A1949 /* ControlsView.swift */; };
 		8AE861DF28291855002A1949 /* AVAudioFile+Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE861DE28291855002A1949 /* AVAudioFile+Extention.swift */; };
 		8AEE9AE928254745005DBFE4 /* AudioKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8AEE9AE828254745005DBFE4 /* AudioKit */; };
 		8AEE9AEC28255D66005DBFE4 /* Samples in Resources */ = {isa = PBXBuildFile; fileRef = 8AEE9AEB28255D66005DBFE4 /* Samples */; };
 		8AEE9AEE28255E88005DBFE4 /* MIDI Files in Resources */ = {isa = PBXBuildFile; fileRef = 8AEE9AED28255E88005DBFE4 /* MIDI Files */; };
-		8AF295072836489900EF8E4C /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF295062836489900EF8E4C /* MainView.swift */; };
+		8AF295072836489900EF8E4C /* MainView_OLD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF295062836489900EF8E4C /* MainView_OLD.swift */; };
 		8AF5AB3F2824187700546E43 /* SwiftSimplerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF5AB3E2824187700546E43 /* SwiftSimplerApp.swift */; };
 		8AF5AB412824187700546E43 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF5AB402824187700546E43 /* ContentView.swift */; };
 		8AF5AB432824187800546E43 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8AF5AB422824187800546E43 /* Assets.xcassets */; };
@@ -72,20 +78,23 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8A10EB5E28522118002904D8 /* EffectPickerBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EffectPickerBorder.swift; sourceTree = "<group>"; };
 		8A2710CF28292552001C9808 /* SamplePadsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SamplePadsView.swift; sourceTree = "<group>"; };
 		8A321CAF283B6BBD00D0B269 /* Conductor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conductor.swift; sourceTree = "<group>"; };
 		8A321CB2283B71DC00D0B269 /* Sampler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sampler.swift; sourceTree = "<group>"; };
 		8A3C13B1283FAD1200AE0D6F /* EffectsConfiguration+Equalizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EffectsConfiguration+Equalizer.swift"; sourceTree = "<group>"; };
 		8A3C13B3283FAD2C00AE0D6F /* EffectsConfiguration+CutoffFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EffectsConfiguration+CutoffFilter.swift"; sourceTree = "<group>"; };
-		8A3C13B5283FB66000AE0D6F /* EqualizerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EqualizerView.swift; sourceTree = "<group>"; };
+		8A3C13B5283FB66000AE0D6F /* EqualizerView_OLD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EqualizerView_OLD.swift; sourceTree = "<group>"; };
 		8A4D9909282BB95B007804D7 /* SequencerPadsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SequencerPadsView.swift; sourceTree = "<group>"; };
 		8A4D990E282CD01A007804D7 /* SimplerSequencer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimplerSequencer.swift; sourceTree = "<group>"; };
 		8A4D9910282CD031007804D7 /* SampleChannel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleChannel.swift; sourceTree = "<group>"; };
 		8A4D9912282D0380007804D7 /* PlaybackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackView.swift; sourceTree = "<group>"; };
 		8A4D9915282D06F1007804D7 /* TrackLockState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackLockState.swift; sourceTree = "<group>"; };
 		8A4D9917282D2BC2007804D7 /* AudioFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioFileManager.swift; sourceTree = "<group>"; };
-		8A76E79B282E472A0048CD1D /* EffectPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EffectPickerView.swift; sourceTree = "<group>"; };
-		8A76E79E282E47760048CD1D /* EffectConfigurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EffectConfigurationView.swift; sourceTree = "<group>"; };
+		8A4F7B5A2851FBF50026E136 /* BorderModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderModifier.swift; sourceTree = "<group>"; };
+		8A4F7B5D2851FD000026E136 /* EffectConfigurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EffectConfigurationView.swift; sourceTree = "<group>"; };
+		8A76E79B282E472A0048CD1D /* EffectPickerView_OLD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EffectPickerView_OLD.swift; sourceTree = "<group>"; };
+		8A76E79E282E47760048CD1D /* EffectConfigurationView_OLD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EffectConfigurationView_OLD.swift; sourceTree = "<group>"; };
 		8A76E7A0282E47E20048CD1D /* PadsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PadsView.swift; sourceTree = "<group>"; };
 		8A76E7A3282E485C0048CD1D /* EffectType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EffectType.swift; sourceTree = "<group>"; };
 		8A76E7A8282E61C50048CD1D /* EffectsConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EffectsConfiguration.swift; sourceTree = "<group>"; };
@@ -94,20 +103,23 @@
 		8A837BAB283BB294004C16E2 /* EffectsConfiguration+Delay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EffectsConfiguration+Delay.swift"; sourceTree = "<group>"; };
 		8A837BAD283BB2EF004C16E2 /* Parameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parameter.swift; sourceTree = "<group>"; };
 		8A837BB1283BBC2E004C16E2 /* Effect+Title.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Effect+Title.swift"; sourceTree = "<group>"; };
-		8A837BB5283BBCF8004C16E2 /* DistortionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistortionView.swift; sourceTree = "<group>"; };
-		8A837BB7283BBD08004C16E2 /* DelayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelayView.swift; sourceTree = "<group>"; };
-		8A837BB9283BBD16004C16E2 /* ReverbView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReverbView.swift; sourceTree = "<group>"; };
+		8A837BB5283BBCF8004C16E2 /* DistortionView_OLD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistortionView_OLD.swift; sourceTree = "<group>"; };
+		8A837BB7283BBD08004C16E2 /* DelayView_OLD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelayView_OLD.swift; sourceTree = "<group>"; };
+		8A837BB9283BBD16004C16E2 /* ReverbView_OLD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReverbView_OLD.swift; sourceTree = "<group>"; };
 		8A837BBB283BBD3A004C16E2 /* EffectParameterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EffectParameterView.swift; sourceTree = "<group>"; };
 		8A837BBE283BC331004C16E2 /* EffectsConfiguration+Mixer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EffectsConfiguration+Mixer.swift"; sourceTree = "<group>"; };
 		8A83F57E2833E2F9002ED26F /* EffectsDropDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EffectsDropDelegate.swift; sourceTree = "<group>"; };
-		8AD98C94283CFFC8009434C6 /* MixerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixerView.swift; sourceTree = "<group>"; };
+		8A9CFB622851ECF4003B57E7 /* EffectsConfigurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EffectsConfigurationView.swift; sourceTree = "<group>"; };
+		8AD6F7EE284F72D800504A11 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		8AD6F7F0284F739A00504A11 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		8AD98C94283CFFC8009434C6 /* MixerView_OLD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixerView_OLD.swift; sourceTree = "<group>"; };
 		8AD98C98283E3D49009434C6 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		8AE861DB28290E8C002A1949 /* ControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlsView.swift; sourceTree = "<group>"; };
 		8AE861DE28291855002A1949 /* AVAudioFile+Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AVAudioFile+Extention.swift"; sourceTree = "<group>"; };
 		8AEE9AEA28255B55005DBFE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8AEE9AEB28255D66005DBFE4 /* Samples */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Samples; sourceTree = "<group>"; };
 		8AEE9AED28255E88005DBFE4 /* MIDI Files */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "MIDI Files"; sourceTree = "<group>"; };
-		8AF295062836489900EF8E4C /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		8AF295062836489900EF8E4C /* MainView_OLD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView_OLD.swift; sourceTree = "<group>"; };
 		8AF5AB3B2824187700546E43 /* SwiftSimpler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftSimpler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AF5AB3E2824187700546E43 /* SwiftSimplerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftSimplerApp.swift; sourceTree = "<group>"; };
 		8AF5AB402824187700546E43 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -148,14 +160,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8A10EB6028522128002904D8 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				8A10EB5E28522118002904D8 /* EffectPickerBorder.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		8A321CAE283B6BAA00D0B269 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				8AF295062836489900EF8E4C /* MainView.swift */,
-				8A4D9912282D0380007804D7 /* PlaybackView.swift */,
-				8AE861DB28290E8C002A1949 /* ControlsView.swift */,
-				8A76E79D282E47600048CD1D /* Effects Views */,
-				8A76E7A2282E47EA0048CD1D /* Pads views */,
+				8AD6F7EE284F72D800504A11 /* MainView.swift */,
+				8A4F7B5F2851FD380026E136 /* EffectConfiguration */,
+				8A4F7B5C2851FBF80026E136 /* Utils */,
+				8AD6F7ED284F71EA00504A11 /* OLD */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -180,6 +199,25 @@
 				8A837BC0283BCC30004C16E2 /* Chain */,
 			);
 			path = Sample;
+			sourceTree = "<group>";
+		};
+		8A4F7B5C2851FBF80026E136 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				8AD6F7F0284F739A00504A11 /* Colors.swift */,
+				8A4F7B5A2851FBF50026E136 /* BorderModifier.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		8A4F7B5F2851FD380026E136 /* EffectConfiguration */ = {
+			isa = PBXGroup;
+			children = (
+				8A9CFB622851ECF4003B57E7 /* EffectsConfigurationView.swift */,
+				8A4F7B5D2851FD000026E136 /* EffectConfigurationView.swift */,
+				8A10EB6028522128002904D8 /* Utils */,
+			);
+			path = EffectConfiguration;
 			sourceTree = "<group>";
 		};
 		8A76E79D282E47600048CD1D /* Effects Views */ = {
@@ -222,7 +260,7 @@
 		8A837BB3283BBCDA004C16E2 /* Picker */ = {
 			isa = PBXGroup;
 			children = (
-				8A76E79B282E472A0048CD1D /* EffectPickerView.swift */,
+				8A76E79B282E472A0048CD1D /* EffectPickerView_OLD.swift */,
 				8A83F57E2833E2F9002ED26F /* EffectsDropDelegate.swift */,
 				8A837BB1283BBC2E004C16E2 /* Effect+Title.swift */,
 			);
@@ -232,7 +270,7 @@
 		8A837BB4283BBCEA004C16E2 /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
-				8A76E79E282E47760048CD1D /* EffectConfigurationView.swift */,
+				8A76E79E282E47760048CD1D /* EffectConfigurationView_OLD.swift */,
 				8A837BBB283BBD3A004C16E2 /* EffectParameterView.swift */,
 				8A837BBD283BBD6A004C16E2 /* Effect Views */,
 			);
@@ -242,11 +280,11 @@
 		8A837BBD283BBD6A004C16E2 /* Effect Views */ = {
 			isa = PBXGroup;
 			children = (
-				8A837BB5283BBCF8004C16E2 /* DistortionView.swift */,
-				8A837BB7283BBD08004C16E2 /* DelayView.swift */,
-				8A837BB9283BBD16004C16E2 /* ReverbView.swift */,
-				8AD98C94283CFFC8009434C6 /* MixerView.swift */,
-				8A3C13B5283FB66000AE0D6F /* EqualizerView.swift */,
+				8A837BB5283BBCF8004C16E2 /* DistortionView_OLD.swift */,
+				8A837BB7283BBD08004C16E2 /* DelayView_OLD.swift */,
+				8A837BB9283BBD16004C16E2 /* ReverbView_OLD.swift */,
+				8AD98C94283CFFC8009434C6 /* MixerView_OLD.swift */,
+				8A3C13B5283FB66000AE0D6F /* EqualizerView_OLD.swift */,
 			);
 			path = "Effect Views";
 			sourceTree = "<group>";
@@ -264,6 +302,18 @@
 				8A837BAD283BB2EF004C16E2 /* Parameter.swift */,
 			);
 			path = Chain;
+			sourceTree = "<group>";
+		};
+		8AD6F7ED284F71EA00504A11 /* OLD */ = {
+			isa = PBXGroup;
+			children = (
+				8AF295062836489900EF8E4C /* MainView_OLD.swift */,
+				8A4D9912282D0380007804D7 /* PlaybackView.swift */,
+				8AE861DB28290E8C002A1949 /* ControlsView.swift */,
+				8A76E79D282E47600048CD1D /* Effects Views */,
+				8A76E7A2282E47EA0048CD1D /* Pads views */,
+			);
+			path = OLD;
 			sourceTree = "<group>";
 		};
 		8AE861DD28291837002A1949 /* Utils */ = {
@@ -479,31 +529,37 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A321CB3283B71DC00D0B269 /* Sampler.swift in Sources */,
+				8AD6F7EF284F72D800504A11 /* MainView.swift in Sources */,
 				8AF5AB412824187700546E43 /* ContentView.swift in Sources */,
-				8AF295072836489900EF8E4C /* MainView.swift in Sources */,
+				8AF295072836489900EF8E4C /* MainView_OLD.swift in Sources */,
+				8A4F7B5B2851FBF50026E136 /* BorderModifier.swift in Sources */,
 				8A4D9911282CD031007804D7 /* SampleChannel.swift in Sources */,
 				8A76E7A4282E485C0048CD1D /* EffectType.swift in Sources */,
+				8A9CFB632851ECF4003B57E7 /* EffectsConfigurationView.swift in Sources */,
+				8A4F7B5E2851FD000026E136 /* EffectConfigurationView.swift in Sources */,
 				8A837BAC283BB294004C16E2 /* EffectsConfiguration+Delay.swift in Sources */,
 				8A837BBF283BC331004C16E2 /* EffectsConfiguration+Mixer.swift in Sources */,
 				8AE861DF28291855002A1949 /* AVAudioFile+Extention.swift in Sources */,
 				8A3C13B4283FAD2C00AE0D6F /* EffectsConfiguration+CutoffFilter.swift in Sources */,
 				8A83F57F2833E2F9002ED26F /* EffectsDropDelegate.swift in Sources */,
-				8AD98C95283CFFC8009434C6 /* MixerView.swift in Sources */,
+				8AD98C95283CFFC8009434C6 /* MixerView_OLD.swift in Sources */,
 				8A837BBC283BBD3A004C16E2 /* EffectParameterView.swift in Sources */,
-				8A837BB6283BBCF8004C16E2 /* DistortionView.swift in Sources */,
+				8A837BB6283BBCF8004C16E2 /* DistortionView_OLD.swift in Sources */,
 				8A4D990F282CD01A007804D7 /* SimplerSequencer.swift in Sources */,
 				8AF5AB3F2824187700546E43 /* SwiftSimplerApp.swift in Sources */,
-				8A837BB8283BBD08004C16E2 /* DelayView.swift in Sources */,
-				8A837BBA283BBD16004C16E2 /* ReverbView.swift in Sources */,
-				8A3C13B6283FB66000AE0D6F /* EqualizerView.swift in Sources */,
+				8A837BB8283BBD08004C16E2 /* DelayView_OLD.swift in Sources */,
+				8A837BBA283BBD16004C16E2 /* ReverbView_OLD.swift in Sources */,
+				8A3C13B6283FB66000AE0D6F /* EqualizerView_OLD.swift in Sources */,
 				8A4D9913282D0380007804D7 /* PlaybackView.swift in Sources */,
 				8A4D9918282D2BC2007804D7 /* AudioFileManager.swift in Sources */,
-				8A76E79F282E47760048CD1D /* EffectConfigurationView.swift in Sources */,
+				8A76E79F282E47760048CD1D /* EffectConfigurationView_OLD.swift in Sources */,
 				8A837BA8283BB249004C16E2 /* EffectsConfiguration+Distortion.swift in Sources */,
 				8A837BB2283BBC2E004C16E2 /* Effect+Title.swift in Sources */,
-				8A76E79C282E472A0048CD1D /* EffectPickerView.swift in Sources */,
+				8A76E79C282E472A0048CD1D /* EffectPickerView_OLD.swift in Sources */,
 				8A76E7A9282E61C50048CD1D /* EffectsConfiguration.swift in Sources */,
 				8A4D9916282D06F1007804D7 /* TrackLockState.swift in Sources */,
+				8A10EB5F28522118002904D8 /* EffectPickerBorder.swift in Sources */,
+				8AD6F7F1284F739A00504A11 /* Colors.swift in Sources */,
 				8A4D990A282BB95B007804D7 /* SequencerPadsView.swift in Sources */,
 				8A837BAE283BB2EF004C16E2 /* Parameter.swift in Sources */,
 				8A3C13B2283FAD1200AE0D6F /* EffectsConfiguration+Equalizer.swift in Sources */,
@@ -675,9 +731,9 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SwiftSimpler/Info.plist;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -705,9 +761,9 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SwiftSimpler/Info.plist;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

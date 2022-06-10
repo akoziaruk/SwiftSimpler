@@ -14,6 +14,8 @@ extension EffectType {
         case .delay:        return "Delay"
         case .reverb:       return "Reverb"
         case .equalizer:    return "EQ"
+        case .flanger:
+            return "Flanger"
         }
     }
 }

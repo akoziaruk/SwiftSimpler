@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ReverbView: View {
+struct ReverbView_OLD: View {
     @Binding var reverb: EffectsConfiguration.Reverb
 
     var body: some View {

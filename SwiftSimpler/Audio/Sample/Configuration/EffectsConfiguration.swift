@@ -11,7 +11,7 @@ import AVKit
 struct EffectsConfiguration {
     let id = UUID()
     
-    var order: [EffectType] = [.distortion, .delay, .reverb, .equalizer]
+    var order: [EffectType] = [.reverb, .delay, .flanger, .distortion, .equalizer]
     
     var distortion = Distortion()
     var delay = Delay()

@@ -108,6 +108,8 @@ class SampleChannel: ObservableObject {
                 hpfFiler = HighPassButterworthFilter(lpfFilter)
 
                 node = hpfFiler
+            case .flanger:
+                break
             }
         }
         

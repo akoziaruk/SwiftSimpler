@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct EqualizationGroupView: View {
+struct EqualizationGroupView_OLD: View {
     @Binding var eq1: EffectsConfiguration.Equalizer
     @Binding var eq2: EffectsConfiguration.Equalizer
     @Binding var lpf: EffectsConfiguration.CutoffFilter
@@ -16,14 +16,14 @@ struct EqualizationGroupView: View {
     var body: some View {
         HStack {
             CutoffView(cutoff: $lpf, text: "LPF")
-            EqualizerView(equalizer: $eq1, text: "Band 1")
-            EqualizerView(equalizer: $eq2, text: "Band 2")
+            EqualizerView_OLD(equalizer: $eq1, text: "Band 1")
+            EqualizerView_OLD(equalizer: $eq2, text: "Band 2")
             CutoffView(cutoff: $hpf, text: "HPF")
         }
     }
 }
 
-struct EqualizerView: View {
+struct EqualizerView_OLD: View {
     @Binding var equalizer: EffectsConfiguration.Equalizer
 
     let text: String

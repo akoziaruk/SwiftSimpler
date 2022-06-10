@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct DelayView: View {
+struct DelayView_OLD: View {
     @Binding var delay: EffectsConfiguration.Delay
 
     var body: some View {
