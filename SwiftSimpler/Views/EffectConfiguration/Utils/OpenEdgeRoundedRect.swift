@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct HalfOpenRoundedRect: InsettableShape {
+struct OpenEdgeRoundedRect: InsettableShape {
     var radius: CGFloat = 12
     var inset: CGFloat = 0.0
     var openEdge: Edge
@@ -17,16 +17,16 @@ struct HalfOpenRoundedRect: InsettableShape {
 
         switch openEdge {
         case .top:
-            return rect.topPath(with: radius)
+            return rect.topOpenPath(with: radius)
             
         case .leading:
-            return rect.leadingPath(with: radius)
+            return rect.leadingOpenPath(with: radius)
             
         case .bottom:
-            return rect.bottomPath(with: radius)
+            return rect.bottomOpenPath(with: radius)
             
         case .trailing:
-            return rect.trailingPath(with: radius)
+            return rect.trailingOpenPath(with: radius)
         }
     }
     
@@ -38,7 +38,7 @@ struct HalfOpenRoundedRect: InsettableShape {
 }
 
 fileprivate extension CGRect {
-    func topPath(with radius: CGFloat) -> Path {
+    func topOpenPath(with radius: CGFloat) -> Path {
         var path = Path()
         
         path.move(to: CGPoint(x: minX, y: minY))
@@ -62,7 +62,7 @@ fileprivate extension CGRect {
         return path
     }
     
-    func trailingPath(with radius: CGFloat) -> Path {
+    func trailingOpenPath(with radius: CGFloat) -> Path {
         var path = Path()
 
         path.move(to: CGPoint(x: maxX, y: minY))
@@ -86,7 +86,7 @@ fileprivate extension CGRect {
         return path
     }
 
-    func bottomPath(with radius: CGFloat) -> Path {
+    func bottomOpenPath(with radius: CGFloat) -> Path {
         var path = Path()
 
         path.move(to: CGPoint(x: minX, y: maxY))
@@ -111,7 +111,7 @@ fileprivate extension CGRect {
     }
     
     
-    func leadingPath(with radius: CGFloat) -> Path {
+    func leadingOpenPath(with radius: CGFloat) -> Path {
         var path = Path()
 
         path.move(to: CGPoint(x: minX, y: minY))

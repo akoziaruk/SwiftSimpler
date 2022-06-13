@@ -18,7 +18,7 @@ struct ProjectButtonsView: View {
             .font(Font.system(size: 30))
             .padding(EdgeInsets(top: 8, leading: 8, bottom: 8, trailing: 4))
             .overlay(
-                HalfOpenRoundedRect(openEdge: .trailing)
+                OpenEdgeRoundedRect(openEdge: .trailing)
                     .stroke(Palette.grey)
             )
             .offset(x: 2)

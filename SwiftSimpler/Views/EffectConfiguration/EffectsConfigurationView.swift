@@ -51,7 +51,7 @@ struct EffectPickerView: View {
                     .padding([.trailing, .leading], 20)
                     .background((selected == effect) ? Palette.black: .clear)
                     .overlay(
-                        HalfOpenRoundedRect(openEdge: .top)
+                        OpenEdgeRoundedRect(openEdge: .top)
                             .strokeBorder(Palette.red, lineWidth: (selected == effect) ? 2 : 1)
                     )
 

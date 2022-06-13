@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8A10EB5F28522118002904D8 /* HalfOpenRoundedRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A10EB5E28522118002904D8 /* HalfOpenRoundedRect.swift */; };
+		8A10EB5F28522118002904D8 /* OpenEdgeRoundedRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A10EB5E28522118002904D8 /* OpenEdgeRoundedRect.swift */; };
 		8A2710D028292552001C9808 /* SamplePadsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2710CF28292552001C9808 /* SamplePadsView.swift */; };
 		8A321CB0283B6BBD00D0B269 /* Conductor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A321CAF283B6BBD00D0B269 /* Conductor.swift */; };
 		8A321CB3283B71DC00D0B269 /* Sampler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A321CB2283B71DC00D0B269 /* Sampler.swift */; };
@@ -80,7 +80,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		8A10EB5E28522118002904D8 /* HalfOpenRoundedRect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HalfOpenRoundedRect.swift; sourceTree = "<group>"; };
+		8A10EB5E28522118002904D8 /* OpenEdgeRoundedRect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenEdgeRoundedRect.swift; sourceTree = "<group>"; };
 		8A2710CF28292552001C9808 /* SamplePadsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SamplePadsView.swift; sourceTree = "<group>"; };
 		8A321CAF283B6BBD00D0B269 /* Conductor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conductor.swift; sourceTree = "<group>"; };
 		8A321CB2283B71DC00D0B269 /* Sampler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sampler.swift; sourceTree = "<group>"; };
@@ -167,7 +167,7 @@
 		8A10EB6028522128002904D8 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				8A10EB5E28522118002904D8 /* HalfOpenRoundedRect.swift */,
+				8A10EB5E28522118002904D8 /* OpenEdgeRoundedRect.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -573,7 +573,7 @@
 				8A76E79C282E472A0048CD1D /* EffectPickerView_OLD.swift in Sources */,
 				8A76E7A9282E61C50048CD1D /* EffectsConfiguration.swift in Sources */,
 				8A4D9916282D06F1007804D7 /* TrackLockState.swift in Sources */,
-				8A10EB5F28522118002904D8 /* HalfOpenRoundedRect.swift in Sources */,
+				8A10EB5F28522118002904D8 /* OpenEdgeRoundedRect.swift in Sources */,
 				8AD6F7F1284F739A00504A11 /* Colors.swift in Sources */,
 				8A4D990A282BB95B007804D7 /* SequencerPadsView.swift in Sources */,
 				8A837BAE283BB2EF004C16E2 /* Parameter.swift in Sources */,
