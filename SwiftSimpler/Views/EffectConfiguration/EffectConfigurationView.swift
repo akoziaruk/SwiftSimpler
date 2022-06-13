@@ -34,7 +34,8 @@ struct EffectConfigurationView: View {
 
 struct ReverbView: View {
     var body: some View {
-        Color.green.opacity(0.2)
+        Color.clear
+        //green.opacity(0.2)
     }
 }
 

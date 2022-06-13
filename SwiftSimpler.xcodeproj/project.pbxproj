@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8A10EB5F28522118002904D8 /* EffectPickerBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A10EB5E28522118002904D8 /* EffectPickerBorder.swift */; };
+		8A10EB5F28522118002904D8 /* HalfOpenRoundedRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A10EB5E28522118002904D8 /* HalfOpenRoundedRect.swift */; };
 		8A2710D028292552001C9808 /* SamplePadsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2710CF28292552001C9808 /* SamplePadsView.swift */; };
 		8A321CB0283B6BBD00D0B269 /* Conductor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A321CAF283B6BBD00D0B269 /* Conductor.swift */; };
 		8A321CB3283B71DC00D0B269 /* Sampler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A321CB2283B71DC00D0B269 /* Sampler.swift */; };
@@ -41,6 +41,8 @@
 		8A837BBF283BC331004C16E2 /* EffectsConfiguration+Mixer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A837BBE283BC331004C16E2 /* EffectsConfiguration+Mixer.swift */; };
 		8A83F57F2833E2F9002ED26F /* EffectsDropDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A83F57E2833E2F9002ED26F /* EffectsDropDelegate.swift */; };
 		8A9CFB632851ECF4003B57E7 /* EffectsConfigurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9CFB622851ECF4003B57E7 /* EffectsConfigurationView.swift */; };
+		8ABFE99E28533F900049A859 /* OutputConfugurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABFE99D28533F900049A859 /* OutputConfugurationView.swift */; };
+		8ABFE9A02853408E0049A859 /* ProjectButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABFE99F2853408E0049A859 /* ProjectButtonsView.swift */; };
 		8AD6F7EF284F72D800504A11 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD6F7EE284F72D800504A11 /* MainView.swift */; };
 		8AD6F7F1284F739A00504A11 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD6F7F0284F739A00504A11 /* Colors.swift */; };
 		8AD98C95283CFFC8009434C6 /* MixerView_OLD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD98C94283CFFC8009434C6 /* MixerView_OLD.swift */; };
@@ -78,7 +80,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		8A10EB5E28522118002904D8 /* EffectPickerBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EffectPickerBorder.swift; sourceTree = "<group>"; };
+		8A10EB5E28522118002904D8 /* HalfOpenRoundedRect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HalfOpenRoundedRect.swift; sourceTree = "<group>"; };
 		8A2710CF28292552001C9808 /* SamplePadsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SamplePadsView.swift; sourceTree = "<group>"; };
 		8A321CAF283B6BBD00D0B269 /* Conductor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conductor.swift; sourceTree = "<group>"; };
 		8A321CB2283B71DC00D0B269 /* Sampler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sampler.swift; sourceTree = "<group>"; };
@@ -110,6 +112,8 @@
 		8A837BBE283BC331004C16E2 /* EffectsConfiguration+Mixer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EffectsConfiguration+Mixer.swift"; sourceTree = "<group>"; };
 		8A83F57E2833E2F9002ED26F /* EffectsDropDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EffectsDropDelegate.swift; sourceTree = "<group>"; };
 		8A9CFB622851ECF4003B57E7 /* EffectsConfigurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EffectsConfigurationView.swift; sourceTree = "<group>"; };
+		8ABFE99D28533F900049A859 /* OutputConfugurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputConfugurationView.swift; sourceTree = "<group>"; };
+		8ABFE99F2853408E0049A859 /* ProjectButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectButtonsView.swift; sourceTree = "<group>"; };
 		8AD6F7EE284F72D800504A11 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		8AD6F7F0284F739A00504A11 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		8AD98C94283CFFC8009434C6 /* MixerView_OLD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixerView_OLD.swift; sourceTree = "<group>"; };
@@ -163,7 +167,7 @@
 		8A10EB6028522128002904D8 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				8A10EB5E28522118002904D8 /* EffectPickerBorder.swift */,
+				8A10EB5E28522118002904D8 /* HalfOpenRoundedRect.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -172,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				8AD6F7EE284F72D800504A11 /* MainView.swift */,
+				8ABFE9A12853409C0049A859 /* ProjectConfiguration */,
 				8A4F7B5F2851FD380026E136 /* EffectConfiguration */,
 				8A4F7B5C2851FBF80026E136 /* Utils */,
 				8AD6F7ED284F71EA00504A11 /* OLD */,
@@ -215,6 +220,7 @@
 			children = (
 				8A9CFB622851ECF4003B57E7 /* EffectsConfigurationView.swift */,
 				8A4F7B5D2851FD000026E136 /* EffectConfigurationView.swift */,
+				8ABFE99D28533F900049A859 /* OutputConfugurationView.swift */,
 				8A10EB6028522128002904D8 /* Utils */,
 			);
 			path = EffectConfiguration;
@@ -302,6 +308,14 @@
 				8A837BAD283BB2EF004C16E2 /* Parameter.swift */,
 			);
 			path = Chain;
+			sourceTree = "<group>";
+		};
+		8ABFE9A12853409C0049A859 /* ProjectConfiguration */ = {
+			isa = PBXGroup;
+			children = (
+				8ABFE99F2853408E0049A859 /* ProjectButtonsView.swift */,
+			);
+			path = ProjectConfiguration;
 			sourceTree = "<group>";
 		};
 		8AD6F7ED284F71EA00504A11 /* OLD */ = {
@@ -546,6 +560,7 @@
 				8A837BBC283BBD3A004C16E2 /* EffectParameterView.swift in Sources */,
 				8A837BB6283BBCF8004C16E2 /* DistortionView_OLD.swift in Sources */,
 				8A4D990F282CD01A007804D7 /* SimplerSequencer.swift in Sources */,
+				8ABFE99E28533F900049A859 /* OutputConfugurationView.swift in Sources */,
 				8AF5AB3F2824187700546E43 /* SwiftSimplerApp.swift in Sources */,
 				8A837BB8283BBD08004C16E2 /* DelayView_OLD.swift in Sources */,
 				8A837BBA283BBD16004C16E2 /* ReverbView_OLD.swift in Sources */,
@@ -558,7 +573,7 @@
 				8A76E79C282E472A0048CD1D /* EffectPickerView_OLD.swift in Sources */,
 				8A76E7A9282E61C50048CD1D /* EffectsConfiguration.swift in Sources */,
 				8A4D9916282D06F1007804D7 /* TrackLockState.swift in Sources */,
-				8A10EB5F28522118002904D8 /* EffectPickerBorder.swift in Sources */,
+				8A10EB5F28522118002904D8 /* HalfOpenRoundedRect.swift in Sources */,
 				8AD6F7F1284F739A00504A11 /* Colors.swift in Sources */,
 				8A4D990A282BB95B007804D7 /* SequencerPadsView.swift in Sources */,
 				8A837BAE283BB2EF004C16E2 /* Parameter.swift in Sources */,
@@ -567,6 +582,7 @@
 				8A321CB0283B6BBD00D0B269 /* Conductor.swift in Sources */,
 				8A2710D028292552001C9808 /* SamplePadsView.swift in Sources */,
 				8A76E7A1282E47E20048CD1D /* PadsView.swift in Sources */,
+				8ABFE9A02853408E0049A859 /* ProjectButtonsView.swift in Sources */,
 				8AE861DC28290E8C002A1949 /* ControlsView.swift in Sources */,
 				8AD98C99283E3D49009434C6 /* Data.swift in Sources */,
 			);

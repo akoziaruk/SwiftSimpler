@@ -13,7 +13,7 @@ struct EffectsConfigurationView: View {
 
     var body: some View {
         GeometryReader { context in
-            HStack {
+            HStack(alignment: .top) {
                 VStack(spacing: 0) {
                     EffectConfigurationView(activeEffect: $activeEffect)
                     
@@ -26,7 +26,8 @@ struct EffectsConfigurationView: View {
                 Spacer()
                 
                 OutputConfugurationView()
-                    .frame(width: context.size.width * 0.2)
+                    .frame(width: context.size.width * 0.2,
+                           height: context.size.height * 0.82)
             }
         }
     }
@@ -50,8 +51,8 @@ struct EffectPickerView: View {
                     .padding([.trailing, .leading], 20)
                     .background((selected == effect) ? Palette.black: .clear)
                     .overlay(
-                        EffectPickerRoundedBottomBorder()
-                            .stroke(Palette.red, lineWidth: (selected == effect) ? 2 : 1)
+                        HalfOpenRoundedRect(openEdge: .top)
+                            .strokeBorder(Palette.red, lineWidth: (selected == effect) ? 2 : 1)
                     )
 
             }

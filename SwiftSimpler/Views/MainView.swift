@@ -55,20 +55,6 @@ struct MainView: View {
     }
 }
 
-
-struct OutputConfugurationView: View {
-    var body: some View {
-        Color.gray.opacity(0.2)
-    }
-}
-
-struct ProjectButtonsView: View {
-    var body: some View {
-        Color.gray.opacity(0.2)
-            .frame(width: 60)
-    }
-}
-
 struct MyPreviewProvider_Previews: PreviewProvider {
     static var previews: some View {
         MainView()
