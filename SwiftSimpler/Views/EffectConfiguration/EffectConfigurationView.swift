@@ -9,17 +9,19 @@ import SwiftUI
 
 struct EffectConfigurationView: View {
     @Binding var activeEffect: EffectType
-
+    
     var body: some View {
-        activeView
-            .modifier(RoundedInnerBorder(color: Palette.red))
+        GeometryReader { context in
+            activeView(itemWidth: context.size.width / CGFloat(Constants.maxNumberOfItems) - Constants.padding)
+                .modifier(RoundedInnerBorder(color: Palette.red))
+        }
     }
     
     @ViewBuilder
-    var activeView: some View {
+    func activeView(itemWidth: CGFloat) -> some View {
         switch activeEffect {
         case .reverb:
-            ReverbView()
+            ReverbView(itemWidth: itemWidth)
         case .delay:
             DelayView()
         case .flanger:
@@ -30,14 +32,13 @@ struct EffectConfigurationView: View {
             EqualizerView()
         }
     }
-}
-
-struct ReverbView: View {
-    var body: some View {
-        Color.clear
-        //green.opacity(0.2)
+    
+    private struct Constants {
+        static let maxNumberOfItems = 7
+        static let padding = 20.0
     }
 }
+
 
 struct DelayView: View {
     var body: some View {

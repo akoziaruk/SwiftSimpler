@@ -110,7 +110,6 @@ fileprivate extension CGRect {
         return path
     }
     
-    
     func leadingOpenPath(with radius: CGFloat) -> Path {
         var path = Path()
 

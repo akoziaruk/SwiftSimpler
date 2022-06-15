@@ -45,6 +45,13 @@
 		8ABFE9A02853408E0049A859 /* ProjectButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABFE99F2853408E0049A859 /* ProjectButtonsView.swift */; };
 		8AD6F7EF284F72D800504A11 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD6F7EE284F72D800504A11 /* MainView.swift */; };
 		8AD6F7F1284F739A00504A11 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD6F7F0284F739A00504A11 /* Colors.swift */; };
+		8AD76AC12858C07C0088CC1E /* EffectPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD76AC02858C07C0088CC1E /* EffectPickerView.swift */; };
+		8AD76AC32858C0D70088CC1E /* ReverbView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD76AC22858C0D70088CC1E /* ReverbView.swift */; };
+		8AD76AC62859E9F90088CC1E /* KnobSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD76AC52859E9F90088CC1E /* KnobSegment.swift */; };
+		8AD76AC92859EA160088CC1E /* KnobControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD76AC82859EA160088CC1E /* KnobControl.swift */; };
+		8AD76ACB2859EA3B0088CC1E /* KnobControlPointerShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD76ACA2859EA3B0088CC1E /* KnobControlPointerShape.swift */; };
+		8AD76ACE2859EA5C0088CC1E /* KnobControlEdgesShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD76ACD2859EA5C0088CC1E /* KnobControlEdgesShape.swift */; };
+		8AD76AD02859EA7D0088CC1E /* CGFloat+Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD76ACF2859EA7D0088CC1E /* CGFloat+Extention.swift */; };
 		8AD98C95283CFFC8009434C6 /* MixerView_OLD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD98C94283CFFC8009434C6 /* MixerView_OLD.swift */; };
 		8AD98C99283E3D49009434C6 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD98C98283E3D49009434C6 /* Data.swift */; };
 		8AE861DC28290E8C002A1949 /* ControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE861DB28290E8C002A1949 /* ControlsView.swift */; };
@@ -116,6 +123,13 @@
 		8ABFE99F2853408E0049A859 /* ProjectButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectButtonsView.swift; sourceTree = "<group>"; };
 		8AD6F7EE284F72D800504A11 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		8AD6F7F0284F739A00504A11 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		8AD76AC02858C07C0088CC1E /* EffectPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EffectPickerView.swift; sourceTree = "<group>"; };
+		8AD76AC22858C0D70088CC1E /* ReverbView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReverbView.swift; sourceTree = "<group>"; };
+		8AD76AC52859E9F90088CC1E /* KnobSegment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnobSegment.swift; sourceTree = "<group>"; };
+		8AD76AC82859EA160088CC1E /* KnobControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnobControl.swift; sourceTree = "<group>"; };
+		8AD76ACA2859EA3B0088CC1E /* KnobControlPointerShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnobControlPointerShape.swift; sourceTree = "<group>"; };
+		8AD76ACD2859EA5C0088CC1E /* KnobControlEdgesShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnobControlEdgesShape.swift; sourceTree = "<group>"; };
+		8AD76ACF2859EA7D0088CC1E /* CGFloat+Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extention.swift"; sourceTree = "<group>"; };
 		8AD98C94283CFFC8009434C6 /* MixerView_OLD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixerView_OLD.swift; sourceTree = "<group>"; };
 		8AD98C98283E3D49009434C6 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		8AE861DB28290E8C002A1949 /* ControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlsView.swift; sourceTree = "<group>"; };
@@ -211,6 +225,7 @@
 			children = (
 				8AD6F7F0284F739A00504A11 /* Colors.swift */,
 				8A4F7B5A2851FBF50026E136 /* BorderModifier.swift */,
+				8AD76ACF2859EA7D0088CC1E /* CGFloat+Extention.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -220,6 +235,8 @@
 			children = (
 				8A9CFB622851ECF4003B57E7 /* EffectsConfigurationView.swift */,
 				8A4F7B5D2851FD000026E136 /* EffectConfigurationView.swift */,
+				8AD76AC42858C0DA0088CC1E /* EffectViews */,
+				8AD76AC02858C07C0088CC1E /* EffectPickerView.swift */,
 				8ABFE99D28533F900049A859 /* OutputConfugurationView.swift */,
 				8A10EB6028522128002904D8 /* Utils */,
 			);
@@ -328,6 +345,34 @@
 				8A76E7A2282E47EA0048CD1D /* Pads views */,
 			);
 			path = OLD;
+			sourceTree = "<group>";
+		};
+		8AD76AC42858C0DA0088CC1E /* EffectViews */ = {
+			isa = PBXGroup;
+			children = (
+				8AD76AC22858C0D70088CC1E /* ReverbView.swift */,
+				8AD76AC72859EA000088CC1E /* Knob */,
+			);
+			path = EffectViews;
+			sourceTree = "<group>";
+		};
+		8AD76AC72859EA000088CC1E /* Knob */ = {
+			isa = PBXGroup;
+			children = (
+				8AD76AC52859E9F90088CC1E /* KnobSegment.swift */,
+				8AD76AC82859EA160088CC1E /* KnobControl.swift */,
+				8AD76ACC2859EA4B0088CC1E /* Shapes */,
+			);
+			path = Knob;
+			sourceTree = "<group>";
+		};
+		8AD76ACC2859EA4B0088CC1E /* Shapes */ = {
+			isa = PBXGroup;
+			children = (
+				8AD76ACA2859EA3B0088CC1E /* KnobControlPointerShape.swift */,
+				8AD76ACD2859EA5C0088CC1E /* KnobControlEdgesShape.swift */,
+			);
+			path = Shapes;
 			sourceTree = "<group>";
 		};
 		8AE861DD28291837002A1949 /* Utils */ = {
@@ -549,6 +594,7 @@
 				8A4F7B5B2851FBF50026E136 /* BorderModifier.swift in Sources */,
 				8A4D9911282CD031007804D7 /* SampleChannel.swift in Sources */,
 				8A76E7A4282E485C0048CD1D /* EffectType.swift in Sources */,
+				8AD76AC62859E9F90088CC1E /* KnobSegment.swift in Sources */,
 				8A9CFB632851ECF4003B57E7 /* EffectsConfigurationView.swift in Sources */,
 				8A4F7B5E2851FD000026E136 /* EffectConfigurationView.swift in Sources */,
 				8A837BAC283BB294004C16E2 /* EffectsConfiguration+Delay.swift in Sources */,
@@ -556,10 +602,12 @@
 				8AE861DF28291855002A1949 /* AVAudioFile+Extention.swift in Sources */,
 				8A3C13B4283FAD2C00AE0D6F /* EffectsConfiguration+CutoffFilter.swift in Sources */,
 				8A83F57F2833E2F9002ED26F /* EffectsDropDelegate.swift in Sources */,
+				8AD76AC32858C0D70088CC1E /* ReverbView.swift in Sources */,
 				8AD98C95283CFFC8009434C6 /* MixerView_OLD.swift in Sources */,
 				8A837BBC283BBD3A004C16E2 /* EffectParameterView.swift in Sources */,
 				8A837BB6283BBCF8004C16E2 /* DistortionView_OLD.swift in Sources */,
 				8A4D990F282CD01A007804D7 /* SimplerSequencer.swift in Sources */,
+				8AD76ACE2859EA5C0088CC1E /* KnobControlEdgesShape.swift in Sources */,
 				8ABFE99E28533F900049A859 /* OutputConfugurationView.swift in Sources */,
 				8AF5AB3F2824187700546E43 /* SwiftSimplerApp.swift in Sources */,
 				8A837BB8283BBD08004C16E2 /* DelayView_OLD.swift in Sources */,
@@ -569,6 +617,7 @@
 				8A4D9918282D2BC2007804D7 /* AudioFileManager.swift in Sources */,
 				8A76E79F282E47760048CD1D /* EffectConfigurationView_OLD.swift in Sources */,
 				8A837BA8283BB249004C16E2 /* EffectsConfiguration+Distortion.swift in Sources */,
+				8AD76ACB2859EA3B0088CC1E /* KnobControlPointerShape.swift in Sources */,
 				8A837BB2283BBC2E004C16E2 /* Effect+Title.swift in Sources */,
 				8A76E79C282E472A0048CD1D /* EffectPickerView_OLD.swift in Sources */,
 				8A76E7A9282E61C50048CD1D /* EffectsConfiguration.swift in Sources */,
@@ -579,12 +628,15 @@
 				8A837BAE283BB2EF004C16E2 /* Parameter.swift in Sources */,
 				8A3C13B2283FAD1200AE0D6F /* EffectsConfiguration+Equalizer.swift in Sources */,
 				8A837BAA283BB277004C16E2 /* EffectsConfiguration+Reverb.swift in Sources */,
+				8AD76AC92859EA160088CC1E /* KnobControl.swift in Sources */,
 				8A321CB0283B6BBD00D0B269 /* Conductor.swift in Sources */,
+				8AD76AD02859EA7D0088CC1E /* CGFloat+Extention.swift in Sources */,
 				8A2710D028292552001C9808 /* SamplePadsView.swift in Sources */,
 				8A76E7A1282E47E20048CD1D /* PadsView.swift in Sources */,
 				8ABFE9A02853408E0049A859 /* ProjectButtonsView.swift in Sources */,
 				8AE861DC28290E8C002A1949 /* ControlsView.swift in Sources */,
 				8AD98C99283E3D49009434C6 /* Data.swift in Sources */,
+				8AD76AC12858C07C0088CC1E /* EffectPickerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

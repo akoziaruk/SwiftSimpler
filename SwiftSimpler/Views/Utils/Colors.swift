@@ -10,6 +10,8 @@ import SwiftUI
 
 struct Palette {
     static let black = Color("black")
+    static let blackLight = Color("blackLight")
+
     static let white = Color("white")
     
     static let red = Color("red")
