@@ -41,7 +41,7 @@ struct KnobControl: View {
             .gesture(
                 DragGesture(minimumDistance: 0)
                     .onChanged({ gesture in
-                        let translation = -gesture.translation.height
+                        let translation = gesture.translation.width + -gesture.translation.height
                         value = max(min(value + translation - lastTranslation, 100), 0)
                         lastTranslation = translation
                     })
