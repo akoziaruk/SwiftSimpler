@@ -8,21 +8,40 @@
 import SwiftUI
 
 struct ReverbView: View {
+    @Binding var config: EffectsConfiguration.Reverb
+
     let itemWidth: CGFloat
-    
-    let items = ["Mix", "Crossover", "Damping", "Predelay", "Rls low", "Rls mid"]
-    
+
     var body: some View {
         HStack(spacing: 20) {
             
-            ForEach(items,  id: \.self) { item in
-                KnobSegment(title: item)
-                    .frame(width: itemWidth)
-            }
+            KnobSegment(parameter: $config.mix,
+                        title: "Mix")
+//                .frame(width: itemWidth)
+
+            KnobSegment(parameter: $config.crossoverFrequency,
+                        title: "Crossover")
+//                .frame(width: itemWidth)
+
+            KnobSegment(parameter: $config.dampingFrequency,
+                        title: "Damping")
+//                .frame(width: itemWidth)
+
+            KnobSegment(parameter: $config.predelay,
+                        title: "Predelay")
+//                .frame(width: itemWidth)
+
+            KnobSegment(parameter: $config.equalizerFrequency,
+                        title: "Freq")
+//                .frame(width: itemWidth)
+
+            KnobSegment(parameter: $config.midReleaseTime,
+                        title: "Rls mid")
+//                .frame(width: itemWidth)
 
             Spacer()
         }
-        .lineLimit(1)
+        
         .padding(20)
     }
 }

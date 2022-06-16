@@ -15,7 +15,7 @@ struct EffectsConfigurationView: View {
         GeometryReader { context in
             HStack(alignment: .top) {
                 VStack(spacing: 0) {
-                    EffectConfigurationView(activeEffect: $activeEffect)
+                    EffectConfigurationView(activeEffect: $activeEffect, effect: $effect)
                     
                     EffectPickerView(selected: $activeEffect, all: $effect.order)
                         .offset(y: -2) // offset to overlay configuration view

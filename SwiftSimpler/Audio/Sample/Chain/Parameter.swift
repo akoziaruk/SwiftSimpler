@@ -10,7 +10,9 @@ import AudioKit
 
 extension Parameter: Equatable { }
 
+typealias Value = AUValue
+
 struct Parameter {
-    var value: AUValue
-    var range: ClosedRange<AUValue>
+    var value: Value
+    var range: ClosedRange<Value>
 }

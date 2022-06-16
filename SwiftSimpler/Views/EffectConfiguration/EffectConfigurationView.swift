@@ -9,7 +9,8 @@ import SwiftUI
 
 struct EffectConfigurationView: View {
     @Binding var activeEffect: EffectType
-    
+    @Binding var effect: EffectsConfiguration
+
     var body: some View {
         GeometryReader { context in
             activeView(itemWidth: context.size.width / CGFloat(Constants.maxNumberOfItems) - Constants.padding)
@@ -21,7 +22,7 @@ struct EffectConfigurationView: View {
     func activeView(itemWidth: CGFloat) -> some View {
         switch activeEffect {
         case .reverb:
-            ReverbView(itemWidth: itemWidth)
+            ReverbView(config: $effect.reverb, itemWidth: itemWidth)
         case .delay:
             DelayView()
         case .flanger:
