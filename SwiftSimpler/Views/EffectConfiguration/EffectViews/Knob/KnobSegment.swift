@@ -9,7 +9,7 @@ import SwiftUI
 
 struct KnobSegment: View {
     let title: String
-    @State var position = 100.0 as CGFloat
+    @State var value: CGFloat = 50
     
     var body: some View {
         GeometryReader { context in
@@ -18,7 +18,7 @@ struct KnobSegment: View {
                     .font(.headline)
                     .foregroundColor(Palette.white)
                 
-                KnobControl(position: $position)
+                KnobControl(value: $value)
                     .frame(height: context.size.width)
             }
         }
