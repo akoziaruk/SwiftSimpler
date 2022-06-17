@@ -26,19 +26,19 @@ struct KnobControl: View {
                     Circle()
                         .foregroundColor(Palette.white)
                     
-                    KnobControlPointerShape(offsetProportion: Constants.offsetProportion, angle: currentAngle.radians)
+                    KnobControlPointerShape(centerOffsetProportion: Constants.centerOffsetProportion, angle: currentAngle.radians)
                         .stroke(Palette.black, style: StrokeStyle(lineWidth: 4, lineCap: .round))
 
-                    KnobControlEdgesShape(offsetProportion: Constants.offsetProportion,
+                    KnobControlEdgesShape(centerOffsetProportion: Constants.centerOffsetProportion,
                                           startAngle: Constants.startAngle.radians,
                                           endAngle: Constants.endAngle.radians)
                         .stroke(Palette.blackLight, lineWidth: 1)
 
-                    Text(String(format: "%.1f", value))
+                    Text(value.displayFormatted)
                         .foregroundColor(Palette.black)
-                        .font(.footnote)
-                        .frame(width: context.size.width, height: context.size.height * (1 - Constants.offsetProportion))
-                        .padding(.top, context.size.height * Constants.offsetProportion)
+                        .font(.system(size: 13))
+                        .frame(width: context.size.width)
+                        .padding(.top, context.size.height * Constants.labelOffsetProportion)
                 }
             }
             .gesture(
@@ -59,7 +59,8 @@ struct KnobControl: View {
     }
     
     struct Constants  {
-        static let offsetProportion = 0.6 as CGFloat
+        static let centerOffsetProportion = 0.6 as CGFloat
+        static let labelOffsetProportion = 0.75 as CGFloat
         static let startAngle = 140.0 as CGFloat
         static let endAngle = 40.0 as CGFloat
     }

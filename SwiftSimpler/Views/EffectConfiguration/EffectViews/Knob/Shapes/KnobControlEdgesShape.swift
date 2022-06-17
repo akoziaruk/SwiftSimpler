@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct KnobControlEdgesShape: Shape {
-    let offsetProportion: CGFloat
+    let centerOffsetProportion: CGFloat
     let startAngle: CGFloat
     let endAngle: CGFloat
     
@@ -16,11 +16,11 @@ struct KnobControlEdgesShape: Shape {
         var path = Path()
         let radius = rect.midX
 
-        path.move(to: CGPoint(x: rect.midX, y: rect.maxY * offsetProportion))
+        path.move(to: CGPoint(x: rect.midX, y: rect.maxY * centerOffsetProportion))
         path.addLine(to: CGPoint(x: rect.midX + radius * cos(startAngle),
                                  y: rect.midY + radius * sin(startAngle)))
 
-        path.move(to: CGPoint(x: rect.midX, y: rect.maxY * offsetProportion))
+        path.move(to: CGPoint(x: rect.midX, y: rect.maxY * centerOffsetProportion))
         path.addLine(to: CGPoint(x: rect.midX + radius * cos(endAngle),
                                  y: rect.midY + radius * sin(endAngle)))
         

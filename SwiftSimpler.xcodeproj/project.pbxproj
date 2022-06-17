@@ -67,6 +67,8 @@
 		8AF5AB502824187800546E43 /* SwiftSimplerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF5AB4F2824187800546E43 /* SwiftSimplerTests.swift */; };
 		8AF5AB5A2824187800546E43 /* SwiftSimplerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF5AB592824187800546E43 /* SwiftSimplerUITests.swift */; };
 		8AF5AB5C2824187800546E43 /* SwiftSimplerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF5AB5B2824187800546E43 /* SwiftSimplerUITestsLaunchTests.swift */; };
+		8AFD58D4285C6F1B00B8AEA8 /* BypassToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AFD58D3285C6F1B00B8AEA8 /* BypassToggle.swift */; };
+		8AFD58D6285C6F6500B8AEA8 /* KnobValueFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AFD58D5285C6F6500B8AEA8 /* KnobValueFormatter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -148,6 +150,8 @@
 		8AF5AB552824187800546E43 /* SwiftSimplerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftSimplerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AF5AB592824187800546E43 /* SwiftSimplerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftSimplerUITests.swift; sourceTree = "<group>"; };
 		8AF5AB5B2824187800546E43 /* SwiftSimplerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftSimplerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		8AFD58D3285C6F1B00B8AEA8 /* BypassToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BypassToggle.swift; sourceTree = "<group>"; };
+		8AFD58D5285C6F6500B8AEA8 /* KnobValueFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnobValueFormatter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -351,6 +355,7 @@
 			isa = PBXGroup;
 			children = (
 				8AD76AC22858C0D70088CC1E /* ReverbView.swift */,
+				8AFD58D3285C6F1B00B8AEA8 /* BypassToggle.swift */,
 				8AD76AC72859EA000088CC1E /* Knob */,
 			);
 			path = EffectViews;
@@ -361,6 +366,7 @@
 			children = (
 				8AD76AC52859E9F90088CC1E /* KnobSegment.swift */,
 				8AD76AC82859EA160088CC1E /* KnobControl.swift */,
+				8AFD58D5285C6F6500B8AEA8 /* KnobValueFormatter.swift */,
 				8AD76ACC2859EA4B0088CC1E /* Shapes */,
 			);
 			path = Knob;
@@ -613,12 +619,14 @@
 				8A837BB8283BBD08004C16E2 /* DelayView_OLD.swift in Sources */,
 				8A837BBA283BBD16004C16E2 /* ReverbView_OLD.swift in Sources */,
 				8A3C13B6283FB66000AE0D6F /* EqualizerView_OLD.swift in Sources */,
+				8AFD58D4285C6F1B00B8AEA8 /* BypassToggle.swift in Sources */,
 				8A4D9913282D0380007804D7 /* PlaybackView.swift in Sources */,
 				8A4D9918282D2BC2007804D7 /* AudioFileManager.swift in Sources */,
 				8A76E79F282E47760048CD1D /* EffectConfigurationView_OLD.swift in Sources */,
 				8A837BA8283BB249004C16E2 /* EffectsConfiguration+Distortion.swift in Sources */,
 				8AD76ACB2859EA3B0088CC1E /* KnobControlPointerShape.swift in Sources */,
 				8A837BB2283BBC2E004C16E2 /* Effect+Title.swift in Sources */,
+				8AFD58D6285C6F6500B8AEA8 /* KnobValueFormatter.swift in Sources */,
 				8A76E79C282E472A0048CD1D /* EffectPickerView_OLD.swift in Sources */,
 				8A76E7A9282E61C50048CD1D /* EffectsConfiguration.swift in Sources */,
 				8A4D9916282D06F1007804D7 /* TrackLockState.swift in Sources */,

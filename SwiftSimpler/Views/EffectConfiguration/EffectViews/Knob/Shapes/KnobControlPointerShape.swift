@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct KnobControlPointerShape: Shape {
-    let offsetProportion: CGFloat
+    let centerOffsetProportion: CGFloat
     let angle: CGFloat
     let padding = 3.0
 
@@ -16,7 +16,7 @@ struct KnobControlPointerShape: Shape {
         var path = Path()
         let radius = rect.midX - padding
 
-        path.move(to: CGPoint(x: rect.midX, y: rect.maxY * offsetProportion))
+        path.move(to: CGPoint(x: rect.midX, y: rect.maxY * centerOffsetProportion))
         path.addLine(to: CGPoint(x: rect.midX + radius * cos(angle),
                                  y: rect.midY + radius * sin(angle)))
         
