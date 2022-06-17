@@ -9,44 +9,26 @@ import SwiftUI
 
 struct ReverbView: View {
     @Binding var config: EffectsConfiguration.Reverb
-
-    let itemWidth: CGFloat
     
-    lazy var items = [("Mix", $config.mix)]
-
+    let width: CGFloat
+    
     var body: some View {
         HStack(spacing: 20) {
-            
-            KnobSegment(parameter: $config.mix,
-                        title: "Mix")
-//                .frame(width: itemWidth)
-
-            KnobSegment(parameter: $config.crossoverFrequency,
-                        title: "Crossover")
-//                .frame(width: itemWidth)
-
-            KnobSegment(parameter: $config.dampingFrequency,
-                        title: "Damping")
-//                .frame(width: itemWidth)
-
-            KnobSegment(parameter: $config.predelay,
-                        title: "Predelay")
-//                .frame(width: itemWidth)
-
-            KnobSegment(parameter: $config.equalizerFrequency,
-                        title: "Freq")
-//                .frame(width: itemWidth)
-
-            KnobSegment(parameter: $config.midReleaseTime,
-                        title: "Rls mid")
-//                .frame(width: itemWidth)
-            
+            KnobSegment(title: "Mix", parameter: $config.mix)
+                .frame(width: width)
+            KnobSegment(title: "Crossover", parameter: $config.crossoverFrequency)
+                .frame(width: width)
+            KnobSegment(title: "Damping", parameter: $config.dampingFrequency)
+                .frame(width: width)
+            KnobSegment(title: "Predelay", parameter: $config.predelay)
+                .frame(width: width)
+            KnobSegment(title: "Freq", parameter: $config.equalizerFrequency)
+                .frame(width: width)
+            KnobSegment(title: "Rls mid", parameter: $config.midReleaseTime)
+                .frame(width: width)
             BypassToggle(isOn: $config.bypass)
-//                .frame(width: itemWidth)
-
+                .frame(width: width)
         }
-        
-        .padding(20)
     }
 }
 

@@ -10,11 +10,18 @@ import SwiftUI
 struct EffectConfigurationView: View {
     @Binding var activeEffect: EffectType
     @Binding var effect: EffectsConfiguration
-
+    
     var body: some View {
         GeometryReader { context in
-            activeView(itemWidth: context.size.width / CGFloat(Constants.maxNumberOfItems) - Constants.padding)
-                .modifier(RoundedInnerBorder(color: Palette.red))
+            ZStack {
+                Rectangle()
+                    .foregroundColor(.clear)
+                    .modifier(RoundedInnerBorder(color: Palette.red))
+
+                activeView(itemWidth: (context.size.width - Constants.padding.leading) / CGFloat(Constants.maxNumberOfItems) - Constants.padding.leading)
+                    .padding(Constants.padding)
+            }
+            .frame(maxWidth: context.size.width)
         }
     }
     
@@ -22,9 +29,9 @@ struct EffectConfigurationView: View {
     func activeView(itemWidth: CGFloat) -> some View {
         switch activeEffect {
         case .reverb:
-            ReverbView(config: $effect.reverb, itemWidth: itemWidth)
+            ReverbView(config: $effect.reverb, width: itemWidth)
         case .delay:
-            DelayView()
+            DelayView(config: $effect.delay, width: itemWidth)
         case .flanger:
             FlangerView()
         case .distortion:
@@ -36,14 +43,7 @@ struct EffectConfigurationView: View {
     
     private struct Constants {
         static let maxNumberOfItems = 7
-        static let padding = 20.0
-    }
-}
-
-
-struct DelayView: View {
-    var body: some View {
-        Color.blue.opacity(0.2)
+        static let padding = EdgeInsets(top: 30, leading: 20, bottom: 20, trailing: 20)
     }
 }
 

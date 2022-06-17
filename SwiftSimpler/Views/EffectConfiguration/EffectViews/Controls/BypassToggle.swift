@@ -14,8 +14,9 @@ struct BypassToggle: View {
         GeometryReader { context in
             HStack {
                 Spacer()
-
+                
                 VStack(spacing: 18) {
+
                     Text("Bypass")
                         .font(.headline)
                         .foregroundColor(Palette.white)
@@ -26,7 +27,6 @@ struct BypassToggle: View {
                         .toggleStyle(SwitchToggleStyle(tint: Palette.red))
                         .frame(height: context.size.width)
                     
-                    Spacer()
                 }
                 
                 Spacer()
