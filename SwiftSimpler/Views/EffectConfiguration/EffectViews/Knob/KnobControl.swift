@@ -16,8 +16,8 @@ struct KnobControl: View {
     var currentAngle: CGFloat {
         let travelLengthAngle = 360 - Constants.startAngle + Constants.endAngle
         let progress = (value - range.lowerBound) / (range.upperBound - range.lowerBound)
-        let angle = progress * Float(travelLengthAngle)
-        return CGFloat(Constants.startAngle + CGFloat(angle))
+        let angle = CGFloat(progress) * travelLengthAngle
+        return Constants.startAngle + angle
     }
     
     var body: some View {
@@ -59,7 +59,7 @@ struct KnobControl: View {
     }
     
     struct Constants  {
-        static let offsetProportion = 0.6
+        static let offsetProportion = 0.6 as CGFloat
         static let startAngle = 140.0 as CGFloat
         static let endAngle = 40.0 as CGFloat
     }
