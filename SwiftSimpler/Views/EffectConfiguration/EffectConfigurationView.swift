@@ -29,9 +29,9 @@ struct EffectConfigurationView: View {
     func activeView(itemWidth: CGFloat) -> some View {
         switch activeEffect {
         case .reverb:
-            ReverbView(config: $effect.reverb, width: itemWidth)
+            ReverbView(config: $effect.reverb)
         case .delay:
-            DelayView(config: $effect.delay, width: itemWidth)
+            DelayView(config: $effect.delay, itemWidth: itemWidth)
         case .flanger:
             FlangerView()
         case .distortion:
