@@ -14,15 +14,14 @@ struct FlangerView: View {
     
     var body: some View {
         HStack(spacing: 20) {
+            Spacer()
+
             KnobSegment(title: "Mix", parameter: $config.mix)
                 .frame(width: itemWidth)
-
             KnobSegment(title: "Freq", parameter: $config.frequency)
                 .frame(width: itemWidth)
-            
             KnobSegment(title: "Depth", parameter: $config.depth)
                 .frame(width: itemWidth)
-
             KnobSegment(title: "Feedback", parameter: $config.feedback)
                 .frame(width: itemWidth)
             

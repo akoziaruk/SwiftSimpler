@@ -16,7 +16,7 @@ extension EffectsConfiguration {
         var lowPassCutoff = Parameter(value: 15_000, range: 10...22_050)
         var feedback = Parameter(value: -30, range: -100...100)
         var time = Parameter(value: 0.05, range: 0...2)
-        var bypass = false
+        var bypass = true
     }
 }
 

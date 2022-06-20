@@ -25,10 +25,12 @@ struct EffectConfigurationView_OLD: View {
                 
             case .equalizer:
                 EqualizationGroupView_OLD(eq1: $effect.equalizer1, eq2: $effect.equalizer2,
-                                      lpf: $effect.lpfFilter, hpf: $effect.hpfFiler)
+                                      lpf: $effect.lpf, hpf: $effect.hpf)
             case .flanger:
                 ReverbView_OLD(reverb: $effect.reverb)
 
+            case .cutoff:
+                ReverbView_OLD(reverb: $effect.reverb)
             }
             
             HStack {

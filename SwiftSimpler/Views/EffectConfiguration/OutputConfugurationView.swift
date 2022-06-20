@@ -8,8 +8,21 @@
 import SwiftUI
 
 struct OutputConfugurationView: View {
+    @Binding var config: EffectsConfiguration.Mixer
+    
     var body: some View {
-        Color.clear
-            .modifier(RoundedInnerBorder(color: Palette.red))
+        VStack {
+            Text("Output")
+                .foregroundColor(Palette.white)
+                .font(.headline)
+                .padding(.top)
+         
+            HStack(spacing: 18) {
+                KnobSegment(title: "Pan", parameter: $config.pan)
+                KnobSegment(title: "Gain", parameter: $config.volume)
+            }
+            .padding([.leading, .trailing, .bottom])
+        }
+        .modifier(RoundedInnerBorder(color: Palette.red))
     }
 }

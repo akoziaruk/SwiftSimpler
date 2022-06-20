@@ -45,6 +45,8 @@
 		8A84D9B828608DD800B08057 /* DunneAudioKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8A84D9B728608DD800B08057 /* DunneAudioKit */; };
 		8A84D9BA286090D600B08057 /* Node+Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A84D9B9286090D600B08057 /* Node+Extention.swift */; };
 		8A84D9BC286092DC00B08057 /* DistortionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A84D9BB286092DC00B08057 /* DistortionView.swift */; };
+		8A84D9BE2860964D00B08057 /* EqualizerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A84D9BD2860964D00B08057 /* EqualizerView.swift */; };
+		8A84D9C02860992800B08057 /* CutoffView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A84D9BF2860992800B08057 /* CutoffView.swift */; };
 		8A9CFB632851ECF4003B57E7 /* EffectsConfigurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9CFB622851ECF4003B57E7 /* EffectsConfigurationView.swift */; };
 		8ABFE99E28533F900049A859 /* OutputConfugurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABFE99D28533F900049A859 /* OutputConfugurationView.swift */; };
 		8ABFE9A02853408E0049A859 /* ProjectButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABFE99F2853408E0049A859 /* ProjectButtonsView.swift */; };
@@ -130,6 +132,8 @@
 		8A84D9B428608D9B00B08057 /* EffectsConfiguration+Flanger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EffectsConfiguration+Flanger.swift"; sourceTree = "<group>"; };
 		8A84D9B9286090D600B08057 /* Node+Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Node+Extention.swift"; sourceTree = "<group>"; };
 		8A84D9BB286092DC00B08057 /* DistortionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistortionView.swift; sourceTree = "<group>"; };
+		8A84D9BD2860964D00B08057 /* EqualizerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EqualizerView.swift; sourceTree = "<group>"; };
+		8A84D9BF2860992800B08057 /* CutoffView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutoffView.swift; sourceTree = "<group>"; };
 		8A9CFB622851ECF4003B57E7 /* EffectsConfigurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EffectsConfigurationView.swift; sourceTree = "<group>"; };
 		8ABFE99D28533F900049A859 /* OutputConfugurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputConfugurationView.swift; sourceTree = "<group>"; };
 		8ABFE99F2853408E0049A859 /* ProjectButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectButtonsView.swift; sourceTree = "<group>"; };
@@ -372,6 +376,8 @@
 				8AFD58D8285C74E600B8AEA8 /* DelayView.swift */,
 				8A84D9B228608D3C00B08057 /* FlangerView.swift */,
 				8A84D9BB286092DC00B08057 /* DistortionView.swift */,
+				8A84D9BD2860964D00B08057 /* EqualizerView.swift */,
+				8A84D9BF2860992800B08057 /* CutoffView.swift */,
 				8AFD58D7285C736B00B8AEA8 /* Controls */,
 			);
 			path = EffectViews;
@@ -629,6 +635,7 @@
 				8A4D9911282CD031007804D7 /* SampleChannel.swift in Sources */,
 				8A76E7A4282E485C0048CD1D /* EffectType.swift in Sources */,
 				8AD76AC62859E9F90088CC1E /* KnobSegment.swift in Sources */,
+				8A84D9BE2860964D00B08057 /* EqualizerView.swift in Sources */,
 				8A9CFB632851ECF4003B57E7 /* EffectsConfigurationView.swift in Sources */,
 				8A4F7B5E2851FD000026E136 /* EffectConfigurationView.swift in Sources */,
 				8A837BAC283BB294004C16E2 /* EffectsConfiguration+Delay.swift in Sources */,
@@ -670,6 +677,7 @@
 				8A837BAA283BB277004C16E2 /* EffectsConfiguration+Reverb.swift in Sources */,
 				8AD76AC92859EA160088CC1E /* KnobControl.swift in Sources */,
 				8A321CB0283B6BBD00D0B269 /* Conductor.swift in Sources */,
+				8A84D9C02860992800B08057 /* CutoffView.swift in Sources */,
 				8AD76AD02859EA7D0088CC1E /* CGFloat+Extention.swift in Sources */,
 				8A2710D028292552001C9808 /* SamplePadsView.swift in Sources */,
 				8A76E7A1282E47E20048CD1D /* PadsView.swift in Sources */,

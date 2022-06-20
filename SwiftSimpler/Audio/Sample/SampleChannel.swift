@@ -27,8 +27,8 @@ class SampleChannel: ObservableObject {
 
     private var equalizer1: EqualizerFilter!
     private var equalizer2: EqualizerFilter!
-    private var hpfFiler: HighPassButterworthFilter!
-    private var lpfFilter: LowPassButterworthFilter!
+    private var hpFiler: HighPassButterworthFilter!
+    private var lpFilter: LowPassButterworthFilter!
 
     private var mixer: Mixer!
     
@@ -60,11 +60,11 @@ class SampleChannel: ObservableObject {
             if oldValue.equalizer2 != configuration.equalizer2 {
                 equalizer2.update(with: configuration.equalizer2)
             }
-            if oldValue.hpfFiler != configuration.hpfFiler {
-                hpfFiler.update(with: configuration.hpfFiler)
+            if oldValue.hpf != configuration.hpf {
+                hpFiler.update(with: configuration.hpf)
             }
-            if oldValue.lpfFilter != configuration.lpfFilter {
-                lpfFilter.update(with: configuration.lpfFilter)
+            if oldValue.lpf != configuration.lpf {
+                lpFilter.update(with: configuration.lpf)
             }
             if oldValue.flanger != configuration.flanger {
                 flanger.update(with: configuration.flanger)
@@ -84,6 +84,7 @@ class SampleChannel: ObservableObject {
         sampler.play(noteNumber: MIDINoteNumber(60), velocity: 127, channel: 0)
     }
     
+    //TODO: Refactor
     public func recreateProcessingChain() {
         sampler = Sampler(audioFile: audioFile)
         
@@ -106,20 +107,27 @@ class SampleChannel: ObservableObject {
                 reverb = ZitaReverb(node)
                 node = reverb
                 
-            case .equalizer:
-                
-                equalizer1 = EqualizerFilter(node)
-                equalizer2 = EqualizerFilter(equalizer1)
-                lpfFilter = LowPassButterworthFilter(equalizer2)
-                hpfFiler = HighPassButterworthFilter(lpfFilter)
-
-                node = hpfFiler
             case .flanger:
                 
                 flanger = Flanger(node)
                 node =  flanger
                 
+            case .equalizer:
+                
+                equalizer1 = EqualizerFilter(node)
+                equalizer2 = EqualizerFilter(equalizer1)
+
+                node = equalizer2
+                
+            case .cutoff:
+
+                lpFilter = LowPassButterworthFilter(node)
+                hpFiler = HighPassButterworthFilter(lpFilter)
+
+                node = hpFiler
+
             }
+            
         }
         
         mixer = Mixer(node)
@@ -136,7 +144,7 @@ class SampleChannel: ObservableObject {
         
         equalizer1.update(with: configuration.equalizer1)
         equalizer1.update(with: configuration.equalizer1)
-        hpfFiler.update(with: configuration.hpfFiler)
-        lpfFilter.update(with: configuration.lpfFilter)
+        hpFiler.update(with: configuration.hpf)
+        lpFilter.update(with: configuration.lpf)
     }
 }

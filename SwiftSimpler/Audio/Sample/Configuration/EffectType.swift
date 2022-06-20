@@ -13,4 +13,5 @@ enum EffectType {
     case flanger
     case distortion
     case equalizer
+    case cutoff
 }

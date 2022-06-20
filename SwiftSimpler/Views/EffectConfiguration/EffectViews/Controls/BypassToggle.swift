@@ -20,6 +20,8 @@ struct BypassToggle: View {
                     Text("Bypass")
                         .font(.headline)
                         .foregroundColor(Palette.white)
+                        .minimumScaleFactor(0.8)
+                        .lineLimit(1)
 
                     Toggle("", isOn: $isOn)
                         .labelsHidden()

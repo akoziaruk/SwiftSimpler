@@ -11,7 +11,7 @@ import AVKit
 struct EffectsConfiguration {
     let id = UUID()
     
-    var order: [EffectType] = [.reverb, .delay, .flanger, .distortion, .equalizer]
+    var order: [EffectType] = [.reverb, .delay, .flanger, .distortion, .equalizer, .cutoff]
     
     var reverb = Reverb()
     var delay = Delay()
@@ -20,8 +20,9 @@ struct EffectsConfiguration {
     
     var equalizer1 = Equalizer()
     var equalizer2 = Equalizer()
-    var lpfFilter = CutoffFilter(value: 20_000)
-    var hpfFiler = CutoffFilter(value: 12)
+    
+    var lpf = CutoffFilter(value: 20_000)
+    var hpf = CutoffFilter(value: 12)
     
     var mixer = Mixer()
 }

@@ -14,6 +14,8 @@ struct DelayView: View {
 
     var body: some View {
         HStack(spacing: 20) {
+            Spacer()
+
             KnobSegment(title: "Mix", parameter: $config.mix)
                 .frame(width: itemWidth)
             KnobSegment(title: "Feedback", parameter: $config.feedback)
@@ -28,7 +30,6 @@ struct DelayView: View {
             BypassToggle(isOn: $config.bypass)
                 .frame(width: itemWidth)
         }
-    
     }
 }
 

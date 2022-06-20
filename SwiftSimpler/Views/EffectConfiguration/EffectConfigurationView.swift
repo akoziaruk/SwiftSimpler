@@ -37,18 +37,14 @@ struct EffectConfigurationView: View {
         case .distortion:
             DistortionView(config: $effect.distortion)
         case .equalizer:
-            EqualizerView()
+            EqualizerView(configEq1: $effect.equalizer1, configEq2: $effect.equalizer2)
+        case .cutoff:
+            CutoffView(configLPF: $effect.lpf, configHPF: $effect.hpf, itemWidth: itemWidth)
         }
     }
     
     private struct Constants {
         static let maxNumberOfItems = 7.0
         static let padding = EdgeInsets(top: 30, leading: 20, bottom: 20, trailing: 20)
-    }
-}
-
-struct EqualizerView: View {
-    var body: some View {
-        Color.cyan.opacity(0.2)
     }
 }

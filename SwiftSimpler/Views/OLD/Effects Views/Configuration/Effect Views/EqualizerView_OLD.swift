@@ -15,10 +15,10 @@ struct EqualizationGroupView_OLD: View {
 
     var body: some View {
         HStack {
-            CutoffView(cutoff: $lpf, text: "LPF")
+            CutoffView_OLD(cutoff: $lpf, text: "LPF")
             EqualizerView_OLD(equalizer: $eq1, text: "Band 1")
             EqualizerView_OLD(equalizer: $eq2, text: "Band 2")
-            CutoffView(cutoff: $hpf, text: "HPF")
+            CutoffView_OLD(cutoff: $hpf, text: "HPF")
         }
     }
 }
@@ -38,7 +38,7 @@ struct EqualizerView_OLD: View {
     }
 }
 
-struct CutoffView: View {
+struct CutoffView_OLD: View {
     @Binding var cutoff: EffectsConfiguration.CutoffFilter
 
     let text: String
