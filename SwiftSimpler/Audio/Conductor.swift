@@ -82,7 +82,7 @@ class Conductor: ObservableObject {
     
     //MARK: - Start/Stop
 
-    public func start() {
+    public func startEngine() {
         do {
             try engine.start()
         } catch {
@@ -90,7 +90,7 @@ class Conductor: ObservableObject {
         }
     }
 
-    public func stop() {
+    public func stopEngine() {
         engine.stop()
     }
     
@@ -98,6 +98,8 @@ class Conductor: ObservableObject {
     
     func recreateProcessingChain() {
         data.isPlaying = false
+        
+        stopEngine()
         
         for sample in samples {
             sample.recreateProcessingChain()
@@ -107,6 +109,8 @@ class Conductor: ObservableObject {
         engine.output = Mixer(outputs, name: "Mixer Master")
         
         sequencer.midiEndpoints = samples.map { $0.midiIn }
+        
+        startEngine()
     }
 }
 

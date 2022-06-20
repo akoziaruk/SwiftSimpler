@@ -256,7 +256,7 @@
 				8A9CFB622851ECF4003B57E7 /* EffectsConfigurationView.swift */,
 				8A4F7B5D2851FD000026E136 /* EffectConfigurationView.swift */,
 				8AD76AC42858C0DA0088CC1E /* EffectViews */,
-				8AD76AC02858C07C0088CC1E /* EffectPickerView.swift */,
+				8A84D9C12860AEA300B08057 /* Picker */,
 				8ABFE99D28533F900049A859 /* OutputConfugurationView.swift */,
 				8A10EB6028522128002904D8 /* Utils */,
 			);
@@ -305,7 +305,6 @@
 			isa = PBXGroup;
 			children = (
 				8A76E79B282E472A0048CD1D /* EffectPickerView_OLD.swift */,
-				8A83F57E2833E2F9002ED26F /* EffectsDropDelegate.swift */,
 				8A837BB1283BBC2E004C16E2 /* Effect+Title.swift */,
 			);
 			path = Picker;
@@ -347,6 +346,15 @@
 				8A837BAD283BB2EF004C16E2 /* Parameter.swift */,
 			);
 			path = Chain;
+			sourceTree = "<group>";
+		};
+		8A84D9C12860AEA300B08057 /* Picker */ = {
+			isa = PBXGroup;
+			children = (
+				8AD76AC02858C07C0088CC1E /* EffectPickerView.swift */,
+				8A83F57E2833E2F9002ED26F /* EffectsDropDelegate.swift */,
+			);
+			path = Picker;
 			sourceTree = "<group>";
 		};
 		8ABFE9A12853409C0049A859 /* ProjectConfiguration */ = {

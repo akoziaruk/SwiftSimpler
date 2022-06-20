@@ -25,9 +25,9 @@ struct MainView_OLD: View {
             
             PlaybackView()
         }.onAppear {
-            conductor.start()
+            conductor.startEngine()
         }.onDisappear {
-            conductor.stop()
+            conductor.stopEngine()
         }
     }
 }

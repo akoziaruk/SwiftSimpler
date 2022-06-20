@@ -127,7 +127,6 @@ class SampleChannel: ObservableObject {
                 node = hpFiler
 
             }
-            
         }
         
         mixer = Mixer(node)

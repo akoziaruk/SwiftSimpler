@@ -6,10 +6,12 @@
 //
 
 import SwiftUI
+import UniformTypeIdentifiers
 
 struct EffectPickerView: View {
     @Binding var selected: EffectType
     @Binding var all: [EffectType]
+    @State var dragged: EffectType?
 
     var body: some View {
         HStack(spacing: 20) {
@@ -30,6 +32,13 @@ struct EffectPickerView: View {
                         OpenEdgeRoundedRect(openEdge: .top)
                             .strokeBorder(Palette.red, lineWidth: (selected == effect) ? 2 : 1)
                     )
+                    .onDrag({
+                        dragged = effect
+                        return NSItemProvider(object: effect.title as NSString)
+                    })
+                    .onDrop(of: [UTType.text],
+                            delegate: EffectsDropDelegate(item: effect, items: $all, draggedItem: $dragged))
+
             }
             Spacer()
         }
