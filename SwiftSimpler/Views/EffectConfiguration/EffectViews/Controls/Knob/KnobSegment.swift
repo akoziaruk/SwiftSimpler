@@ -20,6 +20,7 @@ struct KnobSegment: View {
                 Text(title)
                     .font(.headline)
                     .foregroundColor(Palette.white)
+                    .lineLimit(1)
                     .minimumScaleFactor(0.8)
                 
                 KnobControl(value: $parameter.value, range: parameter.range)

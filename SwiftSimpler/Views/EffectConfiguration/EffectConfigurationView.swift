@@ -18,7 +18,7 @@ struct EffectConfigurationView: View {
                     .foregroundColor(.clear)
                     .modifier(RoundedInnerBorder(color: Palette.red))
 
-                activeView(itemWidth: (context.size.width - Constants.padding.leading) / CGFloat(Constants.maxNumberOfItems) - Constants.padding.leading)
+                activeView(itemWidth: ((context.size.width - Constants.padding.leading) / Constants.maxNumberOfItems) - Constants.padding.leading)
                     .padding(Constants.padding)
             }
             .frame(maxWidth: context.size.width)
@@ -33,29 +33,17 @@ struct EffectConfigurationView: View {
         case .delay:
             DelayView(config: $effect.delay, itemWidth: itemWidth)
         case .flanger:
-            FlangerView()
+            FlangerView(config: $effect.flanger, itemWidth: itemWidth)
         case .distortion:
-            DistortionView()
+            DistortionView(config: $effect.distortion)
         case .equalizer:
             EqualizerView()
         }
     }
     
     private struct Constants {
-        static let maxNumberOfItems = 7
+        static let maxNumberOfItems = 7.0
         static let padding = EdgeInsets(top: 30, leading: 20, bottom: 20, trailing: 20)
-    }
-}
-
-struct FlangerView: View {
-    var body: some View {
-        Color.purple.opacity(0.2)
-    }
-}
-
-struct DistortionView: View {
-    var body: some View {
-        Color.orange.opacity(0.2)
     }
 }
 

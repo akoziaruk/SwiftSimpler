@@ -13,9 +13,10 @@ struct EffectsConfiguration {
     
     var order: [EffectType] = [.reverb, .delay, .flanger, .distortion, .equalizer]
     
-    var distortion = Distortion()
-    var delay = Delay()
     var reverb = Reverb()
+    var delay = Delay()
+    var flanger = Flanger()
+    var distortion = Distortion()
     
     var equalizer1 = Equalizer()
     var equalizer2 = Equalizer()

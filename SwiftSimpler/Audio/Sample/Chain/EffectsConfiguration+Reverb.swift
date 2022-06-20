@@ -30,5 +30,6 @@ extension ZitaReverb {
         dampingFrequency = configuration.dampingFrequency.value
         equalizerFrequency1 = configuration.equalizerFrequency.value
         dryWetMix = configuration.mix.value
+        updateBypass(configuration.bypass)
     }
 }

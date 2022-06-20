@@ -40,6 +40,11 @@
 		8A837BBC283BBD3A004C16E2 /* EffectParameterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A837BBB283BBD3A004C16E2 /* EffectParameterView.swift */; };
 		8A837BBF283BC331004C16E2 /* EffectsConfiguration+Mixer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A837BBE283BC331004C16E2 /* EffectsConfiguration+Mixer.swift */; };
 		8A83F57F2833E2F9002ED26F /* EffectsDropDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A83F57E2833E2F9002ED26F /* EffectsDropDelegate.swift */; };
+		8A84D9B328608D3C00B08057 /* FlangerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A84D9B228608D3C00B08057 /* FlangerView.swift */; };
+		8A84D9B528608D9B00B08057 /* EffectsConfiguration+Flanger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A84D9B428608D9B00B08057 /* EffectsConfiguration+Flanger.swift */; };
+		8A84D9B828608DD800B08057 /* DunneAudioKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8A84D9B728608DD800B08057 /* DunneAudioKit */; };
+		8A84D9BA286090D600B08057 /* Node+Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A84D9B9286090D600B08057 /* Node+Extention.swift */; };
+		8A84D9BC286092DC00B08057 /* DistortionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A84D9BB286092DC00B08057 /* DistortionView.swift */; };
 		8A9CFB632851ECF4003B57E7 /* EffectsConfigurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9CFB622851ECF4003B57E7 /* EffectsConfigurationView.swift */; };
 		8ABFE99E28533F900049A859 /* OutputConfugurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABFE99D28533F900049A859 /* OutputConfugurationView.swift */; };
 		8ABFE9A02853408E0049A859 /* ProjectButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABFE99F2853408E0049A859 /* ProjectButtonsView.swift */; };
@@ -121,6 +126,10 @@
 		8A837BBB283BBD3A004C16E2 /* EffectParameterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EffectParameterView.swift; sourceTree = "<group>"; };
 		8A837BBE283BC331004C16E2 /* EffectsConfiguration+Mixer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EffectsConfiguration+Mixer.swift"; sourceTree = "<group>"; };
 		8A83F57E2833E2F9002ED26F /* EffectsDropDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EffectsDropDelegate.swift; sourceTree = "<group>"; };
+		8A84D9B228608D3C00B08057 /* FlangerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlangerView.swift; sourceTree = "<group>"; };
+		8A84D9B428608D9B00B08057 /* EffectsConfiguration+Flanger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EffectsConfiguration+Flanger.swift"; sourceTree = "<group>"; };
+		8A84D9B9286090D600B08057 /* Node+Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Node+Extention.swift"; sourceTree = "<group>"; };
+		8A84D9BB286092DC00B08057 /* DistortionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistortionView.swift; sourceTree = "<group>"; };
 		8A9CFB622851ECF4003B57E7 /* EffectsConfigurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EffectsConfigurationView.swift; sourceTree = "<group>"; };
 		8ABFE99D28533F900049A859 /* OutputConfugurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputConfugurationView.swift; sourceTree = "<group>"; };
 		8ABFE99F2853408E0049A859 /* ProjectButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectButtonsView.swift; sourceTree = "<group>"; };
@@ -162,6 +171,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8AEE9AE928254745005DBFE4 /* AudioKit in Frameworks */,
+				8A84D9B828608DD800B08057 /* DunneAudioKit in Frameworks */,
 				8A4D990D282BD7A4007804D7 /* AudioKitEX in Frameworks */,
 				8A76E7A7282E5A350048CD1D /* SoundpipeAudioKit in Frameworks */,
 			);
@@ -273,6 +283,7 @@
 			isa = PBXGroup;
 			children = (
 				8A4D9917282D2BC2007804D7 /* AudioFileManager.swift */,
+				8A84D9B9286090D600B08057 /* Node+Extention.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -325,6 +336,7 @@
 				8A837BA7283BB249004C16E2 /* EffectsConfiguration+Distortion.swift */,
 				8A837BA9283BB277004C16E2 /* EffectsConfiguration+Reverb.swift */,
 				8A837BAB283BB294004C16E2 /* EffectsConfiguration+Delay.swift */,
+				8A84D9B428608D9B00B08057 /* EffectsConfiguration+Flanger.swift */,
 				8A837BBE283BC331004C16E2 /* EffectsConfiguration+Mixer.swift */,
 				8A3C13B1283FAD1200AE0D6F /* EffectsConfiguration+Equalizer.swift */,
 				8A3C13B3283FAD2C00AE0D6F /* EffectsConfiguration+CutoffFilter.swift */,
@@ -358,6 +370,8 @@
 			children = (
 				8AD76AC22858C0D70088CC1E /* ReverbView.swift */,
 				8AFD58D8285C74E600B8AEA8 /* DelayView.swift */,
+				8A84D9B228608D3C00B08057 /* FlangerView.swift */,
+				8A84D9BB286092DC00B08057 /* DistortionView.swift */,
 				8AFD58D7285C736B00B8AEA8 /* Controls */,
 			);
 			path = EffectViews;
@@ -482,6 +496,7 @@
 				8AEE9AE828254745005DBFE4 /* AudioKit */,
 				8A4D990C282BD7A4007804D7 /* AudioKitEX */,
 				8A76E7A6282E5A350048CD1D /* SoundpipeAudioKit */,
+				8A84D9B728608DD800B08057 /* DunneAudioKit */,
 			);
 			productName = SwiftSimpler;
 			productReference = 8AF5AB3B2824187700546E43 /* SwiftSimpler.app */;
@@ -559,6 +574,7 @@
 				8AEE9AE728254745005DBFE4 /* XCRemoteSwiftPackageReference "AudioKit" */,
 				8A4D990B282BD7A4007804D7 /* XCRemoteSwiftPackageReference "AudioKitEX" */,
 				8A76E7A5282E5A350048CD1D /* XCRemoteSwiftPackageReference "SoundpipeAudioKit" */,
+				8A84D9B628608DD800B08057 /* XCRemoteSwiftPackageReference "DunneAudioKit" */,
 			);
 			productRefGroup = 8AF5AB3C2824187700546E43 /* Products */;
 			projectDirPath = "";
@@ -604,6 +620,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A84D9B328608D3C00B08057 /* FlangerView.swift in Sources */,
 				8A321CB3283B71DC00D0B269 /* Sampler.swift in Sources */,
 				8AD6F7EF284F72D800504A11 /* MainView.swift in Sources */,
 				8AF5AB412824187700546E43 /* ContentView.swift in Sources */,
@@ -618,6 +635,7 @@
 				8A837BBF283BC331004C16E2 /* EffectsConfiguration+Mixer.swift in Sources */,
 				8AE861DF28291855002A1949 /* AVAudioFile+Extention.swift in Sources */,
 				8A3C13B4283FAD2C00AE0D6F /* EffectsConfiguration+CutoffFilter.swift in Sources */,
+				8A84D9B528608D9B00B08057 /* EffectsConfiguration+Flanger.swift in Sources */,
 				8A83F57F2833E2F9002ED26F /* EffectsDropDelegate.swift in Sources */,
 				8AD76AC32858C0D70088CC1E /* ReverbView.swift in Sources */,
 				8AD98C95283CFFC8009434C6 /* MixerView_OLD.swift in Sources */,
@@ -637,9 +655,11 @@
 				8A76E79F282E47760048CD1D /* EffectConfigurationView_OLD.swift in Sources */,
 				8A837BA8283BB249004C16E2 /* EffectsConfiguration+Distortion.swift in Sources */,
 				8AD76ACB2859EA3B0088CC1E /* KnobControlPointerShape.swift in Sources */,
+				8A84D9BC286092DC00B08057 /* DistortionView.swift in Sources */,
 				8A837BB2283BBC2E004C16E2 /* Effect+Title.swift in Sources */,
 				8AFD58D6285C6F6500B8AEA8 /* KnobValueFormatter.swift in Sources */,
 				8A76E79C282E472A0048CD1D /* EffectPickerView_OLD.swift in Sources */,
+				8A84D9BA286090D600B08057 /* Node+Extention.swift in Sources */,
 				8A76E7A9282E61C50048CD1D /* EffectsConfiguration.swift in Sources */,
 				8A4D9916282D06F1007804D7 /* TrackLockState.swift in Sources */,
 				8A10EB5F28522118002904D8 /* OpenEdgeRoundedRect.swift in Sources */,
@@ -1001,6 +1021,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		8A84D9B628608DD800B08057 /* XCRemoteSwiftPackageReference "DunneAudioKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AudioKit/DunneAudioKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 		8AEE9AE728254745005DBFE4 /* XCRemoteSwiftPackageReference "AudioKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/AudioKit/AudioKit.git";
@@ -1021,6 +1049,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 8A76E7A5282E5A350048CD1D /* XCRemoteSwiftPackageReference "SoundpipeAudioKit" */;
 			productName = SoundpipeAudioKit;
+		};
+		8A84D9B728608DD800B08057 /* DunneAudioKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8A84D9B628608DD800B08057 /* XCRemoteSwiftPackageReference "DunneAudioKit" */;
+			productName = DunneAudioKit;
 		};
 		8AEE9AE828254745005DBFE4 /* AudioKit */ = {
 			isa = XCSwiftPackageProductDependency;

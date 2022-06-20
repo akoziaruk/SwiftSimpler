@@ -9,6 +9,7 @@ import Foundation
 import AVKit
 import AudioKit
 import SoundpipeAudioKit
+import DunneAudioKit
 
 protocol SampleChannelDelegate: AnyObject {
     func orderDidChanged(for sampleChain: SampleChannel)
@@ -22,6 +23,8 @@ class SampleChannel: ObservableObject {
     private var reverb: ZitaReverb!
     private var delay: Delay!
     private var distortion: Distortion!
+    private var flanger: Flanger!
+
     private var equalizer1: EqualizerFilter!
     private var equalizer2: EqualizerFilter!
     private var hpfFiler: HighPassButterworthFilter!
@@ -62,6 +65,9 @@ class SampleChannel: ObservableObject {
             }
             if oldValue.lpfFilter != configuration.lpfFilter {
                 lpfFilter.update(with: configuration.lpfFilter)
+            }
+            if oldValue.flanger != configuration.flanger {
+                flanger.update(with: configuration.flanger)
             }
         }
     }
@@ -109,7 +115,10 @@ class SampleChannel: ObservableObject {
 
                 node = hpfFiler
             case .flanger:
-                break
+                
+                flanger = Flanger(node)
+                node =  flanger
+                
             }
         }
         
