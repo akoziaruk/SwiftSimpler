@@ -41,7 +41,7 @@ fileprivate extension CGRect {
     func topOpenPath(with radius: CGFloat) -> Path {
         var path = Path()
         
-        path.move(to: CGPoint(x: minX, y: minY))
+        path.move(to: CGPoint(x: minX, y: 0))
 
         path.addLine(to: CGPoint(x: minX, y: maxY - radius))
         

@@ -21,12 +21,12 @@ struct EffectPickerView: View {
                     } label: {
                         Text(effect.title)
                             .foregroundColor(Palette.white)
-                            .font(.title3)
+                            .font(.headline)
                             .lineLimit(1)
                             .minimumScaleFactor(0.8)
                     }
                     .frame(maxHeight: .infinity)
-                    .padding([.trailing, .leading], 18)
+                    .padding([.trailing, .leading], 12)
                     .background((selected == effect) ? Palette.black: .clear)
                     .overlay(
                         OpenEdgeRoundedRect(openEdge: .top)
