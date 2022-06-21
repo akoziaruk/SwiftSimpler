@@ -10,7 +10,7 @@ import Foundation
 struct Data {
     var playback = Playback()
     var isPlaying = false
-    var tempo: Double = 120
+    var tempo: Int = 120
     
     struct Playback {
         var page = 0

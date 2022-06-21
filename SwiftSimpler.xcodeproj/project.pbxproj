@@ -47,6 +47,9 @@
 		8A84D9BC286092DC00B08057 /* DistortionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A84D9BB286092DC00B08057 /* DistortionView.swift */; };
 		8A84D9BE2860964D00B08057 /* EqualizerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A84D9BD2860964D00B08057 /* EqualizerView.swift */; };
 		8A84D9C02860992800B08057 /* CutoffView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A84D9BF2860992800B08057 /* CutoffView.swift */; };
+		8A84D9C32861B1C700B08057 /* ControlButtonsContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A84D9C22861B1C700B08057 /* ControlButtonsContainer.swift */; };
+		8A84D9C52861B43B00B08057 /* Triangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A84D9C42861B43B00B08057 /* Triangle.swift */; };
+		8A9B4DE32861EA2500C58928 /* BMPConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9B4DE22861EA2500C58928 /* BMPConfiguration.swift */; };
 		8A9CFB632851ECF4003B57E7 /* EffectsConfigurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9CFB622851ECF4003B57E7 /* EffectsConfigurationView.swift */; };
 		8ABFE99E28533F900049A859 /* OutputConfugurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABFE99D28533F900049A859 /* OutputConfugurationView.swift */; };
 		8ABFE9A02853408E0049A859 /* ProjectButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABFE99F2853408E0049A859 /* ProjectButtonsView.swift */; };
@@ -134,6 +137,9 @@
 		8A84D9BB286092DC00B08057 /* DistortionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistortionView.swift; sourceTree = "<group>"; };
 		8A84D9BD2860964D00B08057 /* EqualizerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EqualizerView.swift; sourceTree = "<group>"; };
 		8A84D9BF2860992800B08057 /* CutoffView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutoffView.swift; sourceTree = "<group>"; };
+		8A84D9C22861B1C700B08057 /* ControlButtonsContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlButtonsContainer.swift; sourceTree = "<group>"; };
+		8A84D9C42861B43B00B08057 /* Triangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Triangle.swift; sourceTree = "<group>"; };
+		8A9B4DE22861EA2500C58928 /* BMPConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMPConfiguration.swift; sourceTree = "<group>"; };
 		8A9CFB622851ECF4003B57E7 /* EffectsConfigurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EffectsConfigurationView.swift; sourceTree = "<group>"; };
 		8ABFE99D28533F900049A859 /* OutputConfugurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputConfugurationView.swift; sourceTree = "<group>"; };
 		8ABFE99F2853408E0049A859 /* ProjectButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectButtonsView.swift; sourceTree = "<group>"; };
@@ -210,6 +216,7 @@
 			isa = PBXGroup;
 			children = (
 				8AD6F7EE284F72D800504A11 /* MainView.swift */,
+				8A84D9C72861B45800B08057 /* ControlButtons */,
 				8ABFE9A12853409C0049A859 /* ProjectConfiguration */,
 				8A4F7B5F2851FD380026E136 /* EffectConfiguration */,
 				8A4F7B5C2851FBF80026E136 /* Utils */,
@@ -246,6 +253,7 @@
 				8AD6F7F0284F739A00504A11 /* Colors.swift */,
 				8A4F7B5A2851FBF50026E136 /* BorderModifier.swift */,
 				8AD76ACF2859EA7D0088CC1E /* CGFloat+Extention.swift */,
+				8A84D9C62861B45200B08057 /* Shapes */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -355,6 +363,23 @@
 				8A83F57E2833E2F9002ED26F /* EffectsDropDelegate.swift */,
 			);
 			path = Picker;
+			sourceTree = "<group>";
+		};
+		8A84D9C62861B45200B08057 /* Shapes */ = {
+			isa = PBXGroup;
+			children = (
+				8A84D9C42861B43B00B08057 /* Triangle.swift */,
+			);
+			path = Shapes;
+			sourceTree = "<group>";
+		};
+		8A84D9C72861B45800B08057 /* ControlButtons */ = {
+			isa = PBXGroup;
+			children = (
+				8A84D9C22861B1C700B08057 /* ControlButtonsContainer.swift */,
+				8A9B4DE22861EA2500C58928 /* BMPConfiguration.swift */,
+			);
+			path = ControlButtons;
 			sourceTree = "<group>";
 		};
 		8ABFE9A12853409C0049A859 /* ProjectConfiguration */ = {
@@ -641,13 +666,16 @@
 				8AF295072836489900EF8E4C /* MainView_OLD.swift in Sources */,
 				8A4F7B5B2851FBF50026E136 /* BorderModifier.swift in Sources */,
 				8A4D9911282CD031007804D7 /* SampleChannel.swift in Sources */,
+				8A84D9C32861B1C700B08057 /* ControlButtonsContainer.swift in Sources */,
 				8A76E7A4282E485C0048CD1D /* EffectType.swift in Sources */,
 				8AD76AC62859E9F90088CC1E /* KnobSegment.swift in Sources */,
 				8A84D9BE2860964D00B08057 /* EqualizerView.swift in Sources */,
 				8A9CFB632851ECF4003B57E7 /* EffectsConfigurationView.swift in Sources */,
 				8A4F7B5E2851FD000026E136 /* EffectConfigurationView.swift in Sources */,
+				8A84D9C52861B43B00B08057 /* Triangle.swift in Sources */,
 				8A837BAC283BB294004C16E2 /* EffectsConfiguration+Delay.swift in Sources */,
 				8A837BBF283BC331004C16E2 /* EffectsConfiguration+Mixer.swift in Sources */,
+				8A9B4DE32861EA2500C58928 /* BMPConfiguration.swift in Sources */,
 				8AE861DF28291855002A1949 /* AVAudioFile+Extention.swift in Sources */,
 				8A3C13B4283FAD2C00AE0D6F /* EffectsConfiguration+CutoffFilter.swift in Sources */,
 				8A84D9B528608D9B00B08057 /* EffectsConfiguration+Flanger.swift in Sources */,

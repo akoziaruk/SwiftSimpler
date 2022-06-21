@@ -24,7 +24,7 @@ class Conductor: ObservableObject {
             }
             
             if data.tempo != oldValue.tempo {
-                sequencer.setTempo(data.tempo)
+                sequencer.setTempo(Double(data.tempo))
             }
             
             if data.playback.length != oldValue.playback.length {
