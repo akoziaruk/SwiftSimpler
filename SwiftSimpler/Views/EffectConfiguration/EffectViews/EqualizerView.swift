@@ -21,7 +21,7 @@ struct EqualizerView: View {
     }
     
     var body: some View {
-        HStack(spacing: 20) {
+        HStack(spacing: 0) {
             KnobSegment(title: "Freq 1", parameter: $configEq1.centerFrequency)
             KnobSegment(title: "Width 1", parameter: $configEq1.bandwidth)
             KnobSegment(title: "Gain 1", parameter: $configEq1.gain)

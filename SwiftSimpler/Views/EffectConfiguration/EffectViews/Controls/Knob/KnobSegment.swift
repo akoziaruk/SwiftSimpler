@@ -22,12 +22,18 @@ struct KnobSegment: View {
                     .foregroundColor(Palette.white)
                     .lineLimit(1)
                     .minimumScaleFactor(0.8)
+                    .frame(height: 24)
                 
-                KnobControl(value: $parameter.value, range: parameter.range)
-                    .frame(height: context.size.width)
-                
+                    let side = context.size.width - Constants.padding*2
+                    KnobControl(value: $parameter.value, range: parameter.range)
+                        .frame(width: side, height: side)
+                        .padding([.trailing, .leading], Constants.padding)
             }
         }
         
+    }
+    
+    struct Constants {
+        static let padding = 5 as CGFloat
     }
 }

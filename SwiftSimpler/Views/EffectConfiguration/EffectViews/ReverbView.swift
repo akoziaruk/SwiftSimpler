@@ -11,7 +11,7 @@ struct ReverbView: View {
     @Binding var config: EffectsConfiguration.Reverb
         
     var body: some View {
-        HStack(spacing: 20) {
+        HStack(spacing: 0) {
             KnobSegment(title: "Mix", parameter: $config.mix)
             KnobSegment(title: "Crossover", parameter: $config.crossoverFrequency)
             KnobSegment(title: "Damping", parameter: $config.dampingFrequency)

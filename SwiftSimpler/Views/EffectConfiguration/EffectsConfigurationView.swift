@@ -27,7 +27,7 @@ struct EffectsConfigurationView: View {
                 
                 OutputConfugurationView(config: $effect.mixer)
                     .frame(width: context.size.width * 0.2,
-                           height: context.size.height * 0.82)
+                           height: context.size.height * 0.85)
             }
         }
     }

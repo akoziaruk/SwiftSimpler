@@ -21,6 +21,7 @@ struct BypassToggle: View {
                         .font(.headline)
                         .foregroundColor(Palette.white)
                         .minimumScaleFactor(0.8)
+                        .frame(height: 24)
                         .lineLimit(1)
 
                     Toggle("", isOn: $isOn)

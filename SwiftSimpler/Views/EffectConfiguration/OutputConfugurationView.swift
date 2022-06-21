@@ -17,11 +17,11 @@ struct OutputConfugurationView: View {
                 .font(.headline)
                 .padding(.top)
          
-            HStack(spacing: 18) {
+            HStack(spacing: 0) {
                 KnobSegment(title: "Pan", parameter: $config.pan)
                 KnobSegment(title: "Gain", parameter: $config.volume)
             }
-            .padding([.leading, .trailing, .bottom])
+            .padding([.leading, .trailing], 10)
         }
         .modifier(RoundedInnerBorder(color: Palette.red))
     }

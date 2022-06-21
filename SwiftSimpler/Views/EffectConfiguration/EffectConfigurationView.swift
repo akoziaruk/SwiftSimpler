@@ -18,7 +18,7 @@ struct EffectConfigurationView: View {
                     .foregroundColor(.clear)
                     .modifier(RoundedInnerBorder(color: Palette.red))
 
-                activeView(itemWidth: ((context.size.width - Constants.padding.leading) / Constants.maxNumberOfItems) - Constants.padding.leading)
+                activeView(itemWidth: ((context.size.width) / Constants.maxNumberOfItems))
                     .padding(Constants.padding)
             }
             .frame(maxWidth: context.size.width)
@@ -45,6 +45,6 @@ struct EffectConfigurationView: View {
     
     private struct Constants {
         static let maxNumberOfItems = 7.0
-        static let padding = EdgeInsets(top: 30, leading: 20, bottom: 20, trailing: 20)
+        static let padding = EdgeInsets(top: 30, leading: 10, bottom: 20, trailing: 10)
     }
 }
