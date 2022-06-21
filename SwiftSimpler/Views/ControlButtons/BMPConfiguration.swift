@@ -36,7 +36,6 @@ struct BMPConfigurationView: View {
                     conductor.data.tempo -= 1
                 }
                 .rotationEffect(Angle(degrees: 180))
-
             }
             .padding([.trailing, .top, .bottom], 15)
         }

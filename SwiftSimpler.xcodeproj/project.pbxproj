@@ -50,6 +50,8 @@
 		8A84D9C32861B1C700B08057 /* ControlButtonsContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A84D9C22861B1C700B08057 /* ControlButtonsContainer.swift */; };
 		8A84D9C52861B43B00B08057 /* Triangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A84D9C42861B43B00B08057 /* Triangle.swift */; };
 		8A9B4DE32861EA2500C58928 /* BMPConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9B4DE22861EA2500C58928 /* BMPConfiguration.swift */; };
+		8A9B4DE5286202BD00C58928 /* PauseShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9B4DE4286202BD00C58928 /* PauseShape.swift */; };
+		8A9B4DE72862035600C58928 /* PlayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9B4DE62862035600C58928 /* PlayButton.swift */; };
 		8A9CFB632851ECF4003B57E7 /* EffectsConfigurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9CFB622851ECF4003B57E7 /* EffectsConfigurationView.swift */; };
 		8ABFE99E28533F900049A859 /* OutputConfugurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABFE99D28533F900049A859 /* OutputConfugurationView.swift */; };
 		8ABFE9A02853408E0049A859 /* ProjectButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABFE99F2853408E0049A859 /* ProjectButtonsView.swift */; };
@@ -140,6 +142,8 @@
 		8A84D9C22861B1C700B08057 /* ControlButtonsContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlButtonsContainer.swift; sourceTree = "<group>"; };
 		8A84D9C42861B43B00B08057 /* Triangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Triangle.swift; sourceTree = "<group>"; };
 		8A9B4DE22861EA2500C58928 /* BMPConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMPConfiguration.swift; sourceTree = "<group>"; };
+		8A9B4DE4286202BD00C58928 /* PauseShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseShape.swift; sourceTree = "<group>"; };
+		8A9B4DE62862035600C58928 /* PlayButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayButton.swift; sourceTree = "<group>"; };
 		8A9CFB622851ECF4003B57E7 /* EffectsConfigurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EffectsConfigurationView.swift; sourceTree = "<group>"; };
 		8ABFE99D28533F900049A859 /* OutputConfugurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputConfugurationView.swift; sourceTree = "<group>"; };
 		8ABFE99F2853408E0049A859 /* ProjectButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectButtonsView.swift; sourceTree = "<group>"; };
@@ -369,6 +373,7 @@
 			isa = PBXGroup;
 			children = (
 				8A84D9C42861B43B00B08057 /* Triangle.swift */,
+				8A9B4DE4286202BD00C58928 /* PauseShape.swift */,
 			);
 			path = Shapes;
 			sourceTree = "<group>";
@@ -378,6 +383,7 @@
 			children = (
 				8A84D9C22861B1C700B08057 /* ControlButtonsContainer.swift */,
 				8A9B4DE22861EA2500C58928 /* BMPConfiguration.swift */,
+				8A9B4DE62862035600C58928 /* PlayButton.swift */,
 			);
 			path = ControlButtons;
 			sourceTree = "<group>";
@@ -717,8 +723,10 @@
 				8AD76AD02859EA7D0088CC1E /* CGFloat+Extention.swift in Sources */,
 				8A2710D028292552001C9808 /* SamplePadsView.swift in Sources */,
 				8A76E7A1282E47E20048CD1D /* PadsView.swift in Sources */,
+				8A9B4DE5286202BD00C58928 /* PauseShape.swift in Sources */,
 				8ABFE9A02853408E0049A859 /* ProjectButtonsView.swift in Sources */,
 				8AE861DC28290E8C002A1949 /* ControlsView.swift in Sources */,
+				8A9B4DE72862035600C58928 /* PlayButton.swift in Sources */,
 				8AD98C99283E3D49009434C6 /* Data.swift in Sources */,
 				8AD76AC12858C07C0088CC1E /* EffectPickerView.swift in Sources */,
 			);
