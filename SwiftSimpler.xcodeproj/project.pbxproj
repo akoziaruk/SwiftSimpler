@@ -52,6 +52,9 @@
 		8A9B4DE32861EA2500C58928 /* BMPConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9B4DE22861EA2500C58928 /* BMPConfiguration.swift */; };
 		8A9B4DE5286202BD00C58928 /* PauseShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9B4DE4286202BD00C58928 /* PauseShape.swift */; };
 		8A9B4DE72862035600C58928 /* PlayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9B4DE62862035600C58928 /* PlayButton.swift */; };
+		8A9B4DE92862066300C58928 /* PadsViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9B4DE82862066300C58928 /* PadsViewState.swift */; };
+		8A9B4DEB2862071000C58928 /* ControlButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9B4DEA2862071000C58928 /* ControlButton.swift */; };
+		8A9B4DED28620BCF00C58928 /* BPMTriangleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9B4DEC28620BCF00C58928 /* BPMTriangleButton.swift */; };
 		8A9CFB632851ECF4003B57E7 /* EffectsConfigurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9CFB622851ECF4003B57E7 /* EffectsConfigurationView.swift */; };
 		8ABFE99E28533F900049A859 /* OutputConfugurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABFE99D28533F900049A859 /* OutputConfugurationView.swift */; };
 		8ABFE9A02853408E0049A859 /* ProjectButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABFE99F2853408E0049A859 /* ProjectButtonsView.swift */; };
@@ -144,6 +147,9 @@
 		8A9B4DE22861EA2500C58928 /* BMPConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMPConfiguration.swift; sourceTree = "<group>"; };
 		8A9B4DE4286202BD00C58928 /* PauseShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseShape.swift; sourceTree = "<group>"; };
 		8A9B4DE62862035600C58928 /* PlayButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayButton.swift; sourceTree = "<group>"; };
+		8A9B4DE82862066300C58928 /* PadsViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PadsViewState.swift; sourceTree = "<group>"; };
+		8A9B4DEA2862071000C58928 /* ControlButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlButton.swift; sourceTree = "<group>"; };
+		8A9B4DEC28620BCF00C58928 /* BPMTriangleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BPMTriangleButton.swift; sourceTree = "<group>"; };
 		8A9CFB622851ECF4003B57E7 /* EffectsConfigurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EffectsConfigurationView.swift; sourceTree = "<group>"; };
 		8ABFE99D28533F900049A859 /* OutputConfugurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputConfugurationView.swift; sourceTree = "<group>"; };
 		8ABFE99F2853408E0049A859 /* ProjectButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectButtonsView.swift; sourceTree = "<group>"; };
@@ -220,6 +226,7 @@
 			isa = PBXGroup;
 			children = (
 				8AD6F7EE284F72D800504A11 /* MainView.swift */,
+				8A9B4DE82862066300C58928 /* PadsViewState.swift */,
 				8A84D9C72861B45800B08057 /* ControlButtons */,
 				8ABFE9A12853409C0049A859 /* ProjectConfiguration */,
 				8A4F7B5F2851FD380026E136 /* EffectConfiguration */,
@@ -383,7 +390,9 @@
 			children = (
 				8A84D9C22861B1C700B08057 /* ControlButtonsContainer.swift */,
 				8A9B4DE22861EA2500C58928 /* BMPConfiguration.swift */,
+				8A9B4DEC28620BCF00C58928 /* BPMTriangleButton.swift */,
 				8A9B4DE62862035600C58928 /* PlayButton.swift */,
+				8A9B4DEA2862071000C58928 /* ControlButton.swift */,
 			);
 			path = ControlButtons;
 			sourceTree = "<group>";
@@ -698,7 +707,9 @@
 				8A837BB8283BBD08004C16E2 /* DelayView_OLD.swift in Sources */,
 				8A837BBA283BBD16004C16E2 /* ReverbView_OLD.swift in Sources */,
 				8A3C13B6283FB66000AE0D6F /* EqualizerView_OLD.swift in Sources */,
+				8A9B4DEB2862071000C58928 /* ControlButton.swift in Sources */,
 				8AFD58D4285C6F1B00B8AEA8 /* BypassToggle.swift in Sources */,
+				8A9B4DE92862066300C58928 /* PadsViewState.swift in Sources */,
 				8A4D9913282D0380007804D7 /* PlaybackView.swift in Sources */,
 				8A4D9918282D2BC2007804D7 /* AudioFileManager.swift in Sources */,
 				8A76E79F282E47760048CD1D /* EffectConfigurationView_OLD.swift in Sources */,
@@ -729,6 +740,7 @@
 				8A9B4DE72862035600C58928 /* PlayButton.swift in Sources */,
 				8AD98C99283E3D49009434C6 /* Data.swift in Sources */,
 				8AD76AC12858C07C0088CC1E /* EffectPickerView.swift in Sources */,
+				8A9B4DED28620BCF00C58928 /* BPMTriangleButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

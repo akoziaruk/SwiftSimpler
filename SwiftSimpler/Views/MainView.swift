@@ -11,6 +11,8 @@ struct MainView: View {
     @EnvironmentObject var conductor: Conductor
     
     @State var selectedTrack = 0
+    @State var padsViewState = PadsViewState.sample
+    @State var trackSelectionActive = false
     
     var body: some View {
         GeometryReader { context in
@@ -24,9 +26,9 @@ struct MainView: View {
                 .frame(height: context.size.height * 0.3)
                 .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 0))
                 
-                ControlButtonsContainer()
+                ControlButtonsContainer(state: $padsViewState, trackSelectionActive: $trackSelectionActive)
                     .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
-
+                    .frame(height: context.size.height * 0.16)
                 
                 //TODO: Pads container
                 Rectangle()

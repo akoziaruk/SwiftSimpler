@@ -9,13 +9,29 @@ import SwiftUI
 import CryptoKit
 
 struct ControlButtonsContainer: View {
+    @EnvironmentObject var conductor: Conductor
+    @Binding var state: PadsViewState
+    @Binding var trackSelectionActive: Bool
+    
     var body: some View {
-        HStack(spacing: 40) {
-            BMPConfigurationView()
-            PlayButton()
-            Spacer()
-            
+        GeometryReader { context in
+            HStack(spacing: 40) {
+                BMPConfigurationView(tempo: $conductor.data.tempo)
+                PlayButton(isPlaying: $conductor.data.isPlaying)
+                    .frame(width: context.size.height)
+                
+                Spacer()
+                
+                ControlButton(text: state == .sample ? "SEQ": "SMP") {
+                    state.toggle()
+                }
+                .frame(width: context.size.height)
+
+                ControlButton(text: "TRK") {
+                    trackSelectionActive.toggle()
+                }
+                .frame(width: context.size.height)
+            }
         }
     }
 }
-

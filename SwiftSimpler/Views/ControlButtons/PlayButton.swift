@@ -8,25 +8,25 @@
 import SwiftUI
 
 struct PlayButton: View {
-    @EnvironmentObject var conductor: Conductor
+    @Binding var isPlaying: Bool
     
     var body: some View {
         ZStack {
-            if !conductor.data.isPlaying {
-                TriangleShape()
-                    .stroke(Palette.yellow, style: StrokeStyle(lineWidth: 4, lineJoin: .round))
-                    .frame(width: 70, height: 65)
-                    .rotationEffect(Angle(degrees: 90))
-                    .padding()
-            } else {
+            if isPlaying {
                 PauseShape()
                     .stroke(Palette.yellow, style: StrokeStyle(lineWidth: 6, lineJoin: .round))
-                    .frame(width: 70, height: 65)
+//                    .frame(width: 70, height: 65)
+                    .padding()
+            } else {
+                TriangleShape()
+                    .stroke(Palette.yellow, style: StrokeStyle(lineWidth: 4, lineJoin: .round))
+//                    .frame(width: 70, height: 65)
+                    .rotationEffect(Angle(degrees: 90))
                     .padding()
             }
         }
         .onTapGesture {
-            conductor.data.isPlaying = !conductor.data.isPlaying
+            isPlaying = !isPlaying
         }
         .overlay(
             RoundedRectangle(cornerRadius: 12)
