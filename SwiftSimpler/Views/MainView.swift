@@ -30,14 +30,24 @@ struct MainView: View {
                     .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
                     .frame(height: context.size.height * 0.16)
                 
-                //TODO: Pads container
-                Rectangle()
-                    .foregroundColor(.clear)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 20)
-                            .stroke(Palette.grey, lineWidth: 2)
-                    )
-                    .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
+                
+                HStack(spacing: 10) {
+                    // sequence position view
+                    SequencePositionView()
+                        .frame(width: 35)
+                    
+                    // sequence / pads container
+                    
+                    
+                    //TODO: Pads container
+                    Rectangle()
+                        .foregroundColor(.clear)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 12)
+                                .stroke(Palette.grey, lineWidth: 2)
+                        )
+                }
+                .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
 
             }
             .background(Palette.black)

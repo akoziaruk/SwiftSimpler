@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8A10EB5F28522118002904D8 /* OpenEdgeRoundedRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A10EB5E28522118002904D8 /* OpenEdgeRoundedRect.swift */; };
+		8A1A9FE32872D701006C0A2A /* SequencePositionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1A9FE22872D701006C0A2A /* SequencePositionView.swift */; };
 		8A2710D028292552001C9808 /* SamplePadsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2710CF28292552001C9808 /* SamplePadsView.swift */; };
 		8A321CB0283B6BBD00D0B269 /* Conductor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A321CAF283B6BBD00D0B269 /* Conductor.swift */; };
 		8A321CB3283B71DC00D0B269 /* Sampler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A321CB2283B71DC00D0B269 /* Sampler.swift */; };
@@ -106,6 +107,7 @@
 
 /* Begin PBXFileReference section */
 		8A10EB5E28522118002904D8 /* OpenEdgeRoundedRect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenEdgeRoundedRect.swift; sourceTree = "<group>"; };
+		8A1A9FE22872D701006C0A2A /* SequencePositionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SequencePositionView.swift; sourceTree = "<group>"; };
 		8A2710CF28292552001C9808 /* SamplePadsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SamplePadsView.swift; sourceTree = "<group>"; };
 		8A321CAF283B6BBD00D0B269 /* Conductor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conductor.swift; sourceTree = "<group>"; };
 		8A321CB2283B71DC00D0B269 /* Sampler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sampler.swift; sourceTree = "<group>"; };
@@ -222,14 +224,23 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		8A1A9FE42872D719006C0A2A /* Pads */ = {
+			isa = PBXGroup;
+			children = (
+				8A1A9FE22872D701006C0A2A /* SequencePositionView.swift */,
+			);
+			path = Pads;
+			sourceTree = "<group>";
+		};
 		8A321CAE283B6BAA00D0B269 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				8AD6F7EE284F72D800504A11 /* MainView.swift */,
 				8A9B4DE82862066300C58928 /* PadsViewState.swift */,
+				8A4F7B5F2851FD380026E136 /* EffectConfiguration */,
 				8A84D9C72861B45800B08057 /* ControlButtons */,
 				8ABFE9A12853409C0049A859 /* ProjectConfiguration */,
-				8A4F7B5F2851FD380026E136 /* EffectConfiguration */,
+				8A1A9FE42872D719006C0A2A /* Pads */,
 				8A4F7B5C2851FBF80026E136 /* Utils */,
 				8AD6F7ED284F71EA00504A11 /* OLD */,
 			);
@@ -704,6 +715,7 @@
 				8AD76ACE2859EA5C0088CC1E /* KnobControlEdgesShape.swift in Sources */,
 				8ABFE99E28533F900049A859 /* OutputConfugurationView.swift in Sources */,
 				8AF5AB3F2824187700546E43 /* SwiftSimplerApp.swift in Sources */,
+				8A1A9FE32872D701006C0A2A /* SequencePositionView.swift in Sources */,
 				8A837BB8283BBD08004C16E2 /* DelayView_OLD.swift in Sources */,
 				8A837BBA283BBD16004C16E2 /* ReverbView_OLD.swift in Sources */,
 				8A3C13B6283FB66000AE0D6F /* EqualizerView_OLD.swift in Sources */,
