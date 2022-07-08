@@ -20,7 +20,7 @@ struct MainView_OLD: View {
 
             ControlsView(trackLockState: $trackLockState)
                         
-            PadsView(trackLockState: $trackLockState,
+            PadsView_OLD(trackLockState: $trackLockState,
                      selectedTrack: $selectedTrack)
             
             PlaybackView()

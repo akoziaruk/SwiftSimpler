@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-struct SamplePadsView: View {
+struct SamplePadsView_OLD: View {
     let padsCount: Int
     let didPressed: (Int) -> ()
         
     var body: some View {
         HStack {
             ForEach(0..<padsCount, id: \.self) { index in
-                Pad {
+                Pad_OLD {
                     didPressed(index)
                 }
             }
@@ -23,7 +23,7 @@ struct SamplePadsView: View {
     }
 }
 
-struct Pad: View {
+struct Pad_OLD: View {
     @State var isSelected = false
     let didPressed: () -> ()
     

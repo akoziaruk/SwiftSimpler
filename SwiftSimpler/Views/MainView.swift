@@ -26,34 +26,36 @@ struct MainView: View {
                 .frame(height: context.size.height * 0.3)
                 .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 0))
                 
-                ControlButtonsContainer(state: $padsViewState, trackSelectionActive: $trackSelectionActive)
+                ControlButtonsContainer(state: $padsViewState,
+                                        trackSelectionActive: $trackSelectionActive)
                     .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
                     .frame(height: context.size.height * 0.16)
                 
                 
-                HStack(spacing: 10) {
+                HStack(spacing: 15) {
                     // sequence position view
                     SequencePositionView()
                         .frame(width: 35)
                     
                     // sequence / pads container
-                    
-                    
-                    //TODO: Pads container
-                    Rectangle()
-                        .foregroundColor(.clear)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 12)
-                                .stroke(Palette.grey, lineWidth: 2)
-                        )
+                    PadsContainerView(selectedTrack: $selectedTrack,
+                                      padsViewState: $padsViewState,
+                                      trackSelectionActive: $trackSelectionActive)
+
                 }
-                .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
+                .padding(EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 20))
 
             }
             .background(Palette.black)
             .statusBar(hidden: true)
         }
         
+    }
+}
+
+struct SequencerPadsView: View {
+    var body: some View {
+        Rectangle()
     }
 }
 

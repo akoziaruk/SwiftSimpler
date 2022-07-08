@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SequencerPadsView: View {
+struct SequencerPadsView_OLD: View {
     @Binding var sequence: Sequence
     var page: Int
     

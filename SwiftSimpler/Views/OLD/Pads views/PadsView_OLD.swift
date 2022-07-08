@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct PadsView: View {
+struct PadsView_OLD: View {
     @EnvironmentObject var conductor: Conductor
     @Binding var trackLockState: TrackLockState
     @Binding var selectedTrack: Int
@@ -15,15 +15,15 @@ struct PadsView: View {
     var body: some View {
         switch trackLockState {
         case .locked:
-            SequencerPadsView(sequence: $conductor.sequences[selectedTrack],
+            SequencerPadsView_OLD(sequence: $conductor.sequences[selectedTrack],
                               page: conductor.data.playback.page)
         case .locking:
-            SamplePadsView(padsCount: conductor.samples.count) {
+            SamplePadsView_OLD(padsCount: conductor.samples.count) {
                 trackLockState = .locked
                 selectedTrack = $0
             }
         case .none:
-            SamplePadsView(padsCount: conductor.samples.count) {
+            SamplePadsView_OLD(padsCount: conductor.samples.count) {
                 conductor.samples[$0].play()
             }
         }

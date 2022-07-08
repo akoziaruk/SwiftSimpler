@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct SequencePositionView: View {
-    let size = 2
+    
+    let size = 4
+    let position = 2
     
     var body: some View {
         ZStack {
@@ -25,13 +27,17 @@ struct SequencePositionView: View {
             }
             
             // Indication
-            VStack {
+            VStack(spacing: 0) {
                 ForEach(1...4, id: \.self) { index in
                     Spacer()
                     
                     Text("\(index)")
                         .font(.system(size: 30))
                         .foregroundColor(Palette.white)
+                    
+                    Rectangle()
+                        .frame(height: 5)
+                        .foregroundColor((index == position) ? Palette.white: .clear)
                     
                     Spacer()
                 }
