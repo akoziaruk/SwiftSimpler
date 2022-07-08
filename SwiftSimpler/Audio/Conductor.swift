@@ -36,7 +36,7 @@ class Conductor: ObservableObject {
     
     var samples: [SampleChannel]!
 
-    // TODO: Refactore to have separate publisher for each seqence
+    // TODO: Refactor to have separate publisher for each seqence
     @Published var sequences: [Sequence]! {
         didSet {
             for (index, sequence) in sequences.enumerated() {
