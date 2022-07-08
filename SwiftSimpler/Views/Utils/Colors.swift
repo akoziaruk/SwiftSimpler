@@ -18,7 +18,8 @@ struct Palette {
     static let redLight = Color("red_light_1")
 
     static let yellow = Color("yellow")
-    static let yellowLight = Color("yellow_light_1")
+    static let yellowLightOne = Color("yellow_light_1")
+    static let yellowLightTwo = Color("yellow_light_2")
 
     static let grey = Color("grey")
     static let greyLightOne = Color("grey_light_1")

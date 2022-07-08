@@ -8,24 +8,25 @@
 import SwiftUI
 
 struct SamplePadsView: View {
+    var activeItemIndex: Int
     var didSelected: (Int)->()
-
+    
     var body: some View {
         VStack {
             // First row
             HStack {
-                ForEach((1...4), id: \.self) { index in
-                    SamplePad() {
-                        didSelected(index-1)
+                ForEach((0...3), id: \.self) { index in
+                    SamplePad(active: activeItemIndex == index) {
+                        didSelected(index)
                     }
                 }
             }
 
             // Second row
             HStack {
-                ForEach((5...8), id: \.self) { index in
-                    SamplePad() {
-                        didSelected(index-1)
+                ForEach((4...7), id: \.self) { index in
+                    SamplePad(active: activeItemIndex == index) {
+                        didSelected(index)
                     }
                 }
             }

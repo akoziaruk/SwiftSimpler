@@ -33,6 +33,7 @@
 		8A76E7A7282E5A350048CD1D /* SoundpipeAudioKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8A76E7A6282E5A350048CD1D /* SoundpipeAudioKit */; };
 		8A76E7A9282E61C50048CD1D /* EffectsConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A76E7A8282E61C50048CD1D /* EffectsConfiguration.swift */; };
 		8A774D2B287841DB00A9D77F /* SamplePad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A774D2A287841DB00A9D77F /* SamplePad.swift */; };
+		8A774D2E2878454F00A9D77F /* TrackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A774D2D2878454F00A9D77F /* TrackButton.swift */; };
 		8A837BA8283BB249004C16E2 /* EffectsConfiguration+Distortion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A837BA7283BB249004C16E2 /* EffectsConfiguration+Distortion.swift */; };
 		8A837BAA283BB277004C16E2 /* EffectsConfiguration+Reverb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A837BA9283BB277004C16E2 /* EffectsConfiguration+Reverb.swift */; };
 		8A837BAC283BB294004C16E2 /* EffectsConfiguration+Delay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A837BAB283BB294004C16E2 /* EffectsConfiguration+Delay.swift */; };
@@ -133,6 +134,7 @@
 		8A76E7A3282E485C0048CD1D /* EffectType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EffectType.swift; sourceTree = "<group>"; };
 		8A76E7A8282E61C50048CD1D /* EffectsConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EffectsConfiguration.swift; sourceTree = "<group>"; };
 		8A774D2A287841DB00A9D77F /* SamplePad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SamplePad.swift; sourceTree = "<group>"; };
+		8A774D2D2878454F00A9D77F /* TrackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackButton.swift; sourceTree = "<group>"; };
 		8A837BA7283BB249004C16E2 /* EffectsConfiguration+Distortion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EffectsConfiguration+Distortion.swift"; sourceTree = "<group>"; };
 		8A837BA9283BB277004C16E2 /* EffectsConfiguration+Reverb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EffectsConfiguration+Reverb.swift"; sourceTree = "<group>"; };
 		8A837BAB283BB294004C16E2 /* EffectsConfiguration+Delay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EffectsConfiguration+Delay.swift"; sourceTree = "<group>"; };
@@ -421,6 +423,7 @@
 				8A9B4DEC28620BCF00C58928 /* BPMTriangleButton.swift */,
 				8A9B4DE62862035600C58928 /* PlayButton.swift */,
 				8A9B4DEA2862071000C58928 /* ControlButton.swift */,
+				8A774D2D2878454F00A9D77F /* TrackButton.swift */,
 			);
 			path = ControlButtons;
 			sourceTree = "<group>";
@@ -771,6 +774,7 @@
 				8AE861DC28290E8C002A1949 /* ControlsView.swift in Sources */,
 				8A9B4DE72862035600C58928 /* PlayButton.swift in Sources */,
 				8AD98C99283E3D49009434C6 /* Data.swift in Sources */,
+				8A774D2E2878454F00A9D77F /* TrackButton.swift in Sources */,
 				8AD76AC12858C07C0088CC1E /* EffectPickerView.swift in Sources */,
 				8A9B4DED28620BCF00C58928 /* BPMTriangleButton.swift in Sources */,
 			);

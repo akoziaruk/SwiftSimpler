@@ -17,6 +17,7 @@ struct ControlButtonsContainer: View {
         GeometryReader { context in
             HStack(spacing: 40) {
                 BMPConfigurationView(tempo: $conductor.data.tempo)
+                
                 PlayButton(isPlaying: $conductor.data.isPlaying)
                     .frame(width: context.size.height)
                 
@@ -25,12 +26,10 @@ struct ControlButtonsContainer: View {
                 ControlButton(text: state == .sample ? "SEQ": "SMP") {
                     state.toggle()
                 }
-                .frame(width: context.size.height)
+                    .frame(width: context.size.height)
 
-                ControlButton(text: "TRK") {
-                    trackSelectionActive.toggle()
-                }
-                .frame(width: context.size.height)
+                TrackButton(active: $trackSelectionActive)
+                    .frame(width: context.size.height)
             }
         }
     }

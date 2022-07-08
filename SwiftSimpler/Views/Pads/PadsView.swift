@@ -10,7 +10,7 @@ import SwiftUI
 struct PadsContainerView: View {
     @EnvironmentObject var conductor: Conductor
     
-    @Binding var selectedTrack: Int
+    @Binding var activeTrack: Int
     @Binding var padsViewState: PadsViewState
     @Binding var trackSelectionActive: Bool
 
@@ -19,9 +19,10 @@ struct PadsContainerView: View {
         switch padsViewState {
             
         case .sample:
-            SamplePadsView() { index in
+            SamplePadsView(activeItemIndex: activeTrack) { index in
                 if trackSelectionActive {
-                    selectedTrack = index
+                    activeTrack = index
+                    trackSelectionActive = false
                 } else {
                     conductor.samples[index].play()
                 }

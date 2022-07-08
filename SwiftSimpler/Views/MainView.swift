@@ -10,7 +10,7 @@ import SwiftUI
 struct MainView: View {
     @EnvironmentObject var conductor: Conductor
     
-    @State var selectedTrack = 0
+    @State var activeTrack = 0
     @State var padsViewState = PadsViewState.sample
     @State var trackSelectionActive = false
     
@@ -18,7 +18,7 @@ struct MainView: View {
         GeometryReader { context in
             VStack {
                 HStack(alignment: .top) {
-                    EffectsConfigurationView(effect: $conductor.samples[selectedTrack].configuration)
+                    EffectsConfigurationView(effect: $conductor.samples[activeTrack].configuration)
 
                     ProjectButtonsView()
                         .padding(.leading, 50)
@@ -38,7 +38,7 @@ struct MainView: View {
                         .frame(width: 35)
                     
                     // sequence / pads container
-                    PadsContainerView(selectedTrack: $selectedTrack,
+                    PadsContainerView(activeTrack: $activeTrack,
                                       padsViewState: $padsViewState,
                                       trackSelectionActive: $trackSelectionActive)
 

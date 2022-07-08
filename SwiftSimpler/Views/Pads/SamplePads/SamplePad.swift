@@ -9,9 +9,16 @@ import SwiftUI
 
 struct SamplePad: View {
     @State var isSelected = false
-
+    
+    var active: Bool
     var didPressed: ()->()
 
+    var color: Color {
+        if isSelected       { return Palette.yellowLightTwo }
+        else if active      { return Palette.redLight       }
+        else                { return .clear }
+    }
+    
     var body: some View {
         ZStack {
             // Border
@@ -20,7 +27,7 @@ struct SamplePad: View {
             
             // Selection
             RoundedRectangle(cornerRadius: 12)
-                .foregroundColor((isSelected ? Palette.redLight : .clear))
+                .foregroundColor(color)
         }
         .contentShape(Rectangle())
         .gesture(DragGesture(minimumDistance: 0)
