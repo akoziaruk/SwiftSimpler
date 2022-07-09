@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct SequencePositionView: View {
+    @Binding var length: Int
     
-    let size = 4
-    let position = 2
+    let position: Int
     
     var body: some View {
         ZStack {
@@ -18,7 +18,7 @@ struct SequencePositionView: View {
             // Border
             GeometryReader { context in
                 Rectangle()
-                    .frame(height: context.size.height / 4 * CGFloat(size))
+                    .frame(height: context.size.height / 4 * CGFloat(length))
                     .foregroundColor(.clear)
                     .overlay(
                         RoundedRectangle(cornerRadius: 12)
@@ -37,7 +37,7 @@ struct SequencePositionView: View {
                     
                     Rectangle()
                         .frame(height: 5)
-                        .foregroundColor((index == position) ? Palette.white: .clear)
+                        .foregroundColor((index-1 == position) ? Palette.white: .clear)
                     
                     Spacer()
                 }
