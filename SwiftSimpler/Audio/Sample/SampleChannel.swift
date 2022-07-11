@@ -81,7 +81,7 @@ class SampleChannel: ObservableObject {
     //MARK: - Public
 
     public func play() {
-        sampler.play(noteNumber: MIDINoteNumber(60), velocity: 127, channel: 0)
+        sampler.play(noteNumber: MIDINoteNumber(60), velocity: Velocity.max, channel: 0)
     }
     
     //TODO: Refactor

@@ -9,26 +9,23 @@ import Foundation
 import AudioKit
 import SwiftUI
 
-typealias Velocity = MIDIVelocity
-typealias Sequence = [Velocity?]
-
 class Conductor: ObservableObject {
-    @Published var data = Data() {
+    @Published var playbackData = PlayBackData() {
         didSet {
-            if data.isPlaying != oldValue.isPlaying {
-                if data.isPlaying {
+            if playbackData.isPlaying != oldValue.isPlaying {
+                if playbackData.isPlaying {
                     sequencer.start()
                 } else {
                     sequencer.finish()
                 }
             }
             
-            if data.tempo != oldValue.tempo {
-                sequencer.setTempo(Double(data.tempo))
+            if playbackData.tempo != oldValue.tempo {
+                sequencer.setTempo(Double(playbackData.tempo))
             }
             
-            if data.playback.length != oldValue.playback.length {
-                sequencer.loopLength = Double(data.playback.length * 4)
+            if playbackData.playback.length != oldValue.playback.length {
+                sequencer.loopLength = Double(playbackData.playback.length * 4)
                 forceUpdateSequencerData()
             }
         }
@@ -37,21 +34,29 @@ class Conductor: ObservableObject {
     var samples: [SampleChannel]!
 
     // TODO: Refactor to have separate publisher for each seqence
-    @Published var sequences: [Sequence]! {
+    @Published var sequenceData: [SequenceData]! {
         didSet {
-            for (index, sequence) in sequences.enumerated() {
-                if let oldValue = oldValue {
-                    if oldValue[index] != sequence {
-                        sequencer.update(with: sequence, track: index)
-                    }
-                }
-            }
+            forceUpdateSequencerData()
         }
     }
     
+//    @Published var sequences: [Sequence]! {
+//        didSet {
+//            for (index, sequence) in sequences.enumerated() {
+//                if let oldValue = oldValue {
+//                    if oldValue[index] != sequence {
+//                        sequencer.update(with: sequence, beat: <#Int#>, track: index)
+//                    }
+//                }
+//            }
+//        }
+//    }
+    
     private func forceUpdateSequencerData() {
-        for (index, sequence) in sequences.enumerated() {
-            sequencer.update(with: sequence, track: index)
+        guard let sequencer = sequencer else { return }
+        
+        for (index, sequence) in sequenceData.enumerated() {
+            sequencer.update(with: sequence.combined(), track: index)
         }
     }
 
@@ -68,7 +73,7 @@ class Conductor: ObservableObject {
         let configurations = audioFileNames.map { _ in EffectsConfiguration() }
         
         // restore sequences
-        sequences = audioFileNames.map { _ in [Velocity?](repeating: nil, count: 64) }
+        sequenceData = audioFileNames.map { _ in SequenceData() }
                 
         samples = zip(configurations, audioFileNames).map {
             SampleChannel(configuration: $0, audioFileName: $1, delegate: self)
@@ -97,7 +102,7 @@ class Conductor: ObservableObject {
     //MARK: - Handling nodes routing
     
     func recreateProcessingChain() {
-        data.isPlaying = false
+        playbackData.isPlaying = false
         
         stopEngine()
         
@@ -123,9 +128,8 @@ extension Conductor: SampleChannelDelegate {
 
 extension Conductor: SimplerSequencerDelegate {
     func didChanged(position: Int, sequencer: SimplerSequencer) {
-        let newPage = position / 16
-        if data.playback.page != newPage {
-            data.playback.page = newPage
+        if playbackData.playback.position != position {
+            playbackData.playback.position = position
         }
     }
 }

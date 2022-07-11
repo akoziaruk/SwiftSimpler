@@ -29,8 +29,9 @@ struct PadsContainerView: View {
             }
 
         case .sequencer:
-            SequencerPadsView(sequence: conductor.sequences[activeTrack],
-                              length: conductor.data.playback.length)
+            SequencerPadsView(sequence: $conductor.sequenceData[activeTrack],
+                              position: conductor.playbackData.playback.position,
+                              length: conductor.playbackData.playback.length)
             
         }
 

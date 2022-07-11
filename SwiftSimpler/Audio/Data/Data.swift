@@ -7,13 +7,14 @@
 
 import Foundation
 
-struct Data {
+struct PlayBackData {
     var playback = Playback()
     var isPlaying = false
     var tempo: Int = 120
     
     struct Playback {
-        var page = 0
+//        var page = 0
         var length = 1
+        var position = 0
     }
 }

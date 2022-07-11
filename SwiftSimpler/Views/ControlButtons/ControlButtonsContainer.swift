@@ -16,9 +16,9 @@ struct ControlButtonsContainer: View {
     var body: some View {
         GeometryReader { context in
             HStack(spacing: 40) {
-                BMPConfigurationView(tempo: $conductor.data.tempo)
+                BMPConfigurationView(tempo: $conductor.playbackData.tempo)
                 
-                PlayButton(isPlaying: $conductor.data.isPlaying)
+                PlayButton(isPlaying: $conductor.playbackData.isPlaying)
                     .frame(width: context.size.height)
                 
                 Spacer()
@@ -28,7 +28,14 @@ struct ControlButtonsContainer: View {
                 }
                     .frame(width: context.size.height)
 
-                TrackButton(active: $trackSelectionActive)
+                TrackButton(active: trackSelectionActive) {
+                    if trackSelectionActive {
+                        trackSelectionActive = false
+                    } else {
+                        trackSelectionActive = true
+                        state = .sample
+                    }
+                }
                     .frame(width: context.size.height)
             }
         }

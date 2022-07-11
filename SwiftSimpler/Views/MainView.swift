@@ -34,7 +34,7 @@ struct MainView: View {
                 
                 HStack(spacing: 15) {
                     // sequence position view
-                    SequencePositionView(length: $conductor.data.playback.length,
+                    SequencePositionView(length: $conductor.playbackData.playback.length,
                                          position: conductor.position)
                         .frame(width: 35)
                     
@@ -51,53 +51,6 @@ struct MainView: View {
             .statusBar(hidden: true)
         }
         
-    }
-}
-
-struct SequencerPadsView: View {
-    var sequence: Sequence
-    var length: Int
-    
-    var body: some View {
-        VStack {
-            SequenceLineView(sequence: Array(sequence[0..<16]),  active: length >= 1)
-            SequenceLineView(sequence: Array(sequence[16..<32]), active: length >= 2)
-            SequenceLineView(sequence: Array(sequence[32..<48]), active: length >= 3)
-            SequenceLineView(sequence: Array(sequence[48..<64]), active: length >= 4)
-        }
-    }
-}
-
-struct SequenceLineView: View {
-    var sequence: Sequence
-    var active: Bool
-    
-    var body: some View {
-        HStack {
-            ForEach(0..<16, id: \.self) { index in
-                SequecerPad(selected: sequence[index] != nil, accent: index%4 == 0)
-            }
-        }
-        .opacity(active ? 1 : 0.3)
-    }
-}
-
-struct SequecerPad: View {
-    var selected: Bool
-    var accent: Bool
-    
-    var body: some View {
-        ZStack {
-            // Border
-            RoundedRectangle(cornerRadius: 12)
-                .stroke(Palette.grey, lineWidth: 2)
-            
-//            // Selection
-//            RoundedRectangle(cornerRadius: 12)
-//                .foregroundColor(color)
-        }
-        .contentShape(Rectangle())
-
     }
 }
 

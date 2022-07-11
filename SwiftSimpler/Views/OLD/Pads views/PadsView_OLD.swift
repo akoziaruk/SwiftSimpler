@@ -15,9 +15,10 @@ struct PadsView_OLD: View {
     var body: some View {
         switch trackLockState {
         case .locked:
-            SequencerPadsView_OLD(sequence: $conductor.sequences[selectedTrack],
-                              page: conductor.data.playback.page)
-        case .locking:
+            SamplePadsView_OLD(padsCount: conductor.samples.count) {
+                conductor.samples[$0].play()
+            }
+            case .locking:
             SamplePadsView_OLD(padsCount: conductor.samples.count) {
                 trackLockState = .locked
                 selectedTrack = $0

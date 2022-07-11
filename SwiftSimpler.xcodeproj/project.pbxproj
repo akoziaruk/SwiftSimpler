@@ -63,6 +63,11 @@
 		8A9CFB632851ECF4003B57E7 /* EffectsConfigurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9CFB622851ECF4003B57E7 /* EffectsConfigurationView.swift */; };
 		8ABFE99E28533F900049A859 /* OutputConfugurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABFE99D28533F900049A859 /* OutputConfugurationView.swift */; };
 		8ABFE9A02853408E0049A859 /* ProjectButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABFE99F2853408E0049A859 /* ProjectButtonsView.swift */; };
+		8AD56873287C2C93002E971D /* SequencerPadsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD56872287C2C93002E971D /* SequencerPadsView.swift */; };
+		8AD56876287C2CCF002E971D /* SequenceLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD56875287C2CCF002E971D /* SequenceLineView.swift */; };
+		8AD56878287C2CF8002E971D /* SequecerPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD56877287C2CF8002E971D /* SequecerPad.swift */; };
+		8AD5687A287C2D3C002E971D /* SequencerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD56879287C2D3C002E971D /* SequencerData.swift */; };
+		8AD5687C287C2D72002E971D /* Velocity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD5687B287C2D72002E971D /* Velocity.swift */; };
 		8AD6F7EF284F72D800504A11 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD6F7EE284F72D800504A11 /* MainView.swift */; };
 		8AD6F7F1284F739A00504A11 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD6F7F0284F739A00504A11 /* Colors.swift */; };
 		8AD76AC12858C07C0088CC1E /* EffectPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD76AC02858C07C0088CC1E /* EffectPickerView.swift */; };
@@ -163,6 +168,11 @@
 		8A9CFB622851ECF4003B57E7 /* EffectsConfigurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EffectsConfigurationView.swift; sourceTree = "<group>"; };
 		8ABFE99D28533F900049A859 /* OutputConfugurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputConfugurationView.swift; sourceTree = "<group>"; };
 		8ABFE99F2853408E0049A859 /* ProjectButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectButtonsView.swift; sourceTree = "<group>"; };
+		8AD56872287C2C93002E971D /* SequencerPadsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SequencerPadsView.swift; sourceTree = "<group>"; };
+		8AD56875287C2CCF002E971D /* SequenceLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SequenceLineView.swift; sourceTree = "<group>"; };
+		8AD56877287C2CF8002E971D /* SequecerPad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SequecerPad.swift; sourceTree = "<group>"; };
+		8AD56879287C2D3C002E971D /* SequencerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SequencerData.swift; sourceTree = "<group>"; };
+		8AD5687B287C2D72002E971D /* Velocity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Velocity.swift; sourceTree = "<group>"; };
 		8AD6F7EE284F72D800504A11 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		8AD6F7F0284F739A00504A11 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		8AD76AC02858C07C0088CC1E /* EffectPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EffectPickerView.swift; sourceTree = "<group>"; };
@@ -237,8 +247,9 @@
 			children = (
 				8A6E123E287837B800BFEED4 /* PadsView.swift */,
 				8A774D2C287841EA00A9D77F /* SamplePads */,
-				8A1A9FE22872D701006C0A2A /* SequencePositionView.swift */,
+				8AD56874287C2CC4002E971D /* SequencerPads */,
 				8A9B4DE82862066300C58928 /* PadsViewState.swift */,
+				8AD56872287C2C93002E971D /* SequencerPadsView.swift */,
 			);
 			path = Pads;
 			sourceTree = "<group>";
@@ -260,7 +271,7 @@
 		8A321CB1283B6BC000D0B269 /* Audio */ = {
 			isa = PBXGroup;
 			children = (
-				8AD98C98283E3D49009434C6 /* Data.swift */,
+				8AD5687D287C2DBC002E971D /* Data */,
 				8A321CAF283B6BBD00D0B269 /* Conductor.swift */,
 				8A4D990E282CD01A007804D7 /* SimplerSequencer.swift */,
 				8A321CB6283B8A8300D0B269 /* Sample */,
@@ -434,6 +445,26 @@
 				8ABFE99F2853408E0049A859 /* ProjectButtonsView.swift */,
 			);
 			path = ProjectConfiguration;
+			sourceTree = "<group>";
+		};
+		8AD56874287C2CC4002E971D /* SequencerPads */ = {
+			isa = PBXGroup;
+			children = (
+				8A1A9FE22872D701006C0A2A /* SequencePositionView.swift */,
+				8AD56875287C2CCF002E971D /* SequenceLineView.swift */,
+				8AD56877287C2CF8002E971D /* SequecerPad.swift */,
+			);
+			path = SequencerPads;
+			sourceTree = "<group>";
+		};
+		8AD5687D287C2DBC002E971D /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				8AD56879287C2D3C002E971D /* SequencerData.swift */,
+				8AD98C98283E3D49009434C6 /* Data.swift */,
+				8AD5687B287C2D72002E971D /* Velocity.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 		8AD6F7ED284F71EA00504A11 /* OLD */ = {
@@ -765,14 +796,19 @@
 				8AD76AC92859EA160088CC1E /* KnobControl.swift in Sources */,
 				8A321CB0283B6BBD00D0B269 /* Conductor.swift in Sources */,
 				8A84D9C02860992800B08057 /* CutoffView.swift in Sources */,
+				8AD56878287C2CF8002E971D /* SequecerPad.swift in Sources */,
 				8AD76AD02859EA7D0088CC1E /* CGFloat+Extention.swift in Sources */,
+				8AD5687C287C2D72002E971D /* Velocity.swift in Sources */,
 				8A2710D028292552001C9808 /* _SamplePadsView.swift in Sources */,
 				8A76E7A1282E47E20048CD1D /* PadsView_OLD.swift in Sources */,
+				8AD5687A287C2D3C002E971D /* SequencerData.swift in Sources */,
 				8A9B4DE5286202BD00C58928 /* PauseShape.swift in Sources */,
+				8AD56873287C2C93002E971D /* SequencerPadsView.swift in Sources */,
 				8ABFE9A02853408E0049A859 /* ProjectButtonsView.swift in Sources */,
 				8A6E1241287837D600BFEED4 /* SamplePadsView.swift in Sources */,
 				8AE861DC28290E8C002A1949 /* ControlsView.swift in Sources */,
 				8A9B4DE72862035600C58928 /* PlayButton.swift in Sources */,
+				8AD56876287C2CCF002E971D /* SequenceLineView.swift in Sources */,
 				8AD98C99283E3D49009434C6 /* Data.swift in Sources */,
 				8A774D2E2878454F00A9D77F /* TrackButton.swift in Sources */,
 				8AD76AC12858C07C0088CC1E /* EffectPickerView.swift in Sources */,

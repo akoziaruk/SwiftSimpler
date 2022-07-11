@@ -14,15 +14,15 @@ struct ControlsView: View {
 
     var body: some View {
         HStack {
-            Button(conductor.data.isPlaying ? "STOP" : "PLAY") {
-                conductor.data.isPlaying.toggle()
+            Button(conductor.playbackData.isPlaying ? "STOP" : "PLAY") {
+                conductor.playbackData.isPlaying.toggle()
             }
             .frame(width: 100, height: 100, alignment: .center)
             .background(.purple)
             .foregroundColor(.white)
             .padding()
 
-            TextField("120", value: $conductor.data.tempo, formatter: NumberFormatter())
+            TextField("120", value: $conductor.playbackData.tempo, formatter: NumberFormatter())
             .multilineTextAlignment(.center)
             .keyboardType(.numberPad)
             .frame(width: 100, height: 100, alignment: .center)
@@ -32,7 +32,7 @@ struct ControlsView: View {
 
             Spacer()
             
-            BeatPageSelector(selected: $conductor.data.playback.length, page: $conductor.data.playback.page)
+//            BeatPageSelector(selected: $conductor.data.playback.length, page: $conductor.data.playback.page)
             
             Button("TRACK") {
                 trackLockState.toggleTap()

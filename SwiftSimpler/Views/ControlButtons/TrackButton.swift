@@ -8,15 +8,16 @@
 import SwiftUI
 
 struct TrackButton: View {
-    @Binding var active: Bool
-
+    var active: Bool
+    var didSelected: ()->()
+    
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 12)
                 .foregroundColor(active ? Palette.redLight: .clear)
             
             ControlButton(text: "TRK") {
-                active.toggle()
+                didSelected()
             }
         }
     }
