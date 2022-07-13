@@ -29,7 +29,7 @@ struct SwiftSimplerApp: App {
     var body: some Scene {
         WindowGroup {
             MainView()
-                .environmentObject(conductor) //SimplerView()
+                .environmentObject(conductor)
         }
     }
 }

@@ -8,8 +8,10 @@
 import Foundation
 
 enum EffectType {
-    case distortion
     case delay
     case reverb
+    case flanger
+    case distortion
     case equalizer
+    case cutoff
 }

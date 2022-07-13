@@ -9,6 +9,7 @@ import Foundation
 import AVKit
 import AudioKit
 import SoundpipeAudioKit
+import DunneAudioKit
 
 protocol SampleChannelDelegate: AnyObject {
     func orderDidChanged(for sampleChain: SampleChannel)
@@ -18,14 +19,15 @@ class SampleChannel: ObservableObject {
     private let audioFile: AVAudioFile!
     private var sampler: Sampler!
     
-    //TODO: Refactor to use array of effect nodes
     private var reverb: ZitaReverb!
     private var delay: Delay!
     private var distortion: Distortion!
+    private var flanger: Flanger!
+
     private var equalizer1: EqualizerFilter!
     private var equalizer2: EqualizerFilter!
-    private var hpfFiler: HighPassButterworthFilter!
-    private var lpfFilter: LowPassButterworthFilter!
+    private var hpFiler: HighPassButterworthFilter!
+    private var lpFilter: LowPassButterworthFilter!
 
     private var mixer: Mixer!
     
@@ -57,11 +59,14 @@ class SampleChannel: ObservableObject {
             if oldValue.equalizer2 != configuration.equalizer2 {
                 equalizer2.update(with: configuration.equalizer2)
             }
-            if oldValue.hpfFiler != configuration.hpfFiler {
-                hpfFiler.update(with: configuration.hpfFiler)
+            if oldValue.hpf != configuration.hpf {
+                hpFiler.update(with: configuration.hpf)
             }
-            if oldValue.lpfFilter != configuration.lpfFilter {
-                lpfFilter.update(with: configuration.lpfFilter)
+            if oldValue.lpf != configuration.lpf {
+                lpFilter.update(with: configuration.lpf)
+            }
+            if oldValue.flanger != configuration.flanger {
+                flanger.update(with: configuration.flanger)
             }
         }
     }
@@ -75,7 +80,7 @@ class SampleChannel: ObservableObject {
     //MARK: - Public
 
     public func play() {
-        sampler.play(noteNumber: MIDINoteNumber(60), velocity: 127, channel: 0)
+        sampler.play(noteNumber: MIDINoteNumber(60), velocity: Velocity.max, channel: 0)
     }
     
     public func recreateProcessingChain() {
@@ -100,14 +105,25 @@ class SampleChannel: ObservableObject {
                 reverb = ZitaReverb(node)
                 node = reverb
                 
+            case .flanger:
+                
+                flanger = Flanger(node)
+                node =  flanger
+                
             case .equalizer:
                 
                 equalizer1 = EqualizerFilter(node)
                 equalizer2 = EqualizerFilter(equalizer1)
-                lpfFilter = LowPassButterworthFilter(equalizer2)
-                hpfFiler = HighPassButterworthFilter(lpfFilter)
 
-                node = hpfFiler
+                node = equalizer2
+                
+            case .cutoff:
+
+                lpFilter = LowPassButterworthFilter(node)
+                hpFiler = HighPassButterworthFilter(lpFilter)
+
+                node = hpFiler
+
             }
         }
         
@@ -122,10 +138,9 @@ class SampleChannel: ObservableObject {
         distortion.update(with: configuration.distortion)
         reverb.update(with: configuration.reverb)
         delay.update(with: configuration.delay)
-        
         equalizer1.update(with: configuration.equalizer1)
         equalizer1.update(with: configuration.equalizer1)
-        hpfFiler.update(with: configuration.hpfFiler)
-        lpfFilter.update(with: configuration.lpfFilter)
+        hpFiler.update(with: configuration.hpf)
+        lpFilter.update(with: configuration.lpf)
     }
 }

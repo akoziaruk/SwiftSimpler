@@ -14,6 +14,7 @@ extension EffectsConfiguration {
         var centerFrequency = Parameter(value: 100, range: 12.0...20_000.0)
         var bandwidth = Parameter(value: 100, range: 0...20_000.0)
         var gain = Parameter(value: 1, range: -20.0...20.0)
+        var bypass = true
     }
 }
 

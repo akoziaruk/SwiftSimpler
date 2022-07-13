@@ -9,51 +9,36 @@ import Foundation
 import AudioKit
 import SwiftUI
 
-typealias Velocity = MIDIVelocity
-typealias Sequence = [Velocity?]
-
 class Conductor: ObservableObject {
-    @Published var data = Data() {
+    @Published var playbackData = PlaybackData() {
         didSet {
-            if data.isPlaying != oldValue.isPlaying {
-                if data.isPlaying {
+            if playbackData.isPlaying != oldValue.isPlaying {
+                if playbackData.isPlaying {
                     sequencer.start()
                 } else {
                     sequencer.finish()
                 }
             }
             
-            if data.tempo != oldValue.tempo {
-                sequencer.setTempo(data.tempo)
+            if playbackData.tempo != oldValue.tempo {
+                sequencer.setTempo(Double(playbackData.tempo))
             }
             
-            if data.playback.length != oldValue.playback.length {
-                sequencer.loopLength = Double(data.playback.length * 4)
+            if playbackData.length != oldValue.length {
+                sequencer.loopLength = Double(playbackData.length * 4)
                 forceUpdateSequencerData()
             }
         }
     }
     
-    var samples: [SampleChannel]!
-
-    // TODO: Refactore to have separate publisher for each seqence
-    @Published var sequences: [Sequence]! {
+    // TODO: Refactor to have separate publisher for each seqence
+    @Published var sequenceData: [SequenceData]! {
         didSet {
-            for (index, sequence) in sequences.enumerated() {
-                if let oldValue = oldValue {
-                    if oldValue[index] != sequence {
-                        sequencer.update(with: sequence, track: index)
-                    }
-                }
-            }
+            forceUpdateSequencerData()
         }
     }
     
-    private func forceUpdateSequencerData() {
-        for (index, sequence) in sequences.enumerated() {
-            sequencer.update(with: sequence, track: index)
-        }
-    }
+    var samples: [SampleChannel]!
 
     private let engine = AudioEngine()
     private var sequencer: SimplerSequencer!
@@ -64,11 +49,11 @@ class Conductor: ObservableObject {
     init() {
         let audioFileNames = AudioFileManager.all()
         
-        // restore effects
+        //TODO: Restore session effects here
         let configurations = audioFileNames.map { _ in EffectsConfiguration() }
         
-        // restore sequences
-        sequences = audioFileNames.map { _ in [Velocity?](repeating: nil, count: 64) }
+        //TODO: Restore sequences here
+        sequenceData = audioFileNames.map { _ in SequenceData() }
                 
         samples = zip(configurations, audioFileNames).map {
             SampleChannel(configuration: $0, audioFileName: $1, delegate: self)
@@ -82,7 +67,7 @@ class Conductor: ObservableObject {
     
     //MARK: - Start/Stop
 
-    public func start() {
+    public func startEngine() {
         do {
             try engine.start()
         } catch {
@@ -90,14 +75,16 @@ class Conductor: ObservableObject {
         }
     }
 
-    public func stop() {
+    public func stopEngine() {
         engine.stop()
     }
     
     //MARK: - Handling nodes routing
     
-    func recreateProcessingChain() {
-        data.isPlaying = false
+    private func recreateProcessingChain() {
+        playbackData.isPlaying = false
+        
+        stopEngine()
         
         for sample in samples {
             sample.recreateProcessingChain()
@@ -107,7 +94,20 @@ class Conductor: ObservableObject {
         engine.output = Mixer(outputs, name: "Mixer Master")
         
         sequencer.midiEndpoints = samples.map { $0.midiIn }
+        
+        startEngine()
     }
+    
+    //MARK: - Sequencer data management
+    
+    private func forceUpdateSequencerData() {
+        guard let sequencer = sequencer else { return }
+        
+        for (index, sequence) in sequenceData.enumerated() {
+            sequencer.update(with: sequence.combined(), track: index)
+        }
+    }
+
 }
 
 extension Conductor: SampleChannelDelegate {
@@ -119,9 +119,8 @@ extension Conductor: SampleChannelDelegate {
 
 extension Conductor: SimplerSequencerDelegate {
     func didChanged(position: Int, sequencer: SimplerSequencer) {
-        let newPage = position / 16
-        if data.playback.page != newPage {
-            data.playback.page = newPage
+        if playbackData.position != position {
+            playbackData.position = position
         }
     }
 }

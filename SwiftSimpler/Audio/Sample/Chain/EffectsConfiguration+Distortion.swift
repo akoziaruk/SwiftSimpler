@@ -18,6 +18,7 @@ extension EffectsConfiguration {
         var modFreq = Parameter(value: 100, range: 0.5...8000)
         var decay = Parameter(value: 1, range: 0.1...50)
         var mix = Parameter(value: 50, range: 0...100)
+        var bypass = true
     }
 }
 
@@ -29,5 +30,6 @@ extension Distortion {
         ringModFreq1 = configuration.modFreq.value
         decay = configuration.decay.value
         finalMix = configuration.mix.value
+        updateBypass(configuration.bypass)
     }
 }

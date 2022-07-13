@@ -14,7 +14,9 @@ class AudioFileManager {
                                     "clap.wav",
                                     "closed_hi_hat.wav",
                                     "open_hi_hat.wav",
-                                    "hi_tom.wav"]
+                                    "hi_tom.wav",
+                                    "bass.wav",
+                                    "lead.wav"]
     
     static func all() -> [String] {
        return fileNames
