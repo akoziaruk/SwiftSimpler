@@ -1,7 +1,5 @@
 # SwiftSimpler
  
-# SwiftSimpler
- 
 This app allows to play real time anf create your own beat.
 Sound effects applied separately for each track and can be reordered by drag and drop.
 
