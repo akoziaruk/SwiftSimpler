@@ -18,7 +18,7 @@ extension EffectsConfiguration {
         var modFreq = Parameter(value: 100, range: 0.5...8000)
         var decay = Parameter(value: 1, range: 0.1...50)
         var mix = Parameter(value: 50, range: 0...100)
-        var bypass = false
+        var bypass = true
     }
 }
 

@@ -35,13 +35,11 @@ struct MainView: View {
                 
                 
                 HStack(spacing: 15) {
-                    // sequence position view
                     SequencePositionView(length: $conductor.playbackData.length,
                                          page: conductor.playbackData.page,
                                          spacing: MainView.sequencerRowSpacing)
                         .frame(width: 35)
                     
-                    // sequence / pads container
                     PadsContainerView(activeTrack: $activeTrack,
                                       padsViewState: $padsViewState,
                                       trackSelectionActive: $trackSelectionActive,

@@ -2,7 +2,7 @@
 //  Effect+Title.swift
 //  SwiftSimpler
 //
-//  Created by Alexander Koziaruk on 23.05.2022.
+//  Created by Alexander Koziaruk on 13.07.2022.
 //
 
 import Foundation

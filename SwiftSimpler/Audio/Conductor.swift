@@ -31,8 +31,6 @@ class Conductor: ObservableObject {
         }
     }
     
-    var samples: [SampleChannel]!
-
     // TODO: Refactor to have separate publisher for each seqence
     @Published var sequenceData: [SequenceData]! {
         didSet {
@@ -40,25 +38,7 @@ class Conductor: ObservableObject {
         }
     }
     
-//    @Published var sequences: [Sequence]! {
-//        didSet {
-//            for (index, sequence) in sequences.enumerated() {
-//                if let oldValue = oldValue {
-//                    if oldValue[index] != sequence {
-//                        sequencer.update(with: sequence, beat: <#Int#>, track: index)
-//                    }
-//                }
-//            }
-//        }
-//    }
-    
-    private func forceUpdateSequencerData() {
-        guard let sequencer = sequencer else { return }
-        
-        for (index, sequence) in sequenceData.enumerated() {
-            sequencer.update(with: sequence.combined(), track: index)
-        }
-    }
+    var samples: [SampleChannel]!
 
     private let engine = AudioEngine()
     private var sequencer: SimplerSequencer!
@@ -69,10 +49,10 @@ class Conductor: ObservableObject {
     init() {
         let audioFileNames = AudioFileManager.all()
         
-        // restore effects
+        //TODO: Restore session effects here
         let configurations = audioFileNames.map { _ in EffectsConfiguration() }
         
-        // restore sequences
+        //TODO: Restore sequences here
         sequenceData = audioFileNames.map { _ in SequenceData() }
                 
         samples = zip(configurations, audioFileNames).map {
@@ -101,7 +81,7 @@ class Conductor: ObservableObject {
     
     //MARK: - Handling nodes routing
     
-    func recreateProcessingChain() {
+    private func recreateProcessingChain() {
         playbackData.isPlaying = false
         
         stopEngine()
@@ -117,6 +97,17 @@ class Conductor: ObservableObject {
         
         startEngine()
     }
+    
+    //MARK: - Sequencer data management
+    
+    private func forceUpdateSequencerData() {
+        guard let sequencer = sequencer else { return }
+        
+        for (index, sequence) in sequenceData.enumerated() {
+            sequencer.update(with: sequence.combined(), track: index)
+        }
+    }
+
 }
 
 extension Conductor: SampleChannelDelegate {

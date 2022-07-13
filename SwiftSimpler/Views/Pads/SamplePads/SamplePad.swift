@@ -13,7 +13,7 @@ struct SamplePad: View {
     var active: Bool
     var didPressed: ()->()
 
-    var color: Color {
+    var accentColor: Color {
         if isSelected       { return Palette.yellowLightTwo }
         else if active      { return Palette.redLight       }
         else                { return .clear }
@@ -25,9 +25,9 @@ struct SamplePad: View {
             RoundedRectangle(cornerRadius: 12)
                 .stroke(Palette.grey, lineWidth: 2)
             
-            // Selection
+            // Accent
             RoundedRectangle(cornerRadius: 12)
-                .foregroundColor(color)
+                .foregroundColor(accentColor)
         }
         .contentShape(Rectangle())
         .gesture(DragGesture(minimumDistance: 0)

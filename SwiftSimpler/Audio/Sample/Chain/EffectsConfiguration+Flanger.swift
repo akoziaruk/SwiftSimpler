@@ -16,7 +16,7 @@ extension EffectsConfiguration {
         var depth = Parameter(value: 0.25, range: 0...1)
         var feedback = Parameter(value: 0.0, range: -0.95...0.95)
         var mix = Parameter(value: 0.5, range: 0...1)
-        var bypass = false
+        var bypass = true
     }
 }
 

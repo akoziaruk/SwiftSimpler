@@ -15,12 +15,10 @@ struct PlayButton: View {
             if isPlaying {
                 PauseShape()
                     .stroke(Palette.yellow, style: StrokeStyle(lineWidth: 6, lineJoin: .round))
-//                    .frame(width: 70, height: 65)
                     .padding()
             } else {
                 TriangleShape()
                     .stroke(Palette.yellow, style: StrokeStyle(lineWidth: 4, lineJoin: .round))
-//                    .frame(width: 70, height: 65)
                     .rotationEffect(Angle(degrees: 90))
                     .padding()
             }

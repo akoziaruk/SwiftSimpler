@@ -26,7 +26,6 @@ struct BMPConfigurationView: View {
             }
             .padding(.leading, 15)
             
-            // Triangle buttons
             VStack {
                 BPMTriangleButton {
                     tempo += 1

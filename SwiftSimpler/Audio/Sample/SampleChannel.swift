@@ -19,7 +19,6 @@ class SampleChannel: ObservableObject {
     private let audioFile: AVAudioFile!
     private var sampler: Sampler!
     
-    //TODO: Refactor to use array of effect nodes
     private var reverb: ZitaReverb!
     private var delay: Delay!
     private var distortion: Distortion!
@@ -84,7 +83,6 @@ class SampleChannel: ObservableObject {
         sampler.play(noteNumber: MIDINoteNumber(60), velocity: Velocity.max, channel: 0)
     }
     
-    //TODO: Refactor
     public func recreateProcessingChain() {
         sampler = Sampler(audioFile: audioFile)
         
@@ -140,7 +138,6 @@ class SampleChannel: ObservableObject {
         distortion.update(with: configuration.distortion)
         reverb.update(with: configuration.reverb)
         delay.update(with: configuration.delay)
-        
         equalizer1.update(with: configuration.equalizer1)
         equalizer1.update(with: configuration.equalizer1)
         hpFiler.update(with: configuration.hpf)

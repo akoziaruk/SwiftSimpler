@@ -18,7 +18,7 @@ extension EffectsConfiguration {
         var midReleaseTime = Parameter(value: 2, range: 1...8)
         var dampingFrequency = Parameter(value: 6_000, range: 1_500...47_000)
         var equalizerFrequency = Parameter(value: 310, range: 40...2_500)
-        var bypass = false
+        var bypass = true
     }
 }
 
