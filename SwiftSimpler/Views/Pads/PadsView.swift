@@ -14,6 +14,8 @@ struct PadsContainerView: View {
     @Binding var padsViewState: PadsViewState
     @Binding var trackSelectionActive: Bool
 
+    let spacing: CGFloat
+    
     var body: some View {
 
         switch padsViewState {
@@ -30,7 +32,8 @@ struct PadsContainerView: View {
 
         case .sequencer:
             SequencerPadsView(sequence: $conductor.sequenceData[activeTrack],
-                              playbackData: conductor.playbackData)
+                              playbackData: conductor.playbackData,
+                              spacing: spacing)
             
         }
 

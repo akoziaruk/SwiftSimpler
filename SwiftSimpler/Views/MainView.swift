@@ -14,6 +14,8 @@ struct MainView: View {
     @State var padsViewState = PadsViewState.sequencer
     @State var trackSelectionActive = false
     
+    static let sequencerRowSpacing = 8 as CGFloat
+    
     var body: some View {
         GeometryReader { context in
             VStack {
@@ -35,13 +37,15 @@ struct MainView: View {
                 HStack(spacing: 15) {
                     // sequence position view
                     SequencePositionView(length: $conductor.playbackData.length,
-                                         position: conductor.position)
+                                         page: conductor.playbackData.page,
+                                         spacing: MainView.sequencerRowSpacing)
                         .frame(width: 35)
                     
                     // sequence / pads container
                     PadsContainerView(activeTrack: $activeTrack,
                                       padsViewState: $padsViewState,
-                                      trackSelectionActive: $trackSelectionActive)
+                                      trackSelectionActive: $trackSelectionActive,
+                                      spacing: MainView.sequencerRowSpacing)
 
                 }
                 .padding(EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 20))

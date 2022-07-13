@@ -10,15 +10,16 @@ import SwiftUI
 struct SequencePositionView: View {
     @Binding var length: Int
     
-    let position: Int
+    let page: Int
+    let spacing: CGFloat
     
     var body: some View {
         ZStack {
-            
+                    
             // Border
             GeometryReader { context in
                 Rectangle()
-                    .frame(height: context.size.height / 4 * CGFloat(length))
+                    .frame(height: borderHeight(for: context.size.height))
                     .foregroundColor(.clear)
                     .overlay(
                         RoundedRectangle(cornerRadius: 12)
@@ -27,23 +28,40 @@ struct SequencePositionView: View {
             }
             
             // Indication
-            VStack(spacing: 0) {
+            VStack(spacing: spacing) {
                 ForEach(1...4, id: \.self) { index in
-                    Spacer()
+              
+                    VStack(spacing: 0) {
+                        Spacer()
+                        
+                        Rectangle()
+                            .frame(height: 5)
+                            .foregroundColor(.clear)
                     
-                    Text("\(index)")
-                        .font(.system(size: 30))
-                        .foregroundColor(Palette.white)
-                    
-                    Rectangle()
-                        .frame(height: 5)
-                        .foregroundColor((index-1 == position) ? Palette.white: .clear)
-                    
-                    Spacer()
+                        Text("\(index)")
+                            .font(.system(size: 30))
+                            .foregroundColor(Palette.white)
+
+                        Rectangle()
+                            .frame(height: 5)
+                            .foregroundColor((index-1 == page) ? Palette.white: .clear)
+                        
+                        Spacer()
+                        
+                    }
+                    .onTapGesture {
+                        length = index
+                    }
                 }
             }
-            .frame(maxHeight: .infinity)
-        
         }
     }
+    
+    func borderHeight(for maxSize: CGFloat) -> CGFloat {
+        let totalMargin = 3 * spacing
+        let itemHeight = ((maxSize - totalMargin) / 4 * CGFloat(length))
+        let marginOffset = spacing * CGFloat((length - 1))
+        return itemHeight + marginOffset
+    }
+    
 }

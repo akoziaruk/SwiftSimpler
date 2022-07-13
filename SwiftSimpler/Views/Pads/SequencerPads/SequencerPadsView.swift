@@ -12,8 +12,10 @@ struct SequencerPadsView: View {
     
     var playbackData: PlaybackData
 
+    let spacing: CGFloat
+    
     var body: some View {
-        VStack {
+        VStack(spacing: spacing) {
             SequenceLineView(sequence: $sequence.one,   active: playbackData.length >= 1, step: step(row: 1))
             SequenceLineView(sequence: $sequence.two,   active: playbackData.length >= 2, step: step(row: 2))
             SequenceLineView(sequence: $sequence.three, active: playbackData.length >= 3, step: step(row: 3))

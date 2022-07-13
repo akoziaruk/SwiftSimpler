@@ -249,7 +249,6 @@
 				8A774D2C287841EA00A9D77F /* SamplePads */,
 				8AD56874287C2CC4002E971D /* SequencerPads */,
 				8A9B4DE82862066300C58928 /* PadsViewState.swift */,
-				8AD56872287C2C93002E971D /* SequencerPadsView.swift */,
 			);
 			path = Pads;
 			sourceTree = "<group>";
@@ -450,9 +449,10 @@
 		8AD56874287C2CC4002E971D /* SequencerPads */ = {
 			isa = PBXGroup;
 			children = (
-				8A1A9FE22872D701006C0A2A /* SequencePositionView.swift */,
+				8AD56872287C2C93002E971D /* SequencerPadsView.swift */,
 				8AD56875287C2CCF002E971D /* SequenceLineView.swift */,
 				8AD56877287C2CF8002E971D /* SequecerPad.swift */,
+				8A1A9FE22872D701006C0A2A /* SequencePositionView.swift */,
 			);
 			path = SequencerPads;
 			sourceTree = "<group>";

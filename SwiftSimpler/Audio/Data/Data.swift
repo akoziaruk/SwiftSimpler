@@ -13,6 +13,8 @@ struct PlaybackData {
     
     var length = 1
     var position = 0
-    //        var page = 0
-
+    
+    var page: Int {
+        position / 16
+    }
 }
