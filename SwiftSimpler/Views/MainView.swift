@@ -34,7 +34,7 @@ struct MainView: View {
                 
                 HStack(spacing: 15) {
                     // sequence position view
-                    SequencePositionView(length: $conductor.playbackData.playback.length,
+                    SequencePositionView(length: $conductor.playbackData.length,
                                          position: conductor.position)
                         .frame(width: 35)
                     

@@ -10,7 +10,7 @@ import AudioKit
 import SwiftUI
 
 class Conductor: ObservableObject {
-    @Published var playbackData = PlayBackData() {
+    @Published var playbackData = PlaybackData() {
         didSet {
             if playbackData.isPlaying != oldValue.isPlaying {
                 if playbackData.isPlaying {
@@ -24,8 +24,8 @@ class Conductor: ObservableObject {
                 sequencer.setTempo(Double(playbackData.tempo))
             }
             
-            if playbackData.playback.length != oldValue.playback.length {
-                sequencer.loopLength = Double(playbackData.playback.length * 4)
+            if playbackData.length != oldValue.length {
+                sequencer.loopLength = Double(playbackData.length * 4)
                 forceUpdateSequencerData()
             }
         }
@@ -128,8 +128,8 @@ extension Conductor: SampleChannelDelegate {
 
 extension Conductor: SimplerSequencerDelegate {
     func didChanged(position: Int, sequencer: SimplerSequencer) {
-        if playbackData.playback.position != position {
-            playbackData.playback.position = position
+        if playbackData.position != position {
+            playbackData.position = position
         }
     }
 }
