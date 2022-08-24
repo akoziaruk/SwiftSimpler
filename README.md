@@ -1,5 +1,7 @@
 # SwiftSimpler
  
+Sample application implemented with SwiftUI and AudioKit engine. 
+
 This app allows to play real time and create your own beat.
 Sound effects applied separately for each track and can be reordered by drag and drop.
 
